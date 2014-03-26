@@ -1,0 +1,82 @@
+[
+    {
+        "make": "Honda",
+        "model": "Accord Coupe",
+        "trim": "LX-S",
+        "model_number": "CT1B3EEW",
+        "msrp": "Call",
+        "evox_vif": "9152"
+    },
+    {
+        "make": "Honda",
+        "model": "Accord Sedan",
+        "trim": "LX",
+        "model_number": "CR2E3EEW",
+        "msrp": "Call",
+        "evox_vif": "9123"
+    },
+    {
+        "make": "Honda",
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "model_number": "FB2E5EEW",
+        "msrp": "Call",
+        "evox_vif": "9538"
+    },
+    {
+        "make": "Honda",
+        "model": "CR-V",
+        "trim": "LX",
+        "model_number": "RM4H3EEW",
+        "msrp": "Call",
+        "evox_vif": "9041"
+    },
+    {
+        "make": "Honda",
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "model_number": "TF2H5EJNW",
+        "msrp": "Call",
+        "evox_vif": "9502"
+    },
+    {
+        "make": "Honda",
+        "model": "Odyssey",
+        "trim": "LX",
+        "model_number": "RL5H2EEW",
+        "msrp": "Call",
+        "evox_vif": "8965"
+    },
+    {
+        "make": "Honda",
+        "model": "Pilot",
+        "trim": "LX",
+        "model_number": "YF4H2EEW",
+        "msrp": "Call",
+        "evox_vif": "9194"
+    },
+    {
+        "make": "Honda",
+        "model": "Ridgeline",
+        "trim": "RTL",
+        "model_number": "YK1F5EJNW",
+        "msrp": "Call",
+        "evox_vif": "9215"
+    },
+    {
+        "make": "Honda",
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "model_number": "FG3B5DEW",
+        "msrp": "Call",
+        "evox_vif": "8749"
+    },
+    {
+        "make": "Honda",
+        "model": "Fit",
+        "trim": "",
+        "model_number": "GE8G3DEXW",
+        "msrp": "Call",
+        "evox_vif": "8297"
+    }
+]
