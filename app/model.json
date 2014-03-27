@@ -1,82 +1,704 @@
 [
     {
-        "make": "Honda",
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "9122",
+        "ext_color_code": "SI"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "9122",
+        "ext_color_code": "GY"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "9122",
+        "ext_color_code": "BK"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "9122",
+        "ext_color_code": "RE"
+    },
+    {
         "model": "Accord Coupe",
         "trim": "LX-S",
-        "model_number": "CT1B3EEW",
-        "msrp": "Call",
-        "evox_vif": "9152"
+        "evox_vif": "9152",
+        "ext_color_code": "GY"
     },
     {
-        "make": "Honda",
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "WB"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "BU"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "RA"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "GY"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "BE"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "BX"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9153",
+        "ext_color_code": "BE"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9153",
+        "ext_color_code": "WB"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9153",
+        "ext_color_code": "GY"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9153",
+        "ext_color_code": "RA"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9153",
+        "ext_color_code": "BX"
+    },
+    {
         "model": "Accord Sedan",
         "trim": "LX",
-        "model_number": "CR2E3EEW",
-        "msrp": "Call",
-        "evox_vif": "9123"
+        "evox_vif": "9123",
+        "ext_color_code": ""
     },
     {
-        "make": "Honda",
-        "model": "Civic Sedan",
+        "model": "Accord Sedan",
         "trim": "LX",
-        "model_number": "FB2E5EEW",
-        "msrp": "Call",
-        "evox_vif": "9538"
+        "evox_vif": "9123",
+        "ext_color_code": "BX"
     },
     {
-        "make": "Honda",
-        "model": "CR-V",
+        "model": "Accord Sedan",
         "trim": "LX",
-        "model_number": "RM4H3EEW",
-        "msrp": "Call",
-        "evox_vif": "9041"
+        "evox_vif": "9123",
+        "ext_color_code": "SX"
     },
     {
-        "make": "Honda",
-        "model": "Crosstour",
-        "trim": "EX-L",
-        "model_number": "TF2H5EJNW",
-        "msrp": "Call",
-        "evox_vif": "9502"
-    },
-    {
-        "make": "Honda",
-        "model": "Odyssey",
+        "model": "Accord Sedan",
         "trim": "LX",
-        "model_number": "RL5H2EEW",
-        "msrp": "Call",
-        "evox_vif": "8965"
+        "evox_vif": "9123",
+        "ext_color_code": "RA"
     },
     {
-        "make": "Honda",
-        "model": "Pilot",
+        "model": "Accord Sedan",
         "trim": "LX",
-        "model_number": "YF4H2EEW",
-        "msrp": "Call",
-        "evox_vif": "9194"
+        "evox_vif": "9123",
+        "ext_color_code": "GN"
     },
     {
-        "make": "Honda",
-        "model": "Ridgeline",
-        "trim": "RTL",
-        "model_number": "YK1F5EJNW",
-        "msrp": "Call",
-        "evox_vif": "9215"
+        "model": "Accord Sedan",
+        "trim": "LX",
+        "evox_vif": "9123",
+        "ext_color_code": "WB"
     },
     {
-        "make": "Honda",
+        "model": "Accord Sedan",
+        "trim": "LX",
+        "evox_vif": "9123",
+        "ext_color_code": "GY"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "LX",
+        "evox_vif": "9123",
+        "ext_color_code": "BU"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "BK"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "RB"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "BG"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "BS"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "WA"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "GN"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "EX",
+        "evox_vif": "9559",
+        "ext_color_code": "RE"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "EX",
+        "evox_vif": "9559",
+        "ext_color_code": "BX"
+    },
+    {
         "model": "Civic Coupe",
         "trim": "LX",
-        "model_number": "FG3B5DEW",
-        "msrp": "Call",
-        "evox_vif": "8749"
+        "evox_vif": "9544",
+        "ext_color_code": "GY"
     },
     {
-        "make": "Honda",
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "9544",
+        "ext_color_code": "BX"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "9544",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "9544",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "9544",
+        "ext_color_code": "BL"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "9544",
+        "ext_color_code": "WH"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "GX"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "BK"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "RE"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "BN"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "BR"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9597",
+        "ext_color_code": "GX"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "GY"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "BX"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "WH"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "RE"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "SI"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "BR"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "BL"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "GX"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "BN"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "BR"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "BU"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "GX"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": ""
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "BM"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "BN"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "WA"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "RA"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "BR"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "BM"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "BU"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": ""
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "BK"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "GX"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "BN"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "WA"
+    },
+    {
+        "model": "CR-V",
+        "trim": "LX",
+        "evox_vif": "9041",
+        "ext_color_code": "RA"
+    },
+    {
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "evox_vif": "9502",
+        "ext_color_code": "WA"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": "BL"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": "BU"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": "BR"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "BU"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "BK"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "WA"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "BL"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "BR"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "RE"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "LX",
+        "evox_vif": "8965",
+        "ext_color_code": "WB"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "LX",
+        "evox_vif": "8965",
+        "ext_color_code": "BU"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "LX",
+        "evox_vif": "8965",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "Touring",
+        "evox_vif": "8955",
+        "ext_color_code": "SX"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "Touring",
+        "evox_vif": "8955",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Odyssey",
+        "trim": "Touring Elite",
+        "evox_vif": "8955",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Pilot",
+        "trim": "EX",
+        "evox_vif": "9236",
+        "ext_color_code": "WH"
+    },
+    {
+        "model": "Pilot",
+        "trim": "EX",
+        "evox_vif": "9236",
+        "ext_color_code": "RX"
+    },
+    {
+        "model": "Pilot",
+        "trim": "EX",
+        "evox_vif": "9236",
+        "ext_color_code": "BX"
+    },
+    {
+        "model": "Pilot",
+        "trim": "LX",
+        "evox_vif": "9194",
+        "ext_color_code": "GX"
+    },
+    {
+        "model": "Pilot",
+        "trim": "LX",
+        "evox_vif": "9194",
+        "ext_color_code": "BR"
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": ""
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": "BX"
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": "WA"
+    },
+    {
+        "model": "Ridgeline",
+        "trim": "RTL",
+        "evox_vif": "9215",
+        "ext_color_code": "WH"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "8749",
+        "ext_color_code": "RE"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "8718",
+        "ext_color_code": "BK"
+    },
+    {
         "model": "Fit",
         "trim": "",
-        "model_number": "GE8G3DEXW",
-        "msrp": "Call",
-        "evox_vif": "8297"
+        "evox_vif": "8297",
+        "ext_color_code": "RE"
+    },
+    {
+        "model": "Fit",
+        "trim": "",
+        "evox_vif": "8297",
+        "ext_color_code": "BK"
+    },
+    {
+        "model": "Fit",
+        "trim": "",
+        "evox_vif": "8297",
+        "ext_color_code": "WH"
+    },
+    {
+        "model": "Fit",
+        "trim": "",
+        "evox_vif": "8297",
+        "ext_color_code": "GY"
+    },
+    {
+        "model": "Fit",
+        "trim": "",
+        "evox_vif": "8297",
+        "ext_color_code": "SI"
+    },
+    {
+        "model": "Fit",
+        "trim": "5DR BASE",
+        "evox_vif": "8297",
+        "ext_color_code": "SI"
+    },
+    {
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "GY"
+    },
+    {
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "BK"
+    },
+    {
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "RE"
     }
 ]

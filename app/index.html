@@ -6,51 +6,69 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Model Search - AngularBased</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
+    <script src="http://vw-test.wpdlr.co/wp-content/themes/_fdt/js/custom.modernizr.js"></script>
+    <script src="http://vw-test.wpdlr.co/wp-includes/js/jquery/jquery.js?ver=1.10.2"></script>
+    <script src="http://vw-test.wpdlr.co/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script>
+
+    <link href="//cdn.wpdlr.co.s3.amazonaws.com/assets/general/css/foundation/default.css" rel="stylesheet" type="text/css">
+    <link href="//cdn.wpdlr.co/assets/general/css/foundation/general_enclosed_foundicons.css" rel="stylesheet">
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="vehicleModelSearchApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+    <div class="container" ng-include="'views/main.html'" ng-controller="baseCtrl"></div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-
+    <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular.min.js"></script>
+    <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/lodash/lodash.min.js"></script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
-</body>
+    <script type="text/javascript">
+      angular.module('vehicleModelSearchApp', [])
+      .constant('_', _)
+      .controller('baseCtrl', function ($scope, $log, $http) {
+        var callParams = {
+          f: 'json',
+          show: 'all',
+          type: 'new',
+          d: 'vehicles',
+          make: 'primary',
+          e: 'evox_vif',
+          q: 'group=model,trim,evox_vif,ext_color_code',
+          k: 'model,trim,evox_vif,ext_color_code'
+        };
+        var createTree = function(data) {
+          var tree = {};
+          $log.info(data);
+          tree.models = _.uniq(data, 'model');
+          $log.info(tree.models);
+          return tree;
+        };
+        $http({
+            method: 'GET',
+            url: 'model.json',
+            params: callParams
+          })
+          .success(function (data) {
+            $scope.base = createTree(data);
+          });
+      });
+    </script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- endbuild -->
+
+    <script src="//cdn.wpdlr.co/assets/general/js/foundation/foundation.min.js" defer="" async=""></script>
+    <script style="text/javascript">
+      window.onload = function() { jQuery(document).foundation(); };
+    </script>
+  </body>
 </html>
