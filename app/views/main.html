@@ -1,6 +1,10 @@
-<ul class="small-block-grid-3">
+<h1>Select a Model</h1>
+<ul class="small-block-grid-5">
   <li ng-repeat="ele in base.models">
-    <p>model: {{ele.model}}</p>
+    <a href="/#/model/{{ele.model}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/{{ele.evox_vif}}/{{ele.evox_vif}}_st0640_090.png"></a>
+    <ul>
+      <li>model: <strong>{{ele.model}}</strong></li>
+    </ul>
   </li>
 </ul>
-<code>{{base}}</code>
+<!-- <code>{{base.models}}</code> -->

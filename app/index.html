@@ -22,18 +22,50 @@
   <body ng-app="vehicleModelSearchApp">
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-include="'views/main.html'" ng-controller="baseCtrl"></div>
+    <div class="row" ng-controller="baseCtrl" ng-view></div>
 
     <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular.min.js"></script>
     <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/lodash/lodash.min.js"></script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <script type="text/javascript">
-      angular.module('vehicleModelSearchApp', [])
+      angular.module('vehicleModelSearchApp', ['ngRoute'])
+      .config(['$routeProvider', '$locationProvider',
+        function ($routeProvider, $locationProvider) {
+          $routeProvider
+            .when('/', {
+              templateUrl: 'views/main.html'
+            })
+            .when('/model/:model', {
+              controller: 'trimCtrl',
+              templateUrl: 'views/trim.html'
+            })
+            .when('/model/:model/trim/:trim', {
+              controller: 'colorCtrl',
+              templateUrl: 'views/color.html'
+            })
+            .otherwise({
+              redirectTo: '/'
+            });
+          $locationProvider.html5Mode(false);
+      }])
       .constant('_', _)
+      .controller('trimCtrl', function ($scope, $log, $routeParams) {
+        $scope.subase = {
+          ele: _.findIndex($scope.base.modelTrim, $routeParams)
+        };
+        $log.info($routeParams, $scope.subase.ele);
+      })
+      .controller('colorCtrl', function ($scope, $log, $routeParams) {
+        $scope.subase = {
+          ele: _.findIndex($scope.base.modelTrimColor, $routeParams)
+        };
+        $log.info($routeParams, $scope.subase.ele);
+      })
       .controller('baseCtrl', function ($scope, $log, $http) {
         var callParams = {
           f: 'json',
@@ -45,11 +77,40 @@
           q: 'group=model,trim,evox_vif,ext_color_code',
           k: 'model,trim,evox_vif,ext_color_code'
         };
+        var cleanData = function(data) {
+          return _.map(data, function(ele) {
+            return _.assign(ele, {
+              model: ele.model.replace(' ', '_'),
+              trim: ele.trim.replace(' ', '_').replace('/', '*')
+            });
+          });
+        }
         var createTree = function(data) {
           var tree = {};
-          $log.info(data);
+          // $log.info(data);
           tree.models = _.uniq(data, 'model');
-          $log.info(tree.models);
+          tree.modelTrim = _.map(tree.models, function (ele) {
+            var trims = _.where(data, { model: ele.model });
+            return {
+              model: ele.model,
+              // trims: trims,
+              trimuniq: _.uniq(trims, 'trim')
+            }
+          });
+          tree.modelTrimColor = _.flatten(_.map(tree.modelTrim, function (ele) {
+            var trimarray = _.map(ele.trimuniq, function (oto) {
+              var colors = _.where(data, { model: oto.model, trim: oto.trim });
+              // $log.info('coloresponse',colors);
+              return {
+                model: oto.model,
+                trim: oto.trim,
+                colors: _.uniq(colors, 'ext_color_code')
+              };
+            });
+            // $log.info('trimarray',trimarray);
+            return trimarray;
+          }));
+          $log.info(tree.modelTrimColor);
           return tree;
         };
         $http({
@@ -58,7 +119,7 @@
             params: callParams
           })
           .success(function (data) {
-            $scope.base = createTree(data);
+            $scope.base = createTree(cleanData(data));
           });
       });
     </script>

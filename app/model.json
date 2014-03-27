@@ -1,704 +1,1353 @@
 [
     {
         "model": "Accord Coupe",
-        "trim": "EX-L",
-        "evox_vif": "9122",
-        "ext_color_code": "SI"
+        "trim": "EX",
+        "evox_vif": "9184",
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9122",
-        "ext_color_code": "GY"
+        "ext_color_code": "BL",
+        "exterior_color": "Still Night Pearl"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "9242",
+        "ext_color_code": "WB",
+        "exterior_color": "White Orchid Pearl"
     },
     {
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9122",
-        "ext_color_code": "BK"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9122",
-        "ext_color_code": "RE"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "9122",
+        "ext_color_code": "RE",
+        "exterior_color": "San Marino Red"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "9242",
+        "ext_color_code": "BR",
+        "exterior_color": "Tiger Eye Pearl"
     },
     {
         "model": "Accord Coupe",
         "trim": "LX-S",
         "evox_vif": "9152",
-        "ext_color_code": "GY"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
+    },
+    {
+        "model": "Accord Hybrid",
+        "trim": "EX-L",
+        "evox_vif": "9520",
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Accord Hybrid",
+        "trim": "EX-L",
+        "evox_vif": "9520",
+        "ext_color_code": "WA",
+        "exterior_color": "White Orchid Pearl"
+    },
+    {
+        "model": "Accord Hybrid",
+        "trim": "EX-L",
+        "evox_vif": "9520",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "WB"
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "SX"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": ""
+        "ext_color_code": "WB",
+        "exterior_color": "White Orchid Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "BU"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "RA"
+        "ext_color_code": "GN",
+        "exterior_color": "Hematite Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "GY"
+        "ext_color_code": "BU",
+        "exterior_color": "Obsidian Blue Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "BE"
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "BX"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "BE",
+        "exterior_color": "Champagne Frost Pearl"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "9168",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
-        "ext_color_code": "BE"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
-        "ext_color_code": "WB"
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
-        "ext_color_code": "GY"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
-        "ext_color_code": "RA"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
-        "ext_color_code": "BX"
+        "ext_color_code": "WB",
+        "exterior_color": "White Orchid Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": ""
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "BX"
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "SX"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "RA"
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "GN"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "WB"
+        "ext_color_code": "GN",
+        "exterior_color": "Hematite Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "GY"
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "BU"
+        "ext_color_code": "BE",
+        "exterior_color": "Champagne Frost Pearl"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "LX",
+        "evox_vif": "9123",
+        "ext_color_code": "BU",
+        "exterior_color": "Obsidian Blue Pearl"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "LX",
+        "evox_vif": "9123",
+        "ext_color_code": "WB",
+        "exterior_color": "White Orchid Pearl"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "LX",
+        "evox_vif": "9123",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
-        "ext_color_code": "BK"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
-        "ext_color_code": "RB"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
-        "ext_color_code": "BG"
+        "ext_color_code": "RB",
+        "exterior_color": "Basque Red Pearl II"
     },
     {
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
-        "ext_color_code": "BS"
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
-        "ext_color_code": "WA"
+        "ext_color_code": "WA",
+        "exterior_color": "White Orchid Pearl"
     },
     {
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
-        "ext_color_code": "GN"
+        "ext_color_code": "GN",
+        "exterior_color": "Hematite Metallic"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "BS",
+        "exterior_color": "Obsidian Blue Pearl"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "BG",
+        "exterior_color": "Champagne Frost Pearl"
     },
     {
         "model": "Civic Coupe",
         "trim": "EX",
         "evox_vif": "9559",
-        "ext_color_code": "RE"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Civic Coupe",
         "trim": "EX",
         "evox_vif": "9559",
-        "ext_color_code": "BX"
+        "ext_color_code": "RE",
+        "exterior_color": "Rallye Red"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "EX",
+        "evox_vif": "9559",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "9544",
-        "ext_color_code": "GY"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "9544",
-        "ext_color_code": "BX"
+        "ext_color_code": "BL",
+        "exterior_color": "Dyno Blue Pearl"
     },
     {
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "9544",
-        "ext_color_code": "SX"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "9544",
-        "ext_color_code": ""
-    },
-    {
-        "model": "Civic Coupe",
-        "trim": "LX",
-        "evox_vif": "9544",
-        "ext_color_code": "BL"
-    },
-    {
-        "model": "Civic Coupe",
-        "trim": "LX",
-        "evox_vif": "9544",
-        "ext_color_code": "WH"
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White"
     },
     {
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
-        "ext_color_code": "GX"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
-        "ext_color_code": "BK"
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
-        "ext_color_code": ""
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
-        "ext_color_code": "RE"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
-        "ext_color_code": "BN"
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White"
     },
     {
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
-        "ext_color_code": "BR"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "RE",
+        "exterior_color": "Crimson Pearl"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX",
+        "evox_vif": "9543",
+        "ext_color_code": "BR",
+        "exterior_color": "Urban Titanium Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "EX-L",
         "evox_vif": "9597",
-        "ext_color_code": "GX"
+        "ext_color_code": "RE",
+        "exterior_color": "Crimson Pearl"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9597",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9597",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "GY"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "BX"
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "WH"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "RE"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "SI"
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "BR"
+        "ext_color_code": "RE",
+        "exterior_color": "Crimson Pearl"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "BL"
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": ""
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "SX"
+        "ext_color_code": "BR",
+        "exterior_color": "Urban Titanium Metallic"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "GX"
+        "ext_color_code": "BL",
+        "exterior_color": "Dyno Blue Pearl"
     },
     {
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "BN"
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "BR"
+        "ext_color_code": "BR",
+        "exterior_color": "Urban Titanium Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "SX"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "BU"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "GX"
+        "ext_color_code": "BU",
+        "exterior_color": "Twilight Blue Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": ""
+        "ext_color_code": "GX",
+        "exterior_color": "Polished Metal Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "BM"
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "BN"
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "WA"
+        "ext_color_code": "BM",
+        "exterior_color": "Mountain Air Metallic"
     },
     {
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "RA"
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "BR",
+        "exterior_color": "Urban Titanium Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9047",
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "BT",
+        "exterior_color": "Urban Titanium Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9047",
+        "ext_color_code": "GX",
+        "exterior_color": "Polished Metal Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "BU",
+        "exterior_color": "Twilight Blue Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "BM",
+        "exterior_color": "Mountain Air Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "WB",
+        "exterior_color": "White Diamond Pearl"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "RE",
+        "exterior_color": "DK CHERRY PRL"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": "BR"
+        "ext_color_code": "BR",
+        "exterior_color": "Urban Titanium Metallic"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": "BM"
+        "ext_color_code": "BU",
+        "exterior_color": "Twilight Blue Metallic"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": "BU"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": ""
+        "ext_color_code": "GX",
+        "exterior_color": "Polished Metal Metallic"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": "BK"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": "GX"
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": "SX"
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl"
     },
     {
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
-        "ext_color_code": "BN"
-    },
-    {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "WA"
-    },
-    {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "RA"
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
     },
     {
         "model": "Crosstour",
         "trim": "EX-L",
         "evox_vif": "9502",
-        "ext_color_code": "WA"
+        "ext_color_code": "GY",
+        "exterior_color": "Polished Metal Metallic"
+    },
+    {
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "evox_vif": "9502",
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
+    },
+    {
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "evox_vif": "9502",
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl"
+    },
+    {
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "evox_vif": "9502",
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic"
+    },
+    {
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "evox_vif": "9502",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX",
         "evox_vif": "8990",
-        "ext_color_code": ""
+        "ext_color_code": "BL",
+        "exterior_color": "Celestial Blue Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX",
         "evox_vif": "8990",
-        "ext_color_code": "SX"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "EX",
         "evox_vif": "8990",
-        "ext_color_code": "BL"
+        "ext_color_code": "BR",
+        "exterior_color": "Smoky Topaz Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX",
         "evox_vif": "8990",
-        "ext_color_code": "BU"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX",
         "evox_vif": "8990",
-        "ext_color_code": "BR"
+        "ext_color_code": "BU",
+        "exterior_color": "Obsidian Blue Pearl"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": "WB",
+        "exterior_color": "White Diamond Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": ""
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": "BU"
+        "ext_color_code": "BR",
+        "exterior_color": "Smoky Topaz Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": "BK"
+        "ext_color_code": "BU",
+        "exterior_color": "Obsidian Blue Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": "WA"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": "SX"
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": "BL"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": "BR"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
-        "ext_color_code": "RE"
+        "ext_color_code": "RE",
+        "exterior_color": "Dark Cherry Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "LX",
         "evox_vif": "8965",
-        "ext_color_code": "WB"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "LX",
         "evox_vif": "8965",
-        "ext_color_code": "BU"
+        "ext_color_code": "WB",
+        "exterior_color": "White Diamond Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "LX",
         "evox_vif": "8965",
-        "ext_color_code": "SX"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "LX",
+        "evox_vif": "8965",
+        "ext_color_code": "BU",
+        "exterior_color": "Obsidian Blue Pearl"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "LX",
+        "evox_vif": "8965",
+        "ext_color_code": "RE",
+        "exterior_color": "Dark Cherry Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "Touring",
         "evox_vif": "8955",
-        "ext_color_code": "SX"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Odyssey",
         "trim": "Touring",
         "evox_vif": "8955",
-        "ext_color_code": ""
+        "ext_color_code": "RE",
+        "exterior_color": "Dark Cherry Pearl"
     },
     {
         "model": "Odyssey",
         "trim": "Touring Elite",
         "evox_vif": "8955",
-        "ext_color_code": ""
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "Touring Elite",
+        "evox_vif": "8955",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Pilot",
         "trim": "EX",
         "evox_vif": "9236",
-        "ext_color_code": "WH"
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Pilot",
         "trim": "EX",
         "evox_vif": "9236",
-        "ext_color_code": "RX"
+        "ext_color_code": "RX",
+        "exterior_color": "Dark Cherry Pearl"
     },
     {
         "model": "Pilot",
         "trim": "EX",
         "evox_vif": "9236",
-        "ext_color_code": "BX"
+        "ext_color_code": "BS",
+        "exterior_color": "Obsidian Blue Pearl"
+    },
+    {
+        "model": "Pilot",
+        "trim": "EX",
+        "evox_vif": "9236",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
+    },
+    {
+        "model": "Pilot",
+        "trim": "EX",
+        "evox_vif": "9236",
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Pilot",
         "trim": "LX",
         "evox_vif": "9194",
-        "ext_color_code": "GX"
+        "ext_color_code": "RX",
+        "exterior_color": "Dark Cherry Pearl"
     },
     {
         "model": "Pilot",
         "trim": "LX",
         "evox_vif": "9194",
-        "ext_color_code": "BR"
+        "ext_color_code": "BR",
+        "exterior_color": "Dark Amber Metallic"
+    },
+    {
+        "model": "Pilot",
+        "trim": "LX",
+        "evox_vif": "9194",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
+    },
+    {
+        "model": "Pilot",
+        "trim": "LX",
+        "evox_vif": "9194",
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Pilot",
+        "trim": "LX",
+        "evox_vif": "9194",
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White"
+    },
+    {
+        "model": "Pilot",
+        "trim": "LX",
+        "evox_vif": "9194",
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
-        "ext_color_code": ""
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
-        "ext_color_code": "BX"
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
-        "ext_color_code": "WA"
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": "RX",
+        "exterior_color": "Dark Cherry Pearl"
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl"
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": "WB",
+        "exterior_color": "White Diamond Pearl"
+    },
+    {
+        "model": "Pilot",
+        "trim": "Touring",
+        "evox_vif": "9216",
+        "ext_color_code": "BR",
+        "exterior_color": "Dark Amber Metallic"
     },
     {
         "model": "Ridgeline",
         "trim": "RTL",
         "evox_vif": "9215",
-        "ext_color_code": "WH"
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "EX-L",
+        "evox_vif": "8673",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Accord Coupe",
+        "trim": "LX-S",
+        "evox_vif": "8710",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8482",
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8482",
+        "ext_color_code": "BE",
+        "exterior_color": "Champagne Frost Pearl"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8482",
+        "ext_color_code": "GN",
+        "exterior_color": "Hematite Metallic"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8482",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Touring",
+        "evox_vif": "8714",
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "Touring",
+        "evox_vif": "8714",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "EX",
+        "evox_vif": "8754",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "8749",
-        "ext_color_code": "RE"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "8749",
+        "ext_color_code": "GX",
+        "exterior_color": "Polished Metal Metallic"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "8749",
+        "ext_color_code": "RE",
+        "exterior_color": "Rallye Red"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "8749",
+        "ext_color_code": "GY",
+        "exterior_color": "Polished Metal Metallic"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "8749",
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "8749",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Civic Coupe",
+        "trim": "Si",
+        "evox_vif": "8783",
+        "ext_color_code": "BL",
+        "exterior_color": "Dyno Blue Pearl"
     },
     {
         "model": "Civic Sedan",
-        "trim": "LX",
-        "evox_vif": "8718",
-        "ext_color_code": "BK"
+        "trim": "EX",
+        "evox_vif": "8724",
+        "ext_color_code": "BL",
+        "exterior_color": "Dyno Blue Pearl"
     },
     {
-        "model": "Fit",
-        "trim": "",
-        "evox_vif": "8297",
-        "ext_color_code": "RE"
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8742",
+        "ext_color_code": "GY",
+        "exterior_color": "Polished Metal Metallic"
     },
     {
-        "model": "Fit",
-        "trim": "",
-        "evox_vif": "8297",
-        "ext_color_code": "BK"
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8742",
+        "ext_color_code": "WB",
+        "exterior_color": "White Orchid Pearl"
     },
     {
-        "model": "Fit",
-        "trim": "",
-        "evox_vif": "8297",
-        "ext_color_code": "WH"
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8742",
+        "ext_color_code": "GX",
+        "exterior_color": "Polished Metal Metallic"
     },
     {
-        "model": "Fit",
-        "trim": "",
-        "evox_vif": "8297",
-        "ext_color_code": "GY"
+        "model": "Civic Sedan",
+        "trim": "HF",
+        "evox_vif": "8841",
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White"
     },
     {
-        "model": "Fit",
-        "trim": "",
-        "evox_vif": "8297",
-        "ext_color_code": "SI"
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "8540",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "evox_vif": "8721",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Fit",
         "trim": "5DR BASE",
         "evox_vif": "8297",
-        "ext_color_code": "SI"
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
     },
     {
         "model": "Fit",
         "trim": "Sport",
         "evox_vif": "8325",
-        "ext_color_code": "GY"
+        "ext_color_code": "GY",
+        "exterior_color": "Polished Metal Metallic"
     },
     {
         "model": "Fit",
         "trim": "Sport",
         "evox_vif": "8325",
-        "ext_color_code": "BK"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
     },
     {
         "model": "Fit",
         "trim": "Sport",
         "evox_vif": "8325",
-        "ext_color_code": "RE"
+        "ext_color_code": "RE",
+        "exterior_color": "Milano Red"
+    },
+    {
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White"
+    },
+    {
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "PR",
+        "exterior_color": "Midnight Plum Metallic"
+    },
+    {
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "BI",
+        "exterior_color": "Vortex Blue Pearl"
+    },
+    {
+        "model": "Ridgeline",
+        "trim": "RTL",
+        "evox_vif": "8631",
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Ridgeline",
+        "trim": "RTS",
+        "evox_vif": "8654",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl"
+    },
+    {
+        "model": "Ridgeline",
+        "trim": "RTS",
+        "evox_vif": "8654",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "Accord Sedan",
+        "trim": "EX-L V6",
+        "evox_vif": "2990",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic"
+    },
+    {
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "3457",
+        "ext_color_code": "RE",
+        "exterior_color": "Redondo Red Pearl"
+    },
+    {
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "3458",
+        "ext_color_code": "BL",
+        "exterior_color": "Ocean Mist Metallic"
+    },
+    {
+        "model": "Pilot",
+        "trim": "EX-L w\/ NAVI",
+        "evox_vif": "2998",
+        "ext_color_code": "WHIT",
+        "exterior_color": ""
     }
 ]
