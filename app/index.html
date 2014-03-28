@@ -34,94 +34,113 @@
 
     <script type="text/javascript">
       angular.module('vehicleModelSearchApp', ['ngRoute'])
-      .config(['$routeProvider', '$locationProvider',
-        function ($routeProvider, $locationProvider) {
-          $routeProvider
-            .when('/', {
-              templateUrl: 'views/main.html'
-            })
-            .when('/model/:model', {
-              controller: 'trimCtrl',
-              templateUrl: 'views/trim.html'
-            })
-            .when('/model/:model/trim/:trim', {
-              controller: 'colorCtrl',
-              templateUrl: 'views/color.html'
-            })
-            .otherwise({
-              redirectTo: '/'
+        .config(['$routeProvider', '$locationProvider',
+          function($routeProvider, $locationProvider) {
+            $routeProvider
+              .when('/', {
+                templateUrl: 'views/main.html'
+              })
+              .when('/model/:model', {
+                controller: 'trimCtrl',
+                templateUrl: 'views/trim.html'
+              })
+              .when('/model/:model/trim/:trim', {
+                controller: 'colorCtrl',
+                templateUrl: 'views/color.html'
+              })
+              .when('/model/:model/trim/:trim/color/:ext_color_code', {
+                controller: 'quoteCtrl',
+                templateUrl: 'views/quote.html'
+              })
+              .otherwise({
+                redirectTo: '/'
+              });
+            $locationProvider.html5Mode(false);
+          }
+        ])
+        .constant('_', _)
+        .controller('trimCtrl', function($scope, $log, $routeParams) {
+          $scope.subase = {
+            ele: _.findIndex($scope.base.modelTrim, $routeParams)
+          };
+          $log.info($routeParams, $scope.subase.ele);
+        })
+        .controller('colorCtrl', function($scope, $log, $routeParams) {
+          $scope.subase = {
+            ele: _.findIndex($scope.base.modelTrimColor, $routeParams)
+          };
+          $log.info($routeParams, $scope.subase.ele);
+        })
+        .controller('quoteCtrl', function($scope, $log, $routeParams) {
+          $scope.subase = {
+            sel: _.find($scope.base.collection, $routeParams)
+          };
+          $log.info($routeParams, $scope.subase.sel);
+        })
+        .controller('baseCtrl', function($scope, $log, $http) {
+          var callParams = {
+            f: 'json',
+            show: 'all',
+            type: 'new',
+            d: 'vehicles',
+            // make: '{setup_dealer_primary_make}',
+            make: 'primary',
+            e: 'trim,evox_vif,ext_color_code',
+            q: 'group=model,trim,evox_vif,ext_color_code',
+            k: 'model,trim,evox_vif,ext_color_code,exterior_color'
+          };
+          var cleanData = function(data) {
+            return _.map(data, function(ele) {
+              return _.assign(ele, {
+                model: ele.model.replace(' ', '_'),
+                trim: ele.trim.replace(' ', '_').replace('/', '*')
+              });
             });
-          $locationProvider.html5Mode(false);
-      }])
-      .constant('_', _)
-      .controller('trimCtrl', function ($scope, $log, $routeParams) {
-        $scope.subase = {
-          ele: _.findIndex($scope.base.modelTrim, $routeParams)
-        };
-        $log.info($routeParams, $scope.subase.ele);
-      })
-      .controller('colorCtrl', function ($scope, $log, $routeParams) {
-        $scope.subase = {
-          ele: _.findIndex($scope.base.modelTrimColor, $routeParams)
-        };
-        $log.info($routeParams, $scope.subase.ele);
-      })
-      .controller('baseCtrl', function ($scope, $log, $http) {
-        var callParams = {
-          f: 'json',
-          show: 'all',
-          type: 'new',
-          d: 'vehicles',
-          make: 'primary',
-          e: 'evox_vif',
-          q: 'group=model,trim,evox_vif,ext_color_code',
-          k: 'model,trim,evox_vif,ext_color_code'
-        };
-        var cleanData = function(data) {
-          return _.map(data, function(ele) {
-            return _.assign(ele, {
-              model: ele.model.replace(' ', '_'),
-              trim: ele.trim.replace(' ', '_').replace('/', '*')
-            });
-          });
-        }
-        var createTree = function(data) {
-          var tree = {};
-          // $log.info(data);
-          tree.models = _.uniq(data, 'model');
-          tree.modelTrim = _.map(tree.models, function (ele) {
-            var trims = _.where(data, { model: ele.model });
-            return {
-              model: ele.model,
-              // trims: trims,
-              trimuniq: _.uniq(trims, 'trim')
-            }
-          });
-          tree.modelTrimColor = _.flatten(_.map(tree.modelTrim, function (ele) {
-            var trimarray = _.map(ele.trimuniq, function (oto) {
-              var colors = _.where(data, { model: oto.model, trim: oto.trim });
-              // $log.info('coloresponse',colors);
+          }
+          var createTree = function(data) {
+            var tree = {};
+            // $log.info(data);
+            tree.collection = _.clone(data);
+            tree.models = _.uniq(data, 'model');
+            tree.modelTrim = _.map(tree.models, function(ele) {
+              var trims = _.where(data, {
+                model: ele.model
+              });
               return {
-                model: oto.model,
-                trim: oto.trim,
-                colors: _.uniq(colors, 'ext_color_code')
-              };
+                model: ele.model,
+                // trims: trims,
+                trimuniq: _.uniq(trims, 'trim')
+              }
             });
-            // $log.info('trimarray',trimarray);
-            return trimarray;
-          }));
-          $log.info(tree.modelTrimColor);
-          return tree;
-        };
-        $http({
+            tree.modelTrimColor = _.flatten(_.map(tree.modelTrim, function(ele) {
+              var trimarray = _.map(ele.trimuniq, function(oto) {
+                var colors = _.where(data, {
+                  model: oto.model,
+                  trim: oto.trim
+                });
+                // $log.info('coloresponse',colors);
+                return {
+                  model: oto.model,
+                  trim: oto.trim,
+                  colors: _.uniq(colors, 'ext_color_code')
+                };
+              });
+              // $log.info('trimarray',trimarray);
+              return trimarray;
+            }));
+            $log.info(tree.collection);
+            return tree;
+          };
+          $http({
             method: 'GET',
+            // url: '{home}/api/'
             url: 'model.json',
             params: callParams
           })
-          .success(function (data) {
-            $scope.base = createTree(cleanData(data));
-          });
-      });
+            .success(function(data) {
+              $scope.base = createTree(cleanData(data));
+            });
+        });
     </script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
