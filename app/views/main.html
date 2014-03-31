@@ -1,10 +1,17 @@
 <h1>Select a Model</h1>
-<ul class="small-block-grid-5">
-  <li ng-repeat="ele in base.models">
-    <a href="/#/model/{{ele.model}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/{{ele.evox_vif}}/{{ele.evox_vif}}_st0640_090.png"></a>
-    <ul>
-      <li>model: <strong>{{ele.model}}</strong></li>
+<div class="row">
+  <div class="columns large-3">
+    <select ng-model="base.yearSelected" ng-options="obj.year for obj in base.yearArray"></select>
+  </div>
+  <div class="columns large-9">
+    <ul class="small-block-grid-2 large-block-grid-5">
+      <li ng-repeat="ele in baseF.models">
+        <a href="#/model/{{ele.model}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
+        <strong>{{ele.modelLabel}}</strong>
+        <br><small>Starts at <span>${{ele.msrpfloor}}</span> MSRP</small>
+      </li>
     </ul>
-  </li>
-</ul>
-<!-- <code>{{base.models}}</code> -->
+  </div>
+</div>
+<!-- <code>{{baseF.models}}</code> -->
+<!-- data-src="http://cdn.wpdlr.co/assets/vehicles/evox/{{ele.evox_vif}}/{{ele.evox_vif}}_st0640_090.png" -->

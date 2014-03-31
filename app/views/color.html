@@ -1,12 +1,21 @@
 <h1>Select a Color</h1>
-<ul class="small-block-grid-5">
-  <li ng-repeat="ele in base.modelTrimColor[subase.ele].colors">
-    <a href="/#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
+<div class="row">
+  <div class="columns large-3">
     <ul>
-      <li>model: <strong>{{ele.model}}</strong></li>
-      <li>trim: <strong>{{ele.trim}}</strong></li>
-      <li>color: <strong>{{ele.exterior_color}}</strong></li>
+      <li>Year: {{base.yearSelected.year}}</li>
+      <li>Model: {{subase.current.model.replace('_',' ')}}</li>
+      <li>Trim: {{subase.current.trim}}</li>
+      <!-- <li>MSRP: ${{subase.sel.msrp}}</li> -->
     </ul>
-  </li>
-</ul>
-<!-- <code>{{base.modelTrimColor}}</code> -->
+  </div>
+  <div class="columns large-9">
+    <ul class="small-block-grid-2 large-block-grid-5">
+      <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
+        <a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
+        <strong>{{ele.exterior_color}}</strong>
+        <br>MSRP: <span>${{ele.msrp}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- <code>{{baseF.modelTrimColor}}</code> -->

@@ -1,1353 +1,1118 @@
 [
     {
-        "model": "Accord Coupe",
-        "trim": "EX",
-        "evox_vif": "9184",
-        "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9122",
         "ext_color_code": "BL",
-        "exterior_color": "Still Night Pearl"
+        "exterior_color": "Still Night Pearl",
+        "msrp": "28,345"
     },
     {
+        "year": "2014",
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9242",
         "ext_color_code": "WB",
-        "exterior_color": "White Orchid Pearl"
+        "exterior_color": "White Orchid Pearl",
+        "msrp": "30,120"
     },
     {
-        "model": "Accord Coupe",
-        "trim": "EX-L",
-        "evox_vif": "9122",
-        "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9122",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "28,345"
     },
     {
+        "year": "2014",
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9122",
-        "ext_color_code": "RE",
-        "exterior_color": "San Marino Red"
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "28,345"
     },
     {
+        "year": "2014",
         "model": "Accord Coupe",
         "trim": "EX-L",
         "evox_vif": "9242",
         "ext_color_code": "BR",
-        "exterior_color": "Tiger Eye Pearl"
+        "exterior_color": "Tiger Eye Pearl",
+        "msrp": "32,400"
     },
     {
+        "year": "2014",
+        "model": "Accord Coupe",
+        "trim": "LX-S",
+        "evox_vif": "9152",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "23,625"
+    },
+    {
+        "year": "2014",
         "model": "Accord Coupe",
         "trim": "LX-S",
         "evox_vif": "9152",
         "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "24,475"
     },
     {
-        "model": "Accord Hybrid",
-        "trim": "EX-L",
-        "evox_vif": "9520",
-        "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Accord Hybrid",
         "trim": "EX-L",
         "evox_vif": "9520",
         "ext_color_code": "WA",
-        "exterior_color": "White Orchid Pearl"
+        "exterior_color": "White Orchid Pearl",
+        "msrp": "31,905"
     },
     {
+        "year": "2014",
         "model": "Accord Hybrid",
         "trim": "EX-L",
         "evox_vif": "9520",
         "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "31,905"
     },
     {
-        "model": "Accord Sedan",
-        "trim": "EX",
-        "evox_vif": "9168",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
         "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "25,680"
     },
     {
-        "model": "Accord Sedan",
-        "trim": "EX",
-        "evox_vif": "9168",
-        "ext_color_code": "WB",
-        "exterior_color": "White Orchid Pearl"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "EX",
-        "evox_vif": "9168",
-        "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
         "ext_color_code": "GN",
-        "exterior_color": "Hematite Metallic"
+        "exterior_color": "Hematite Metallic",
+        "msrp": "25,680"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
         "ext_color_code": "BU",
-        "exterior_color": "Obsidian Blue Pearl"
+        "exterior_color": "Obsidian Blue Pearl",
+        "msrp": "25,680"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
-        "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
+        "ext_color_code": "WB",
+        "exterior_color": "White Orchid Pearl",
+        "msrp": "25,680"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX",
         "evox_vif": "9168",
         "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "25,680"
     },
     {
-        "model": "Accord Sedan",
-        "trim": "EX",
-        "evox_vif": "9168",
-        "ext_color_code": "BE",
-        "exterior_color": "Champagne Frost Pearl"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "EX",
-        "evox_vif": "9168",
-        "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
         "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "30,045"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
         "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
+        "exterior_color": "Basque Red Pearl II",
+        "msrp": "30,045"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
-        "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
+        "ext_color_code": "GN",
+        "exterior_color": "Hematite Metallic",
+        "msrp": "30,045"
     },
     {
-        "model": "Accord Sedan",
-        "trim": "EX-L",
-        "evox_vif": "9153",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "9153",
         "ext_color_code": "WB",
-        "exterior_color": "White Orchid Pearl"
+        "exterior_color": "White Orchid Pearl",
+        "msrp": "30,045"
     },
     {
+        "year": "2014",
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9153",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "32,120"
+    },
+    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
         "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "21,955"
     },
     {
-        "model": "Accord Sedan",
-        "trim": "LX",
-        "evox_vif": "9123",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "LX",
-        "evox_vif": "9123",
-        "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "LX",
-        "evox_vif": "9123",
-        "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
-    },
-    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
         "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "22,755"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
         "ext_color_code": "GN",
-        "exterior_color": "Hematite Metallic"
+        "exterior_color": "Hematite Metallic",
+        "msrp": "22,755"
     },
     {
-        "model": "Accord Sedan",
-        "trim": "LX",
-        "evox_vif": "9123",
-        "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
         "ext_color_code": "BE",
-        "exterior_color": "Champagne Frost Pearl"
+        "exterior_color": "Champagne Frost Pearl",
+        "msrp": "22,755"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
-        "ext_color_code": "BU",
-        "exterior_color": "Obsidian Blue Pearl"
+        "ext_color_code": "RA",
+        "exterior_color": "Basque Red Pearl II",
+        "msrp": "22,755"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
         "ext_color_code": "WB",
-        "exterior_color": "White Orchid Pearl"
+        "exterior_color": "White Orchid Pearl",
+        "msrp": "22,755"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "LX",
         "evox_vif": "9123",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "22,755"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "23,715"
     },
     {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
         "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "23,715"
     },
     {
+        "year": "2014",
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "24,515"
+    },
+    {
+        "year": "2014",
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "WA",
+        "exterior_color": "White Orchid Pearl",
+        "msrp": "24,515"
+    },
+    {
+        "year": "2014",
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "GN",
+        "exterior_color": "Hematite Metallic",
+        "msrp": "24,515"
+    },
+    {
+        "year": "2014",
+        "model": "Accord Sedan",
+        "trim": "Sport",
+        "evox_vif": "9112",
+        "ext_color_code": "BS",
+        "exterior_color": "Obsidian Blue Pearl",
+        "msrp": "24,515"
+    },
+    {
+        "year": "2014",
         "model": "Accord Sedan",
         "trim": "Sport",
         "evox_vif": "9112",
         "ext_color_code": "RB",
-        "exterior_color": "Basque Red Pearl II"
+        "exterior_color": "Basque Red Pearl II",
+        "msrp": "24,515"
     },
     {
-        "model": "Accord Sedan",
-        "trim": "Sport",
-        "evox_vif": "9112",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "Sport",
-        "evox_vif": "9112",
-        "ext_color_code": "WA",
-        "exterior_color": "White Orchid Pearl"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "Sport",
-        "evox_vif": "9112",
-        "ext_color_code": "GN",
-        "exterior_color": "Hematite Metallic"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "Sport",
-        "evox_vif": "9112",
-        "ext_color_code": "BS",
-        "exterior_color": "Obsidian Blue Pearl"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "Sport",
-        "evox_vif": "9112",
-        "ext_color_code": "BG",
-        "exterior_color": "Champagne Frost Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Civic Coupe",
         "trim": "EX",
         "evox_vif": "9559",
         "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "21,090"
     },
     {
+        "year": "2014",
         "model": "Civic Coupe",
-        "trim": "EX",
-        "evox_vif": "9559",
-        "ext_color_code": "RE",
-        "exterior_color": "Rallye Red"
+        "trim": "LX",
+        "evox_vif": "9544",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "18,990"
     },
     {
-        "model": "Civic Coupe",
-        "trim": "EX",
-        "evox_vif": "9559",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "9544",
         "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "18,990"
     },
     {
+        "year": "2014",
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "9544",
         "ext_color_code": "BL",
-        "exterior_color": "Dyno Blue Pearl"
+        "exterior_color": "Dyno Blue Pearl",
+        "msrp": "18,990"
     },
     {
+        "year": "2014",
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "9544",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
+        "ext_color_code": "BN",
+        "exterior_color": "Kona Coffee Metallic",
+        "msrp": "18,066"
     },
     {
-        "model": "Civic Coupe",
-        "trim": "LX",
-        "evox_vif": "9544",
-        "ext_color_code": "WH",
-        "exterior_color": "Taffeta White"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "EX",
-        "evox_vif": "9543",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
         "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "21,090"
     },
     {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
-        "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
+        "ext_color_code": "BL",
+        "exterior_color": "Dyno Blue Pearl",
+        "msrp": "21,090"
     },
     {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
         "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "21,090"
     },
     {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
         "ext_color_code": "WH",
-        "exterior_color": "Taffeta White"
+        "exterior_color": "Taffeta White",
+        "msrp": "21,090"
     },
     {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
         "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "21,090"
     },
     {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
         "ext_color_code": "RE",
-        "exterior_color": "Crimson Pearl"
+        "exterior_color": "Crimson Pearl",
+        "msrp": "21,090"
     },
     {
-        "model": "Civic Sedan",
-        "trim": "EX",
-        "evox_vif": "9543",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX",
         "evox_vif": "9543",
         "ext_color_code": "BN",
-        "exterior_color": "Kona Coffee Metallic"
+        "exterior_color": "Kona Coffee Metallic",
+        "msrp": "21,090"
     },
     {
-        "model": "Civic Sedan",
-        "trim": "EX",
-        "evox_vif": "9543",
-        "ext_color_code": "BR",
-        "exterior_color": "Urban Titanium Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX-L",
         "evox_vif": "9597",
         "ext_color_code": "RE",
-        "exterior_color": "Crimson Pearl"
+        "exterior_color": "Crimson Pearl",
+        "msrp": "24,240"
     },
     {
+        "year": "2014",
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "9597",
+        "ext_color_code": "GX",
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "24,240"
+    },
+    {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "EX-L",
         "evox_vif": "9597",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "22,740"
     },
     {
-        "model": "Civic Sedan",
-        "trim": "EX-L",
-        "evox_vif": "9597",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "LX",
-        "evox_vif": "9538",
-        "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "LX",
-        "evox_vif": "9538",
-        "ext_color_code": "WH",
-        "exterior_color": "Taffeta White"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "LX",
-        "evox_vif": "9538",
-        "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "LX",
-        "evox_vif": "9538",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
         "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "18,390"
     },
     {
-        "model": "Civic Sedan",
-        "trim": "LX",
-        "evox_vif": "9538",
-        "ext_color_code": "RE",
-        "exterior_color": "Crimson Pearl"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "LX",
-        "evox_vif": "9538",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
         "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "19,190"
     },
     {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
-        "ext_color_code": "BR",
-        "exterior_color": "Urban Titanium Metallic"
+        "ext_color_code": "RE",
+        "exterior_color": "Crimson Pearl",
+        "msrp": "19,190"
     },
     {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
         "ext_color_code": "BL",
-        "exterior_color": "Dyno Blue Pearl"
+        "exterior_color": "Dyno Blue Pearl",
+        "msrp": "19,190"
     },
     {
+        "year": "2014",
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "19,190"
+    },
+    {
+        "year": "2014",
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "WH",
+        "exterior_color": "Taffeta White",
+        "msrp": "19,190"
+    },
+    {
+        "year": "2014",
+        "model": "Civic Sedan",
+        "trim": "LX",
+        "evox_vif": "9538",
+        "ext_color_code": "BR",
+        "exterior_color": "Urban Titanium Metallic",
+        "msrp": "19,190"
+    },
+    {
+        "year": "2014",
         "model": "Civic Sedan",
         "trim": "LX",
         "evox_vif": "9538",
         "ext_color_code": "BN",
-        "exterior_color": "Kona Coffee Metallic"
+        "exterior_color": "Kona Coffee Metallic",
+        "msrp": "19,190"
     },
     {
-        "model": "CR-V",
-        "trim": "EX",
-        "evox_vif": "9077",
-        "ext_color_code": "BR",
-        "exterior_color": "Urban Titanium Metallic"
-    },
-    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "26,295"
     },
     {
-        "model": "CR-V",
-        "trim": "EX",
-        "evox_vif": "9077",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "EX",
-        "evox_vif": "9077",
-        "ext_color_code": "BU",
-        "exterior_color": "Twilight Blue Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "EX",
-        "evox_vif": "9077",
-        "ext_color_code": "GX",
-        "exterior_color": "Polished Metal Metallic"
-    },
-    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
         "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "26,295"
     },
     {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
         "ext_color_code": "BN",
-        "exterior_color": "Kona Coffee Metallic"
+        "exterior_color": "Kona Coffee Metallic",
+        "msrp": "26,295"
     },
     {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
-        "ext_color_code": "BM",
-        "exterior_color": "Mountain Air Metallic"
+        "ext_color_code": "GX",
+        "exterior_color": "Polished Metal Metallic",
+        "msrp": "26,295"
     },
     {
-        "model": "CR-V",
-        "trim": "EX",
-        "evox_vif": "9077",
-        "ext_color_code": "WA",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX",
         "evox_vif": "9077",
         "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
+        "exterior_color": "Basque Red Pearl II",
+        "msrp": "26,295"
     },
     {
+        "year": "2014",
+        "model": "CR-V",
+        "trim": "EX",
+        "evox_vif": "9077",
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl",
+        "msrp": "26,295"
+    },
+    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX-L",
         "evox_vif": "9077",
         "ext_color_code": "BR",
-        "exterior_color": "Urban Titanium Metallic"
+        "exterior_color": "Urban Titanium Metallic",
+        "msrp": "28,945"
     },
     {
-        "model": "CR-V",
-        "trim": "EX-L",
-        "evox_vif": "9047",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "EX-L",
-        "evox_vif": "9077",
-        "ext_color_code": "BT",
-        "exterior_color": "Urban Titanium Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "EX-L",
-        "evox_vif": "9077",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "CR-V",
-        "trim": "EX-L",
-        "evox_vif": "9047",
-        "ext_color_code": "GX",
-        "exterior_color": "Polished Metal Metallic"
-    },
-    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX-L",
         "evox_vif": "9077",
         "ext_color_code": "BN",
-        "exterior_color": "Kona Coffee Metallic"
+        "exterior_color": "Kona Coffee Metallic",
+        "msrp": "28,945"
     },
     {
+        "year": "2014",
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "28,945"
+    },
+    {
+        "year": "2014",
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "SX",
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "28,945"
+    },
+    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX-L",
         "evox_vif": "9077",
         "ext_color_code": "BU",
-        "exterior_color": "Twilight Blue Metallic"
+        "exterior_color": "Twilight Blue Metallic",
+        "msrp": "28,945"
     },
     {
+        "year": "2014",
+        "model": "CR-V",
+        "trim": "EX-L",
+        "evox_vif": "9077",
+        "ext_color_code": "GX",
+        "exterior_color": "Polished Metal Metallic",
+        "msrp": "28,945"
+    },
+    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX-L",
         "evox_vif": "9077",
         "ext_color_code": "BM",
-        "exterior_color": "Mountain Air Metallic"
+        "exterior_color": "Mountain Air Metallic",
+        "msrp": "28,945"
     },
     {
-        "model": "CR-V",
-        "trim": "EX-L",
-        "evox_vif": "9077",
-        "ext_color_code": "WA",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX-L",
         "evox_vif": "9077",
         "ext_color_code": "WB",
-        "exterior_color": "White Diamond Pearl"
+        "exterior_color": "White Diamond Pearl",
+        "msrp": "28,945"
     },
     {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX-L",
         "evox_vif": "9077",
         "ext_color_code": "RE",
-        "exterior_color": "DK CHERRY PRL"
+        "exterior_color": "DK CHERRY PRL",
+        "msrp": "29,645"
     },
     {
+        "year": "2014",
         "model": "CR-V",
         "trim": "EX-L",
         "evox_vif": "9077",
         "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
+        "exterior_color": "Basque Red Pearl II",
+        "msrp": "29,645"
     },
     {
+        "year": "2014",
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
         "ext_color_code": "BR",
-        "exterior_color": "Urban Titanium Metallic"
+        "exterior_color": "Urban Titanium Metallic",
+        "msrp": "24,195"
     },
     {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "BU",
-        "exterior_color": "Twilight Blue Metallic"
-    },
-    {
+        "year": "2014",
         "model": "CR-V",
         "trim": "LX",
         "evox_vif": "9041",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "24,195"
     },
     {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "GX",
-        "exterior_color": "Polished Metal Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "BN",
-        "exterior_color": "Kona Coffee Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "WA",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
-        "model": "CR-V",
-        "trim": "LX",
-        "evox_vif": "9041",
-        "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
-    },
-    {
+        "year": "2014",
         "model": "Crosstour",
         "trim": "EX-L",
         "evox_vif": "9502",
         "ext_color_code": "GY",
-        "exterior_color": "Polished Metal Metallic"
+        "exterior_color": "Polished Metal Metallic",
+        "msrp": "35,140"
     },
     {
+        "year": "2014",
         "model": "Crosstour",
         "trim": "EX-L",
         "evox_vif": "9502",
         "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
+        "exterior_color": "Basque Red Pearl II",
+        "msrp": "35,140"
     },
     {
-        "model": "Crosstour",
-        "trim": "EX-L",
-        "evox_vif": "9502",
-        "ext_color_code": "WA",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Crosstour",
         "trim": "EX-L",
         "evox_vif": "9502",
         "ext_color_code": "BN",
-        "exterior_color": "Kona Coffee Metallic"
+        "exterior_color": "Kona Coffee Metallic",
+        "msrp": "37,240"
     },
     {
+        "year": "2014",
         "model": "Crosstour",
         "trim": "EX-L",
         "evox_vif": "9502",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "37,240"
     },
     {
+        "year": "2014",
+        "model": "Crosstour",
+        "trim": "EX-L",
+        "evox_vif": "9502",
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl",
+        "msrp": "37,240"
+    },
+    {
+        "year": "2014",
         "model": "Odyssey",
         "trim": "EX",
         "evox_vif": "8990",
+        "ext_color_code": "BR",
+        "exterior_color": "Smoky Topaz Metallic",
+        "msrp": "32,125"
+    },
+    {
+        "year": "2014",
+        "model": "Odyssey",
+        "trim": "EX",
+        "evox_vif": "8990",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "32,125"
+    },
+    {
+        "year": "2014",
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "37,225"
+    },
+    {
+        "year": "2014",
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "BR",
+        "exterior_color": "Smoky Topaz Metallic",
+        "msrp": "37,225"
+    },
+    {
+        "year": "2014",
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "WA",
+        "exterior_color": "White Diamond Pearl",
+        "msrp": "35,625"
+    },
+    {
+        "year": "2014",
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
+        "ext_color_code": "GY",
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "35,625"
+    },
+    {
+        "year": "2014",
+        "model": "Odyssey",
+        "trim": "EX-L",
+        "evox_vif": "8930",
         "ext_color_code": "BL",
-        "exterior_color": "Celestial Blue Metallic"
+        "exterior_color": "Celestial Blue Metallic",
+        "msrp": "37,225"
     },
     {
-        "model": "Odyssey",
-        "trim": "EX",
-        "evox_vif": "8990",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX",
-        "evox_vif": "8990",
-        "ext_color_code": "BR",
-        "exterior_color": "Smoky Topaz Metallic"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX",
-        "evox_vif": "8990",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX",
-        "evox_vif": "8990",
-        "ext_color_code": "BU",
-        "exterior_color": "Obsidian Blue Pearl"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX",
-        "evox_vif": "8990",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX",
-        "evox_vif": "8990",
-        "ext_color_code": "WB",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "8930",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "8930",
-        "ext_color_code": "BR",
-        "exterior_color": "Smoky Topaz Metallic"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "8930",
-        "ext_color_code": "BU",
-        "exterior_color": "Obsidian Blue Pearl"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "8930",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "8930",
-        "ext_color_code": "WA",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "8930",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "8930",
-        "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Odyssey",
         "trim": "EX-L",
         "evox_vif": "8930",
         "ext_color_code": "RE",
-        "exterior_color": "Dark Cherry Pearl"
+        "exterior_color": "Dark Cherry Pearl",
+        "msrp": "37,225"
     },
     {
-        "model": "Odyssey",
-        "trim": "LX",
-        "evox_vif": "8965",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "LX",
-        "evox_vif": "8965",
-        "ext_color_code": "WB",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Odyssey",
         "trim": "LX",
         "evox_vif": "8965",
         "ext_color_code": "GY",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "28,825"
     },
     {
-        "model": "Odyssey",
-        "trim": "LX",
-        "evox_vif": "8965",
-        "ext_color_code": "BU",
-        "exterior_color": "Obsidian Blue Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Odyssey",
         "trim": "LX",
         "evox_vif": "8965",
         "ext_color_code": "RE",
-        "exterior_color": "Dark Cherry Pearl"
+        "exterior_color": "Dark Cherry Pearl",
+        "msrp": "28,825"
     },
     {
-        "model": "Odyssey",
-        "trim": "Touring",
-        "evox_vif": "8955",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Odyssey",
         "trim": "Touring",
         "evox_vif": "8955",
         "ext_color_code": "RE",
-        "exterior_color": "Dark Cherry Pearl"
+        "exterior_color": "Dark Cherry Pearl",
+        "msrp": "41,880"
     },
     {
+        "year": "2014",
         "model": "Odyssey",
         "trim": "Touring Elite",
         "evox_vif": "8955",
         "ext_color_code": "WA",
-        "exterior_color": "White Diamond Pearl"
+        "exterior_color": "White Diamond Pearl",
+        "msrp": "44,450"
     },
     {
-        "model": "Odyssey",
-        "trim": "Touring Elite",
-        "evox_vif": "8955",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Pilot",
-        "trim": "EX",
-        "evox_vif": "9236",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Pilot",
-        "trim": "EX",
-        "evox_vif": "9236",
-        "ext_color_code": "RX",
-        "exterior_color": "Dark Cherry Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Pilot",
         "trim": "EX",
         "evox_vif": "9236",
         "ext_color_code": "BS",
-        "exterior_color": "Obsidian Blue Pearl"
+        "exterior_color": "Obsidian Blue Pearl",
+        "msrp": "33,520"
     },
     {
+        "year": "2014",
         "model": "Pilot",
         "trim": "EX",
         "evox_vif": "9236",
         "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "33,520"
     },
     {
-        "model": "Pilot",
-        "trim": "EX",
-        "evox_vif": "9236",
-        "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Pilot",
         "trim": "LX",
         "evox_vif": "9194",
         "ext_color_code": "RX",
-        "exterior_color": "Dark Cherry Pearl"
+        "exterior_color": "Dark Cherry Pearl",
+        "msrp": "31,270"
     },
     {
-        "model": "Pilot",
-        "trim": "LX",
-        "evox_vif": "9194",
-        "ext_color_code": "BR",
-        "exterior_color": "Dark Amber Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Pilot",
         "trim": "LX",
         "evox_vif": "9194",
         "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "31,270"
     },
     {
+        "year": "2014",
         "model": "Pilot",
         "trim": "LX",
         "evox_vif": "9194",
         "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "31,270"
     },
     {
-        "model": "Pilot",
-        "trim": "LX",
-        "evox_vif": "9194",
-        "ext_color_code": "WH",
-        "exterior_color": "Taffeta White"
-    },
-    {
-        "model": "Pilot",
-        "trim": "LX",
-        "evox_vif": "9194",
-        "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
+        "year": "2014",
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
         "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "41,420"
     },
     {
-        "model": "Pilot",
-        "trim": "Touring",
-        "evox_vif": "9216",
-        "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
         "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "41,420"
     },
     {
+        "year": "2014",
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
         "ext_color_code": "RX",
-        "exterior_color": "Dark Cherry Pearl"
+        "exterior_color": "Dark Cherry Pearl",
+        "msrp": "41,420"
     },
     {
+        "year": "2014",
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "41,420"
     },
     {
-        "model": "Pilot",
-        "trim": "Touring",
-        "evox_vif": "9216",
-        "ext_color_code": "WA",
-        "exterior_color": "White Diamond Pearl"
-    },
-    {
+        "year": "2014",
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
         "ext_color_code": "WB",
-        "exterior_color": "White Diamond Pearl"
+        "exterior_color": "White Diamond Pearl",
+        "msrp": "41,420"
     },
     {
+        "year": "2014",
         "model": "Pilot",
         "trim": "Touring",
         "evox_vif": "9216",
         "ext_color_code": "BR",
-        "exterior_color": "Dark Amber Metallic"
+        "exterior_color": "Dark Amber Metallic",
+        "msrp": "41,420"
     },
     {
-        "model": "Ridgeline",
-        "trim": "RTL",
-        "evox_vif": "9215",
-        "ext_color_code": "WH",
-        "exterior_color": "Taffeta White"
-    },
-    {
+        "year": "2013",
         "model": "Accord Coupe",
         "trim": "EX-L",
-        "evox_vif": "8673",
+        "evox_vif": "8599",
         "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "30,350"
     },
     {
-        "model": "Accord Coupe",
-        "trim": "LX-S",
-        "evox_vif": "8710",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "year": "2013",
+        "model": "Accord Sedan",
+        "trim": "EX",
+        "evox_vif": "8515",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "25,405"
     },
     {
+        "year": "2013",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "8482",
         "ext_color_code": "SX",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "27,995"
     },
     {
+        "year": "2013",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "8482",
         "ext_color_code": "BE",
-        "exterior_color": "Champagne Frost Pearl"
+        "exterior_color": "Champagne Frost Pearl",
+        "msrp": "29,995"
     },
     {
+        "year": "2013",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "8482",
         "ext_color_code": "GN",
-        "exterior_color": "Hematite Metallic"
+        "exterior_color": "Hematite Metallic",
+        "msrp": "29,995"
     },
     {
+        "year": "2013",
         "model": "Accord Sedan",
         "trim": "EX-L",
         "evox_vif": "8482",
         "ext_color_code": "GX",
-        "exterior_color": "Modern Steel Metallic"
+        "exterior_color": "Modern Steel Metallic",
+        "msrp": "27,995"
     },
     {
+        "year": "2013",
+        "model": "Accord Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8482",
+        "ext_color_code": "BX",
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "29,995"
+    },
+    {
+        "year": "2013",
         "model": "Accord Sedan",
         "trim": "Touring",
         "evox_vif": "8714",
         "ext_color_code": "RA",
-        "exterior_color": "Basque Red Pearl II"
+        "exterior_color": "Basque Red Pearl II",
+        "msrp": "33,430"
     },
     {
+        "year": "2013",
         "model": "Accord Sedan",
         "trim": "Touring",
         "evox_vif": "8714",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "33,430"
     },
     {
+        "year": "2013",
         "model": "Civic Coupe",
         "trim": "EX",
         "evox_vif": "8754",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Civic Coupe",
-        "trim": "LX",
-        "evox_vif": "8749",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "20,815"
     },
     {
+        "year": "2013",
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "8749",
         "ext_color_code": "GX",
-        "exterior_color": "Polished Metal Metallic"
+        "exterior_color": "Polished Metal Metallic",
+        "msrp": "18,765"
     },
     {
-        "model": "Civic Coupe",
-        "trim": "LX",
-        "evox_vif": "8749",
-        "ext_color_code": "RE",
-        "exterior_color": "Rallye Red"
-    },
-    {
-        "model": "Civic Coupe",
-        "trim": "LX",
-        "evox_vif": "8749",
-        "ext_color_code": "GY",
-        "exterior_color": "Polished Metal Metallic"
-    },
-    {
+        "year": "2013",
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "8749",
         "ext_color_code": "BN",
-        "exterior_color": "Kona Coffee Metallic"
+        "exterior_color": "Kona Coffee Metallic",
+        "msrp": "18,765"
     },
     {
+        "year": "2013",
+        "model": "Civic Coupe",
+        "trim": "LX",
+        "evox_vif": "8749",
+        "ext_color_code": "RE",
+        "exterior_color": "Rallye Red",
+        "msrp": "18,765"
+    },
+    {
+        "year": "2013",
         "model": "Civic Coupe",
         "trim": "LX",
         "evox_vif": "8749",
         "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "18,765"
     },
     {
-        "model": "Civic Coupe",
-        "trim": "Si",
-        "evox_vif": "8783",
-        "ext_color_code": "BL",
-        "exterior_color": "Dyno Blue Pearl"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "EX",
-        "evox_vif": "8724",
-        "ext_color_code": "BL",
-        "exterior_color": "Dyno Blue Pearl"
-    },
-    {
-        "model": "Civic Sedan",
-        "trim": "EX-L",
-        "evox_vif": "8742",
-        "ext_color_code": "GY",
-        "exterior_color": "Polished Metal Metallic"
-    },
-    {
+        "year": "2013",
         "model": "Civic Sedan",
         "trim": "EX-L",
         "evox_vif": "8742",
         "ext_color_code": "WB",
-        "exterior_color": "White Orchid Pearl"
+        "exterior_color": "White Orchid Pearl",
+        "msrp": "23,765"
     },
     {
+        "year": "2013",
+        "model": "Civic Sedan",
+        "trim": "EX-L",
+        "evox_vif": "8742",
+        "ext_color_code": "BK",
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "22,265"
+    },
+    {
+        "year": "2013",
         "model": "Civic Sedan",
         "trim": "EX-L",
         "evox_vif": "8742",
         "ext_color_code": "GX",
-        "exterior_color": "Polished Metal Metallic"
+        "exterior_color": "Polished Metal Metallic",
+        "msrp": "23,765"
     },
     {
-        "model": "Civic Sedan",
-        "trim": "HF",
-        "evox_vif": "8841",
-        "ext_color_code": "WH",
-        "exterior_color": "Taffeta White"
-    },
-    {
-        "model": "CR-V",
-        "trim": "EX-L",
-        "evox_vif": "8540",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Crosstour",
-        "trim": "EX-L",
-        "evox_vif": "8721",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Fit",
-        "trim": "5DR BASE",
-        "evox_vif": "8297",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
+        "year": "2013",
         "model": "Fit",
         "trim": "Sport",
         "evox_vif": "8325",
         "ext_color_code": "GY",
-        "exterior_color": "Polished Metal Metallic"
+        "exterior_color": "Polished Metal Metallic",
+        "msrp": "17,160"
     },
     {
-        "model": "Fit",
-        "trim": "Sport",
-        "evox_vif": "8325",
-        "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Fit",
-        "trim": "Sport",
-        "evox_vif": "8325",
-        "ext_color_code": "RE",
-        "exterior_color": "Milano Red"
-    },
-    {
-        "model": "Fit",
-        "trim": "Sport",
-        "evox_vif": "8325",
-        "ext_color_code": "WH",
-        "exterior_color": "Taffeta White"
-    },
-    {
-        "model": "Fit",
-        "trim": "Sport",
-        "evox_vif": "8325",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
+        "year": "2013",
         "model": "Fit",
         "trim": "Sport",
         "evox_vif": "8325",
         "ext_color_code": "PR",
-        "exterior_color": "Midnight Plum Metallic"
+        "exterior_color": "Midnight Plum Metallic",
+        "msrp": "19,790"
     },
     {
+        "year": "2013",
         "model": "Fit",
         "trim": "Sport",
         "evox_vif": "8325",
         "ext_color_code": "BI",
-        "exterior_color": "Vortex Blue Pearl"
+        "exterior_color": "Vortex Blue Pearl",
+        "msrp": "19,790"
     },
     {
-        "model": "Ridgeline",
-        "trim": "RTL",
-        "evox_vif": "8631",
-        "ext_color_code": "BX",
-        "exterior_color": "Crystal Black Pearl"
+        "year": "2013",
+        "model": "Fit",
+        "trim": "Sport",
+        "evox_vif": "8325",
+        "ext_color_code": "SI",
+        "exterior_color": "Alabaster Silver Metallic",
+        "msrp": "20,580"
     },
     {
+        "year": "2013",
         "model": "Ridgeline",
         "trim": "RTS",
         "evox_vif": "8654",
         "ext_color_code": "BK",
-        "exterior_color": "Crystal Black Pearl"
-    },
-    {
-        "model": "Ridgeline",
-        "trim": "RTS",
-        "evox_vif": "8654",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "Accord Sedan",
-        "trim": "EX-L V6",
-        "evox_vif": "2990",
-        "ext_color_code": "SI",
-        "exterior_color": "Alabaster Silver Metallic"
-    },
-    {
-        "model": "CR-V",
-        "trim": "EX",
-        "evox_vif": "3457",
-        "ext_color_code": "RE",
-        "exterior_color": "Redondo Red Pearl"
-    },
-    {
-        "model": "Odyssey",
-        "trim": "EX-L",
-        "evox_vif": "3458",
-        "ext_color_code": "BL",
-        "exterior_color": "Ocean Mist Metallic"
-    },
-    {
-        "model": "Pilot",
-        "trim": "EX-L w\/ NAVI",
-        "evox_vif": "2998",
-        "ext_color_code": "WHIT",
-        "exterior_color": ""
+        "exterior_color": "Crystal Black Pearl",
+        "msrp": "32,155"
     }
 ]

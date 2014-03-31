@@ -1,19 +1,26 @@
 <h1>Place your quote</h1>
-<ul>
-  <li>model: <strong>{{subase.sel.model}}</strong></li>
-  <li>trim: <strong>{{subase.sel.trim}}</strong></li>
-  <li>color: <strong>{{subase.sel.exterior_color}}</strong></li>
-  <li><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.sel.evox_vif}}/{{subase.sel.evox_vif}}_cc0640_001_{{subase.sel.ext_color_code}}.png"></li>
-</ul>
-<h2>Fill the form</h2>
-<form>
-  <label for="first_name">First Name</label>
-  <input type="text" id="first_name" name="first_name">
-  <label for="last_name">Last Name</label>
-  <input type="text" id="last_name" name="last_name">
-  <input type="hidden" id="model" value="{{subase.sel.model}}">
-  <input type="hidden" id="trim" value="{{subase.sel.trim}}">
-  <input type="hidden" id="ext_color_code" value="{{subase.sel.ext_color_code}}">
-  <input type="submit" name="submit" value="submit">
-</form>
-<!-- <code>{{base.modelTrimColor}}</code> -->
+<div class="row">
+  <div class="columns large-6">
+    <ul>
+      <li>Year: <strong>{{subase.sel.year}}</strong></li>
+      <li>Model: <strong>{{subase.sel.modelLabel}}</strong></li>
+      <li>Trim: <strong>{{subase.sel.trim}}</strong></li>
+      <li>Color: <strong>{{subase.sel.exterior_color}}</strong></li>
+      <li>MSRP: $<strong>{{subase.sel.msrp}}</strong></li>
+      <li><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.sel.evox_vif}}/{{subase.sel.evox_vif}}_cc0640_001_{{subase.sel.ext_color_code}}.png"></li>
+    </ul>
+  </div>
+  <div class="columns large-6">
+    <p><strong>Personal Information</strong></p>
+    <form>
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" name="first_name">
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name" name="last_name">
+      <input type="hidden" id="model" value="{{subase.sel.model}}">
+      <input type="hidden" id="trim" value="{{subase.sel.trim}}">
+      <input type="hidden" id="ext_color_code" value="{{subase.sel.ext_color_code}}">
+      <input type="submit" name="submit" value="submit">
+    </form>
+  </div>
+</div>

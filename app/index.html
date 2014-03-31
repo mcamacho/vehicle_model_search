@@ -35,7 +35,7 @@
     <script type="text/javascript">
       angular.module('vehicleModelSearchApp', ['ngRoute'])
         .config(['$routeProvider', '$locationProvider',
-          function($routeProvider, $locationProvider) {
+          function ($routeProvider, $locationProvider) {
             $routeProvider
               .when('/', {
                 templateUrl: 'views/main.html'
@@ -59,61 +59,89 @@
           }
         ])
         .constant('_', _)
-        .controller('trimCtrl', function($scope, $log, $routeParams) {
+        .controller('trimCtrl', function ($scope, $log, $routeParams) {
           $scope.subase = {
-            ele: _.findIndex($scope.base.modelTrim, $routeParams)
+            ele: _.findIndex($scope.baseF.modelTrim, $routeParams),
+            current: $routeParams
           };
-          $log.info($routeParams, $scope.subase.ele);
+          $log.info($routeParams, $scope.baseF.modelTrim, $scope.subase.ele);
         })
-        .controller('colorCtrl', function($scope, $log, $routeParams) {
+        .controller('colorCtrl', function ($scope, $log, $routeParams) {
           $scope.subase = {
-            ele: _.findIndex($scope.base.modelTrimColor, $routeParams)
+            // sel: _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }).colors[0],
+            ele: _.findIndex($scope.baseF.modelTrimColor, $routeParams),
+            current: $routeParams
           };
-          $log.info($routeParams, $scope.subase.ele);
+          $log.info($routeParams, _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }), $scope.subase.sel);
         })
-        .controller('quoteCtrl', function($scope, $log, $routeParams) {
+        .controller('quoteCtrl', function ($scope, $log, $routeParams) {
           $scope.subase = {
             sel: _.find($scope.base.collection, $routeParams)
           };
           $log.info($routeParams, $scope.subase.sel);
         })
-        .controller('baseCtrl', function($scope, $log, $http) {
+        .controller('baseCtrl', function ($scope, $log, $http) {
           var callParams = {
             f: 'json',
             show: 'all',
             type: 'new',
             d: 'vehicles',
-            // make: '{setup_dealer_primary_make}',
-            make: 'primary',
-            e: 'trim,evox_vif,ext_color_code',
-            q: 'group=model,trim,evox_vif,ext_color_code',
-            k: 'model,trim,evox_vif,ext_color_code,exterior_color'
+            make: '{setup_dealer_primary_make}',
+            e: 'trim,evox_vif,ext_color_code,msrp',
+            q: 'group=year,model,trim,exterior_color',
+            k: 'year,model,trim,evox_vif,ext_color_code,exterior_color,msrp'
           };
-          var cleanData = function(data) {
-            return _.map(data, function(ele) {
+          var cleanData = function (data) {
+            return _.map(data, function (ele) {
               return _.assign(ele, {
+                modelLabel: ele.model,
+                trimLabel: ele.trim,
                 model: ele.model.replace(' ', '_'),
                 trim: ele.trim.replace(' ', '_').replace('/', '*')
               });
             });
-          }
-          var createTree = function(data) {
+          };
+          var createTree = function (data) {
             var tree = {};
             // $log.info(data);
-            tree.collection = _.clone(data);
-            tree.models = _.uniq(data, 'model');
-            tree.modelTrim = _.map(tree.models, function(ele) {
+            // tree.ttsrc = '{src}';
+            tree.collection = _.sortBy(data, 'ext_color_code').reverse();
+            tree.yearArray = _.uniq(tree.collection, 'year');
+            tree.yearSelected = tree.yearArray[0];
+            // $log.info(tree.collection);
+            return tree;
+          };
+          var filterCollection = function () {
+            var data = _.where($scope.base.collection, { year: $scope.base.yearSelected.year });
+            var msrpdata = _.sortBy(data, 'msrp');
+            var tree = {};
+            tree.models = (function () {
+              var msrpuniq = _.uniq(msrpdata, 'model');
+              var modeluniq = _.map(_.uniq(data, 'model'), function (ele) {
+                ele.msrpfloor = _.find(msrpuniq, { model: ele.model }).msrp;
+                return ele;
+              });
+              return _.sortBy(modeluniq, 'model');
+            }());
+            tree.modelTrim = _.map(tree.models, function (ele) {
               var trims = _.where(data, {
                 model: ele.model
               });
+              var trimsort = _.sortBy(trims, 'msrp');
               return {
                 model: ele.model,
-                // trims: trims,
-                trimuniq: _.uniq(trims, 'trim')
+                // trimuniq: _.sortBy(_.uniq(trims, 'trim'), 'msrp')
+                trimuniq: _.sortBy(
+                  _.map(
+                    _.uniq(trims, 'trim'), function (ele) {
+                      ele.msrpfloor = _.find(trimsort, { trim: ele.trim }).msrp;
+                      return ele;
+                    }
+                  ), 'msrp')
               }
             });
-            tree.modelTrimColor = _.flatten(_.map(tree.modelTrim, function(ele) {
-              var trimarray = _.map(ele.trimuniq, function(oto) {
+            tree.modelTrimColor = _.flatten(_.map(tree.modelTrim, function (ele) {
+              var trimarray = _.map(ele.trimuniq, function (oto) {
                 var colors = _.where(data, {
                   model: oto.model,
                   trim: oto.trim
@@ -122,24 +150,31 @@
                 return {
                   model: oto.model,
                   trim: oto.trim,
-                  colors: _.uniq(colors, 'ext_color_code')
+                  colors: _.sortBy(_.uniq(colors, 'ext_color_code'), 'msrp')
                 };
               });
               // $log.info('trimarray',trimarray);
               return trimarray;
             }));
-            $log.info(tree.collection);
             return tree;
           };
+          $scope.base = {};
+          $scope.$watch('base.yearSelected', function (newv, oldv) {
+            if (newv) {
+              $scope.baseF = filterCollection();
+              // $log.info($scope.base, $scope.baseF);
+            }
+          });
           $http({
+            // method: 'POST',
             method: 'GET',
-            // url: '{home}/api/'
+            // url: '{home}/api/',
             url: 'model.json',
             params: callParams
           })
-            .success(function(data) {
-              $scope.base = createTree(cleanData(data));
-            });
+          .success(function (data) {
+            $scope.base = createTree(cleanData(data));
+          });
         });
     </script>
 

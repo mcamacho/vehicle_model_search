@@ -1,11 +1,20 @@
 <h1>Select a Trim</h1>
-<ul class="small-block-grid-5">
-  <li ng-repeat="ele in base.modelTrim[subase.ele].trimuniq">
-    <a href="/#/model/{{ele.model}}/trim/{{ele.trim}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/{{ele.evox_vif}}/{{ele.evox_vif}}_st0640_090.png"></a>
+<div class="row">
+  <div class="columns large-3">
     <ul>
-      <li>model: <strong>{{ele.model}}</strong></li>
-      <li>trim: <strong>{{ele.trim}}</strong></li>
+      <li>Year: {{base.yearSelected.year}}</li>
+      <li>Model: {{subase.current.model.replace('_',' ')}}</li>
     </ul>
-  </li>
-</ul>
-<!-- <code>{{base.modelTrim}}</code> -->
+  </div>
+  <div class="columns large-9">
+    <ul class="small-block-grid-2 large-block-grid-5">
+      <li ng-repeat="ele in baseF.modelTrim[subase.ele].trimuniq">
+        <a href="#/model/{{ele.model}}/trim/{{ele.trim}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
+        <strong>{{ele.trim}}</strong>
+        <br><small>Starts at <span>${{ele.msrpfloor}}</span> MSRP</small>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- <code>{{baseF.modelTrim}}</code> -->
+<!-- http://cdn.wpdlr.co/assets/vehicles/evox/{{ele.evox_vif}}/{{ele.evox_vif}}_st0640_090.png -->
