@@ -5,7 +5,6 @@
       <li>Year: {{base.yearSelected.year}}</li>
       <li>Model: {{subase.current.model.replace('_',' ')}}</li>
       <li>Trim: {{subase.current.trim}}</li>
-      <!-- <li>MSRP: ${{subase.sel.msrp}}</li> -->
     </ul>
   </div>
   <div class="columns large-9">
@@ -13,7 +12,7 @@
       <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
         <a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
         <strong>{{ele.exterior_color}}</strong>
-        <br>MSRP: <span>${{ele.msrp}}</span>
+        <br><small>Starts at <span>${{ele.msrp}}</span> MSRP</small>
       </li>
     </ul>
   </div>

@@ -11,16 +11,114 @@
     </ul>
   </div>
   <div class="columns large-6">
-    <p><strong>Personal Information</strong></p>
-    <form>
-      <label for="first_name">First Name</label>
-      <input type="text" id="first_name" name="first_name">
-      <label for="last_name">Last Name</label>
-      <input type="text" id="last_name" name="last_name">
-      <input type="hidden" id="model" value="{{subase.sel.model}}">
-      <input type="hidden" id="trim" value="{{subase.sel.trim}}">
-      <input type="hidden" id="ext_color_code" value="{{subase.sel.ext_color_code}}">
-      <input type="submit" name="submit" value="submit">
+    <form name="mquo" action="{{subase.the_permalink}}" method="post" id="{{subase.element_hash}}">
+      <p><strong>Personal Information</strong></p>
+      <div class="row">
+        <div class="columns small-4">
+          <label for="first_name">First Name<span ng-show="mquo.first_name.$error.required"> * </span></label>
+          <input type="text" id="first_name" name="first_name" ng-model="subase.firstName" required>
+        </div>
+        <div class="columns small-4">
+          <label for="last_name">Last Name<span ng-show="mquo.last_name.$error.required"> * </span></label>
+          <input type="text" id="last_name" name="last_name" ng-model="subase.lastName" required>
+        </div>
+        <div class="columns small-4">
+          <label for="email">Email<span ng-show="mquo.email.$error.required"> * </span></label>
+          <input type="email" id="email" name="email" ng-model="subase.email" required>
+        </div>
+      </div>
+      <!-- Personal Information -->
+      <input type="hidden" name="year" value="{{subase.sel.year}}">
+      <input type="hidden" name="model" value="{{subase.sel.modelLabel}}">
+      <input type="hidden" name="trim" value="{{subase.sel.trim}}">
+      <input type="hidden" name="color" value="{{subase.sel.exterior_color}}">
+      <input type="hidden" name="msrp" value="{{subase.sel.msrp}}">
+      <!-- Model Information -->
+      <p><strong>Quote Type</strong></p>
+      <select id="qtype" name="quote_type" ng-model="subase.qtypeSelected">
+        <option value="lease">Lease</option>
+        <option value="finance">Finance</option>
+        <option value="purchase">Purchase</option>
+      </select>
+      <div ng-if="subase.qtypeSelected === 'lease'" class="row">
+        <div class="columns small-4">
+          <label for="lease_term">Term</label>
+          <select id="lease_term" name="lease_term" ng-model="subase.leaseTerm">
+            <option value="24">24 mo.</option>
+            <option value="36">36 mo.</option>
+            <option value="39">39 mo.</option>
+            <option value="42">42 mo.</option>
+            <option value="48">48 mo.</option>
+          </select>
+        </div>
+        <div class="columns small-4">
+          <label for="miles_year">Miles per year</label>
+          <select id="miles_year" name="miles_year" ng-model="subase.milesYear">
+            <option value="10,000">10,000 mi.</option>
+            <option value="12,000">12,000 mi.</option>
+            <option value="15,000">15,000 mi.</option>
+            <option value="18,000">18,000 mi.</option>
+            <option value="20,000">20,000 mi.</option>
+          </select>
+        </div>
+        <div class="columns small-4">
+          <label for="max_down">Max down-payment<span ng-show="mquo.max_down.$error.required"> * </span></label>
+          <input type="text" id="max_down" name="max_down" ng-model="subase.maxDown" required>
+        </div>
+        <div class="columns small-4">
+          <label for="credit_rating">Credit Rating</label>
+          <select name="credit_rating" ng-model="subase.creditRating">
+            <option value="great">Great</option>
+            <option value="good">Good</option>
+            <option value="soso">So-so</option>
+            <option value="notgood">Not so good</option>
+          </select>
+        </div>
+        <div class="columns small-4">
+          <label for="additional_equipment">Additional Equipment</label>
+          <textarea name="additional_equipment" ng-model="subase.additionalEquipment"></textarea>
+        </div>
+      </div>
+      <div ng-if="subase.qtypeSelected === 'finance'" class="row">
+        <div class="columns small-4">
+          <label for="finance_term">Term</label>
+          <select id="finance_term" name="finance_term" ng-model="subase.financeTerm">
+            <option value="24">24 mo.</option>
+            <option value="48">48 mo.</option>
+            <option value="72">72 mo.</option>
+            <option value="96">96 mo.</option>
+            <option value="120">120 mo.</option>
+            <option value="144">144 mo.</option>
+          </select>
+        </div>
+        <div class="columns small-4">
+          <label for="max_down">Max down-payment<span ng-show="mquo.max_down.$error.required"> * </span></label>
+          <input type="text" id="max_down" name="max_down" ng-model="subase.maxDown" required>
+        </div>
+        <div class="columns small-4">
+          <label for="credit_rating">Credit Rating</label>
+          <select name="credit_rating" ng-model="subase.creditRating">
+            <option value="great">Great</option>
+            <option value="good">Good</option>
+            <option value="soso">So-so</option>
+            <option value="notgood">Not so good</option>
+          </select>
+        </div>
+        <div class="columns small-4">
+          <label for="additional_equipment">Additional Equipment</label>
+          <textarea name="additional_equipment" ng-model="subase.additionalEquipment"></textarea>
+        </div>
+      </div>
+      <div ng-if="subase.qtypeSelected === 'purchase'" class="row">
+        <div class="columns small-4">
+          <label for="additional_equipment">Additional Equipment</label>
+          <textarea name="additional_equipment" ng-model="subase.additionalEquipment"></textarea>
+        </div>
+      </div>
+      <!-- Quote Type -->
+      <input type="hidden" name="dForm-ID" value="{{subase.element_hash}}">
+      <input type="hidden" name="dForm-Subject" value="Model Quote">
+      <input type="submit" name="dForm-Submit" value="Submit">
     </form>
   </div>
 </div>

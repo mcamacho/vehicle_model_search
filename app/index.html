@@ -64,21 +64,27 @@
             ele: _.findIndex($scope.baseF.modelTrim, $routeParams),
             current: $routeParams
           };
-          $log.info($routeParams, $scope.baseF.modelTrim, $scope.subase.ele);
+          // $log.info($routeParams, $scope.baseF.modelTrim, $scope.subase.ele);
         })
         .controller('colorCtrl', function ($scope, $log, $routeParams) {
           $scope.subase = {
-            // sel: _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }).colors[0],
             ele: _.findIndex($scope.baseF.modelTrimColor, $routeParams),
             current: $routeParams
           };
-          $log.info($routeParams, _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }), $scope.subase.sel);
+          // $log.info($routeParams, _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }), $scope.subase.sel);
         })
         .controller('quoteCtrl', function ($scope, $log, $routeParams) {
           $scope.subase = {
-            sel: _.find($scope.base.collection, $routeParams)
+            sel: _.find($scope.base.collection, $routeParams),
+            // element_hash: '{element_hash}',
+            // the_permalink: '{the_permalink}',
+            qtypeSelected: 'lease',
+            creditRating: 'great',
+            leaseTerm: '24',
+            milesYear: '10,000',
+            financeTerm: '24'
           };
-          $log.info($routeParams, $scope.subase.sel);
+          // $log.info($routeParams, $scope.subase.sel);
         })
         .controller('baseCtrl', function ($scope, $log, $http) {
           var callParams = {
@@ -103,22 +109,19 @@
           };
           var createTree = function (data) {
             var tree = {};
-            // $log.info(data);
             // tree.ttsrc = '{src}';
-            tree.collection = _.sortBy(data, 'ext_color_code').reverse();
-            tree.yearArray = _.uniq(tree.collection, 'year');
+            tree.yearArray = _.uniq(data, 'year');
             tree.yearSelected = tree.yearArray[0];
-            // $log.info(tree.collection);
+            tree.collection = _.sortBy(data, 'ext_color_code').reverse();
             return tree;
           };
           var filterCollection = function () {
             var data = _.where($scope.base.collection, { year: $scope.base.yearSelected.year });
-            var msrpdata = _.sortBy(data, 'msrp');
             var tree = {};
             tree.models = (function () {
-              var msrpuniq = _.uniq(msrpdata, 'model');
+              var msrpuniq = _.uniq(_.sortBy(data, 'msrp'), 'model');
               var modeluniq = _.map(_.uniq(data, 'model'), function (ele) {
-                ele.msrpfloor = _.find(msrpuniq, { model: ele.model }).msrp;
+                ele.msrpmodel = _.find(msrpuniq, { model: ele.model }).msrp;
                 return ele;
               });
               return _.sortBy(modeluniq, 'model');
@@ -130,11 +133,10 @@
               var trimsort = _.sortBy(trims, 'msrp');
               return {
                 model: ele.model,
-                // trimuniq: _.sortBy(_.uniq(trims, 'trim'), 'msrp')
                 trimuniq: _.sortBy(
                   _.map(
                     _.uniq(trims, 'trim'), function (ele) {
-                      ele.msrpfloor = _.find(trimsort, { trim: ele.trim }).msrp;
+                      ele.msrptrim = _.find(trimsort, { trim: ele.trim }).msrp;
                       return ele;
                     }
                   ), 'msrp')
@@ -146,14 +148,12 @@
                   model: oto.model,
                   trim: oto.trim
                 });
-                // $log.info('coloresponse',colors);
                 return {
                   model: oto.model,
                   trim: oto.trim,
                   colors: _.sortBy(_.uniq(colors, 'ext_color_code'), 'msrp')
                 };
               });
-              // $log.info('trimarray',trimarray);
               return trimarray;
             }));
             return tree;
@@ -162,7 +162,6 @@
           $scope.$watch('base.yearSelected', function (newv, oldv) {
             if (newv) {
               $scope.baseF = filterCollection();
-              // $log.info($scope.base, $scope.baseF);
             }
           });
           $http({
