@@ -87,16 +87,22 @@
           // $log.info($routeParams, $scope.subase.sel);
         })
         .controller('baseCtrl', function ($scope, $log, $http) {
-          var callParams = {
+          var vehicles = [];
+          var basicParams = {
             f: 'json',
             show: 'all',
             type: 'new',
             d: 'vehicles',
             make: '{setup_dealer_primary_make}',
-            e: 'trim,evox_vif,ext_color_code,msrp',
+            e: 'trim,evox_vif,ext_color_code,msrp'
+          };
+          var groupParams = _.assign({
             q: 'group=year,model,trim,exterior_color',
             k: 'year,model,trim,evox_vif,ext_color_code,exterior_color,msrp'
-          };
+          }, basicParams);
+          var inventoryParams = _.assign({
+            k: 'year,model,trim,ext_color_code'
+          }, basicParams);
           var cleanData = function (data) {
             return _.map(data, function (ele) {
               return _.assign(ele, {
@@ -110,7 +116,10 @@
           var createTree = function (data) {
             var tree = {};
             // tree.ttsrc = '{src}';
-            tree.yearArray = _.uniq(data, 'year');
+            tree.yearArray = _.map(_.uniq(data, 'year'), function (ele) {
+              ele.yearlabel = ele.year;
+              return ele;
+            });
             tree.yearSelected = tree.yearArray[0];
             tree.collection = _.sortBy(data, 'ext_color_code').reverse();
             return tree;
@@ -158,6 +167,34 @@
             }));
             return tree;
           };
+          var splityear = function (data) {
+            // split the inventory collection by year
+            $log.info('yearArray',$scope.base.yearArray);
+            var split = [];
+            for (var i = $scope.base.yearArray.length - 1; i >= 0; i--) {
+              split.push({
+                year: $scope.base.yearArray[i].year,
+                vehicles: _.where(data, { year: $scope.base.yearArray[i].year })
+              });
+            };
+            return split;
+          }
+          var countCollection = function () {
+            // process the inventory and assign the new attribute to the base.collection
+            $log.info('models', $scope.baseF.models);
+            $log.info('data', vehicles);
+            // modify yearArray -> yearlabel
+            _.forEach($scope.base.yearArray, function (ele) {
+              var yearele = _.find(vehicles, { year: ele.yearlabel });
+              ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' vehicles)';
+            });
+            // modify model -> yearlabel
+            var vehicleset = _.find(vehicles, { year: $scope.base.yearSelected.year }).vehicles;
+            _.forEach($scope.baseF.models, function (ele) {
+              ele.modelCount = _.where(vehicleset, { model: ele.modelLabel }).length;
+              $log.info('modelcount', ele.modelCount);
+            });
+          };
           $scope.base = {};
           $scope.$watch('base.yearSelected', function (newv, oldv) {
             if (newv) {
@@ -169,10 +206,23 @@
             method: 'GET',
             // url: '{home}/api/',
             url: 'model.json',
-            params: callParams
+            params: groupParams
           })
           .success(function (data) {
             $scope.base = createTree(cleanData(data));
+            // get complete inventory and count by year/model, year/trim, year/color
+            $http({
+              // method: 'POST',
+              method: 'GET',
+              // url: '{home}/api/',
+              url: 'inventory.json',
+              params: inventoryParams
+            })
+            .success(function (data) {
+              vehicles = splityear(data);
+              countCollection();
+              $log.info(data.length);
+            });
           });
         });
     </script>
