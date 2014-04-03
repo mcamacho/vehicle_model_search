@@ -22,18 +22,26 @@
   <body ng-app="vehicleModelSearchApp">
 
     <!-- Add your site or application content here -->
-    <div class="row" ng-controller="baseCtrl" ng-view></div>
-
-    <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular.min.js"></script>
-    <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/lodash/lodash.min.js"></script>
+    <div class="row" ng-controller="baseCtrl">
+      <div class="view-animate-container">
+        <div ng-view class="view-animate"></div>
+      </div>
+    </div>
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/lodash/lodash.min.js"></script> -->
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular.min.js"></script> -->
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular-route.min.js"></script> -->
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular-animate.min.js"></script> -->
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <script type="text/javascript">
-      angular.module('vehicleModelSearchApp', ['ngRoute'])
+      angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         .config(['$routeProvider', '$locationProvider',
           function ($routeProvider, $locationProvider) {
             $routeProvider
