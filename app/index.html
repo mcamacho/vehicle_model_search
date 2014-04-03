@@ -87,7 +87,6 @@
           // $log.info($routeParams, $scope.subase.sel);
         })
         .controller('baseCtrl', function ($scope, $log, $http) {
-          var vehicles = [];
           var basicParams = {
             f: 'json',
             show: 'all',
@@ -169,7 +168,7 @@
           };
           var splityear = function (data) {
             // split the inventory collection by year
-            $log.info('yearArray',$scope.base.yearArray);
+            // $log.info('yearArray',$scope.base.yearArray);
             var split = [];
             for (var i = $scope.base.yearArray.length - 1; i >= 0; i--) {
               split.push({
@@ -178,27 +177,47 @@
               });
             };
             return split;
-          }
-          var countCollection = function () {
-            // process the inventory and assign the new attribute to the base.collection
-            $log.info('models', $scope.baseF.models);
-            $log.info('data', vehicles);
+          };
+          var updateYearSel =  function () {
             // modify yearArray -> yearlabel
             _.forEach($scope.base.yearArray, function (ele) {
-              var yearele = _.find(vehicles, { year: ele.yearlabel });
+              var yearele = _.find($scope.vehicles, { year: ele.yearlabel });
               ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' vehicles)';
             });
-            // modify model -> yearlabel
-            var vehicleset = _.find(vehicles, { year: $scope.base.yearSelected.year }).vehicles;
-            _.forEach($scope.baseF.models, function (ele) {
-              ele.modelCount = _.where(vehicleset, { model: ele.modelLabel }).length;
-              $log.info('modelcount', ele.modelCount);
-            });
+          };
+          var countCollection = function () {
+            // process the inventory and assign the new attribute to the base.collection
+            if (_.isEmpty($scope.baseF.models[0].modelCount)) {
+              var vehicleset = _.find($scope.vehicles, { year: $scope.base.yearSelected.year }).vehicles;
+              _.forEach($scope.baseF.models, function (ele) {
+                ele.modelCount = _.where(vehicleset, { model: ele.modelLabel }).length;
+              });
+              _.forEach($scope.baseF.modelTrim, function (ele) {
+                _.forEach(ele.trimuniq, function (sub) {
+                  sub.trimCount = _.where(vehicleset, { model: ele.model.replace('_',' '), trim: sub.trimLabel }).length;
+                });
+              });
+              _.forEach($scope.baseF.modelTrimColor, function (ele) {
+                _.forEach(ele.colors, function (sub) {
+                  sub.colorCount = _.where(vehicleset, { model: ele.model.replace('_',' '), trim: ele.trim.replace('_',' '), ext_color_code: sub.ext_color_code }).length;
+                });
+              });
+            }
           };
           $scope.base = {};
+          $scope.vehicles = [];
           $scope.$watch('base.yearSelected', function (newv, oldv) {
             if (newv) {
               $scope.baseF = filterCollection();
+              if (!_.isEmpty($scope.vehicles)) {
+                countCollection();
+              }
+            }
+          });
+          $scope.$watch('vehicles', function (newv, oldv) {
+            if (!_.isEmpty(newv)) {
+              updateYearSel();
+              countCollection();
             }
           });
           $http({
@@ -219,9 +238,8 @@
               params: inventoryParams
             })
             .success(function (data) {
-              vehicles = splityear(data);
-              countCollection();
-              $log.info(data.length);
+              $scope.vehicles = splityear(data);
+              // $log.info(data.length);
             });
           });
         });
