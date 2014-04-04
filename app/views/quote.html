@@ -63,7 +63,7 @@
         </div>
         <div class="columns small-4">
           <label for="max_down">Max down-payment<span ng-show="mquo.max_down.$error.required"> * </span></label>
-          <input type="text" id="max_down" name="max_down" ng-model="subase.maxDown" required>
+          <input type="number" id="max_down" name="max_down" ng-model="subase.maxDown" required>
         </div>
         <div class="columns small-4">
           <label for="credit_rating">Credit Rating</label>
@@ -93,7 +93,7 @@
         </div>
         <div class="columns small-4">
           <label for="max_down">Max down-payment<span ng-show="mquo.max_down.$error.required"> * </span></label>
-          <input type="text" id="max_down" name="max_down" ng-model="subase.maxDown" required>
+          <input type="number" id="max_down" name="max_down" ng-model="subase.maxDown" required>
         </div>
         <div class="columns small-4">
           <label for="credit_rating">Credit Rating</label>
@@ -118,7 +118,8 @@
       <!-- Quote Type -->
       <input type="hidden" name="dForm-ID" value="{{subase.element_hash}}">
       <input type="hidden" name="dForm-Subject" value="Model Quote">
-      <input type="submit" name="dForm-Submit" value="Submit">
+      <span ng-hide="mquo.$valid" class="radius alert label">Please Fill all the Fields</span>
+      <input ng-if="mquo.$valid" type="submit" name="dForm-Submit" value="Submit">
     </form>
   </div>
 </div>
