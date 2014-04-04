@@ -1,13 +1,18 @@
-<h1>Select a Color</h1>
 <div class="row">
   <div class="columns large-3">
-    <ul>
-      <li>Year: {{base.yearSelected.year}}</li>
-      <li>Model: {{subase.current.modelLabel}}</li>
-      <li>Trim: {{subase.current.trimLabel}}</li>
+    <ul class="pricing-table">
+      <li class="bullet-item">Year: {{base.yearSelected.year}}</li>
+      <li class="bullet-item">Model: {{subase.current.modelLabel}}</li>
+      <li class="bullet-item">Trim: {{subase.current.trimLabel}}</li>
     </ul>
   </div>
   <div class="columns large-9">
+    <ul class="breadcrumbs">
+      <li><a href="#">Model</a></li>
+      <li><a href="#/model/{{subase.modelsel}}">Trim</a></li>
+      <li>Color</li>
+    </ul>
+    <h2 class="header2">Select a Color</h2>
     <ul class="small-block-grid-2 large-block-grid-5">
       <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
         <a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
@@ -16,6 +21,6 @@
         <br><small>Starts at <span>${{ele.msrp}}</span> MSRP<sup>*</sup></small>
       </li>
     </ul>
+    <div ng-include="'views/disclaimer.html'"></div>
   </div>
 </div>
-<div ng-include="'views/disclaimer.html'"></div>

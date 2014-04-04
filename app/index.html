@@ -19,12 +19,13 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="vehicleModelSearchApp">
+  <body class="row" ng-app="vehicleModelSearchApp">
 
     <!-- Add your site or application content here -->
-    <div class="row" ng-controller="baseCtrl">
+    <div class="columns small-12" ng-controller="baseCtrl">
+      <h1 class="header1">Select your {{dealerMake}}</h1>
       <div class="view-animate-container">
-        <div ng-view class="view-animate"></div>
+        <div ng-view class="view-animate" autoscroll></div>
       </div>
     </div>
     <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/lodash/lodash.min.js"></script> -->
@@ -79,7 +80,8 @@
           var index = _.findIndex($scope.baseF.modelTrimColor, $routeParams)
           $scope.subase = {
             ele: index,
-            current: $scope.baseF.modelTrimColor[0].colors[0]
+            modelsel: $routeParams.model,
+            current: $scope.baseF.modelTrimColor[index].colors[0]
           };
           // $log.info($routeParams, _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }), $scope.subase.sel);
         })
@@ -88,6 +90,8 @@
             sel: _.find($scope.base.collection, $routeParams),
             // element_hash: '{element_hash}',
             // the_permalink: '{the_permalink}',
+            modelsel: $routeParams.model,
+            trimsel: $routeParams.trim,
             qtypeSelected: 'lease',
             creditRating: 'great',
             leaseTerm: '24',
@@ -97,7 +101,6 @@
           // $log.info($routeParams, $scope.subase.sel);
         })
         .controller('baseCtrl', function ($scope, $log, $http) {
-          var dealerMake = '';
           var basicParams = {
             f: 'json',
             show: 'all',
@@ -221,7 +224,7 @@
               method: 'GET',
               // url: '{home}/api/',
               url: 'model.json',
-              params: _.assign({ make: dealerMake }, groupParams)
+              params: _.assign({ make: $scope.dealerMake }, groupParams)
             })
             .success(function (data) {
               $scope.base = createTree(cleanData(data));
@@ -231,7 +234,7 @@
                 method: 'GET',
                 // url: '{home}/api/',
                 url: 'inventory.json',
-                params: _.assign({ make: dealerMake }, inventoryParams)
+                params: _.assign({ make: $scope.dealerMake }, inventoryParams)
               })
               .success(function (data) {
                 $scope.vehicles = splityear(cleanData(data));
@@ -240,8 +243,8 @@
             });
           };
           var initApp = function () {
-            var multipleMakes = parseInt('{setup_my_available_makes}' || '0', 10);
-            // var multipleMakes = parseInt('1' || '0', 10);
+            // var multipleMakes = parseInt('{setup_my_available_makes}' || '0', 10);
+            var multipleMakes = parseInt('1' || '0', 10);
             if (multipleMakes > 0) {
               $scope.makes.collection = [
                 { make: '{setup_dealer_primary_make}' },
@@ -258,16 +261,17 @@
               }
               $scope.makes.makeSelected = $scope.makes.collection[0];
             } else {
-              dealerMake = '{setup_dealer_primary_make}';
+              $scope.dealerMake = '{setup_dealer_primary_make}';
               getData();
             }
           }
+          $scope.dealerMake = '';
           $scope.base = {};
           $scope.vehicles = [];
           $scope.makes = {};
           $scope.$watch('makes.makeSelected', function (newv, oldv) {
             if (!_.isEmpty(newv)) {
-              dealerMake = $scope.makes.makeSelected.make;
+              $scope.dealerMake = $scope.makes.makeSelected.make;
               getData();
             }
           }, true);

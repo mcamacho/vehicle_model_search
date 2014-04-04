@@ -1,16 +1,22 @@
-<h1>Place your quote</h1>
 <div class="row">
   <div class="columns large-6">
-    <ul>
-      <li>Year: <strong>{{subase.sel.year}}</strong></li>
-      <li>Model: <strong>{{subase.sel.modelLabel}}</strong></li>
-      <li>Trim: <strong>{{subase.sel.trimLabel}}</strong></li>
-      <li>Color: <strong>{{subase.sel.exterior_color}}</strong></li>
-      <li>MSRP: $<strong>{{subase.sel.msrp}}</strong><sup>*</sup></li>
+    <ul class="pricing-table">
+      <li class="bullet-item">Year: <strong>{{subase.sel.year}}</strong></li>
+      <li class="bullet-item">Model: <strong>{{subase.sel.modelLabel}}</strong></li>
+      <li class="bullet-item">Trim: <strong>{{subase.sel.trimLabel}}</strong></li>
+      <li class="bullet-item">Color: <strong>{{subase.sel.exterior_color}}</strong></li>
+      <li class="price">MSRP: $<strong>{{subase.sel.msrp}}</strong><sup>*</sup></li>
       <li><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.sel.evox_vif}}/{{subase.sel.evox_vif}}_cc0640_001_{{subase.sel.ext_color_code}}.png"></li>
     </ul>
   </div>
   <div class="columns large-6">
+    <ul class="breadcrumbs">
+      <li><a href="#">Model</a></li>
+      <li><a href="#/model/{{subase.modelsel}}">Trim</a></li>
+      <li><a href="#/model/{{subase.modelsel}}/trim/{{subase.trimsel}}">Color</a></li>
+      <li>Quote</li>
+    </ul>
+    <h2 class="header2">Place your quote</h2>
     <form name="mquo" action="{{subase.the_permalink}}" method="post" id="{{subase.element_hash}}">
       <p><strong>Personal Information</strong></p>
       <div class="row">
@@ -121,6 +127,6 @@
       <span ng-hide="mquo.$valid" class="radius alert label">Please Fill all the Fields</span>
       <input ng-if="mquo.$valid" type="submit" name="dForm-Submit" value="Submit">
     </form>
+    <div ng-include="'views/disclaimer.html'"></div>
   </div>
 </div>
-<div ng-include="'views/disclaimer.html'"></div>

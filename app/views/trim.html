@@ -1,12 +1,16 @@
-<h1>Select a Trim</h1>
 <div class="row">
   <div class="columns large-3">
-    <ul>
-      <li>Year: {{base.yearSelected.year}}</li>
-      <li>Model: {{subase.current.modelLabel}}</li>
+    <ul class="pricing-table">
+      <li class="bullet-item">Year: {{base.yearSelected.year}}</li>
+      <li class="bullet-item">Model: {{subase.current.modelLabel}}</li>
     </ul>
   </div>
   <div class="columns large-9">
+    <ul class="breadcrumbs">
+      <li><a href="#">Model</a></li>
+      <li>Trim</li>
+    </ul>
+    <h2 class="header2">Select a Trim</h2>
     <ul class="small-block-grid-2 large-block-grid-5">
       <li ng-repeat="ele in baseF.modelTrim[subase.ele].trimuniq">
         <a href="#/model/{{ele.model}}/trim/{{ele.trim}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
@@ -15,6 +19,6 @@
         <br><small>Starts at <span>${{ele.msrptrim}}</span> MSRP<sup>*</sup></small>
       </li>
     </ul>
+    <div ng-include="'views/disclaimer.html'"></div>
   </div>
 </div>
-<div ng-include="'views/disclaimer.html'"></div>
