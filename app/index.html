@@ -95,12 +95,13 @@
           // $log.info($routeParams, $scope.subase.sel);
         })
         .controller('baseCtrl', function ($scope, $log, $http) {
+          var dealerMake = '';
           var basicParams = {
             f: 'json',
             show: 'all',
             type: 'new',
             d: 'vehicles',
-            make: '{setup_dealer_primary_make}',
+            // make: '{setup_dealer_primary_make}',
             e: 'trim,evox_vif,ext_color_code,msrp'
           };
           var groupParams = _.assign({
@@ -212,8 +213,65 @@
               });
             }
           };
+          var getData = function () {
+            $http({
+              // method: 'POST',
+              method: 'GET',
+              // url: '{home}/api/',
+              url: 'model.json',
+              params: _.assign({ make: dealerMake }, groupParams)
+            })
+            .success(function (data) {
+              $scope.base = createTree(cleanData(data));
+              // get complete inventory and count by year/model, year/trim, year/color
+              $http({
+                // method: 'POST',
+                method: 'GET',
+                // url: '{home}/api/',
+                url: 'inventory.json',
+                params: _.assign({ make: dealerMake }, inventoryParams)
+              })
+              .success(function (data) {
+                $scope.vehicles = splityear(data);
+                // $log.info(data.length);
+              });
+            });
+          };
+          var initApp = function () {
+            // var multipleMakes = parseInt('{setup_my_available_makes}' || '0', 10);
+            var multipleMakes = parseInt('1' || '0', 10);
+            if (multipleMakes > 0) {
+              $scope.makes = [
+                // { make: '{setup_dealer_primary_make}' },
+                // { make: '{setup_dealer_secondary_make_1}' }
+                { make: '{setup_dealer_primary_make}' },
+              ];
+              if (multipleMakes > 1) {
+                $scope.makes.push({ make: '{setup_dealer_secondary_make_2}' });
+                if (multipleMakes > 2) {
+                  $scope.makes.push({ make: '{setup_dealer_secondary_make_3}' });
+                  if (multipleMakes > 3) {
+                    $scope.makes.push({ make: '{setup_dealer_secondary_make_4}' });
+                  }
+                }
+              }
+              $scope.makeSelected = $scope.makes[0];
+            } else {
+              dealerMake = '{setup_dealer_primary_make}';
+              getData();
+            }
+          }
           $scope.base = {};
           $scope.vehicles = [];
+          // $scope.makeSelected = '';
+          $scope.$watch('makeSelected', function (newv, oldv) {
+            $log.info('makeSelected', newv, oldv);
+            if (!_.isEmpty(newv)) {
+              $log.info('multipleMakes', $scope.makeSelected, $scope.makes );
+              dealerMake = $scope.makeSelected.make;
+              getData();
+            }
+          }, true);
           $scope.$watch('base.yearSelected', function (newv, oldv) {
             if (newv) {
               $scope.baseF = filterCollection();
@@ -228,28 +286,7 @@
               countCollection();
             }
           });
-          $http({
-            // method: 'POST',
-            method: 'GET',
-            // url: '{home}/api/',
-            url: 'model.json',
-            params: groupParams
-          })
-          .success(function (data) {
-            $scope.base = createTree(cleanData(data));
-            // get complete inventory and count by year/model, year/trim, year/color
-            $http({
-              // method: 'POST',
-              method: 'GET',
-              // url: '{home}/api/',
-              url: 'inventory.json',
-              params: inventoryParams
-            })
-            .success(function (data) {
-              $scope.vehicles = splityear(data);
-              // $log.info(data.length);
-            });
-          });
+          initApp();
         });
     </script>
 

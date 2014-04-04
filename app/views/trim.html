@@ -12,10 +12,9 @@
         <a href="#/model/{{ele.model}}/trim/{{ele.trim}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
         <strong>{{ele.trim}}</strong>
         <br><small><span>{{ele.trimCount}}</span> Vehicles</small>
-        <br><small>Starts at <span>${{ele.msrptrim}}</span> MSRP</small>
+        <br><small>Starts at <span>${{ele.msrptrim}}</span> MSRP<sup>*</sup></small>
       </li>
     </ul>
   </div>
 </div>
-<!-- <code>{{baseF.modelTrim}}</code> -->
-<!-- http://cdn.wpdlr.co/assets/vehicles/evox/{{ele.evox_vif}}/{{ele.evox_vif}}_st0640_090.png -->
+<div ng-include="'views/disclaimer.html'"></div>

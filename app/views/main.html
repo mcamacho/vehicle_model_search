@@ -1,6 +1,7 @@
 <h1>Select a Model</h1>
 <div class="row">
   <div class="columns large-3">
+    <select ng-if="makes" ng-model="makeSelected" ng-options="obj.make for obj in makes"></select>
     <select ng-model="base.yearSelected" ng-options="obj.yearlabel for obj in base.yearArray"></select>
   </div>
   <div class="columns large-9">
@@ -9,10 +10,9 @@
         <a href="#/model/{{ele.model}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
         <strong>{{ele.modelLabel}}</strong>
         <br><small><span>{{ele.modelCount}}</span> Vehicles</small>
-        <br><small>Starts at <span>${{ele.msrpmodel}}</span> MSRP</small>
+        <br><small>Starts at <span>${{ele.msrpmodel}}</span> MSRP<sup>*</sup></small>
       </li>
     </ul>
   </div>
 </div>
-<!-- <code>{{baseF.models}}</code> -->
-<!-- data-src="http://cdn.wpdlr.co/assets/vehicles/evox/{{ele.evox_vif}}/{{ele.evox_vif}}_st0640_090.png" -->
+<div ng-include="'views/disclaimer.html'"></div>
