@@ -68,16 +68,18 @@
         ])
         .constant('_', _)
         .controller('trimCtrl', function ($scope, $log, $routeParams) {
+          var index = _.findIndex($scope.baseF.modelTrim, $routeParams);
           $scope.subase = {
-            ele: _.findIndex($scope.baseF.modelTrim, $routeParams),
-            current: $routeParams
+            ele: index,
+            current: $scope.baseF.modelTrim[index].trimuniq[0]
           };
           // $log.info($routeParams, $scope.baseF.modelTrim, $scope.subase.ele);
         })
         .controller('colorCtrl', function ($scope, $log, $routeParams) {
+          var index = _.findIndex($scope.baseF.modelTrimColor, $routeParams)
           $scope.subase = {
-            ele: _.findIndex($scope.baseF.modelTrimColor, $routeParams),
-            current: $routeParams
+            ele: index,
+            current: $scope.baseF.modelTrimColor[0].colors[0]
           };
           // $log.info($routeParams, _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }), $scope.subase.sel);
         })
@@ -116,8 +118,8 @@
               return _.assign(ele, {
                 modelLabel: ele.model,
                 trimLabel: ele.trim,
-                model: ele.model.replace(' ', '_'),
-                trim: ele.trim.replace(' ', '_').replace('/', '*')
+                model: ele.model.replace(/\s/g, '_'),
+                trim: ele.trim.replace(/\//g, '+').replace(/\s/g, '_')
               });
             });
           };
@@ -191,7 +193,7 @@
             // modify yearArray -> yearlabel
             _.forEach($scope.base.yearArray, function (ele) {
               var yearele = _.find($scope.vehicles, { year: ele.yearlabel });
-              ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' vehicles)';
+              ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' in Stock)';
             });
           };
           var countCollection = function () {
@@ -199,16 +201,16 @@
             if (_.isEmpty($scope.baseF.models[0].modelCount)) {
               var vehicleset = _.find($scope.vehicles, { year: $scope.base.yearSelected.year }).vehicles;
               _.forEach($scope.baseF.models, function (ele) {
-                ele.modelCount = _.where(vehicleset, { model: ele.modelLabel }).length;
+                ele.modelCount = _.where(vehicleset, { model: ele.model }).length;
               });
               _.forEach($scope.baseF.modelTrim, function (ele) {
                 _.forEach(ele.trimuniq, function (sub) {
-                  sub.trimCount = _.where(vehicleset, { model: ele.model.replace('_',' '), trim: sub.trimLabel }).length;
+                  sub.trimCount = _.where(vehicleset, { model: ele.model, trim: sub.trim }).length;
                 });
               });
               _.forEach($scope.baseF.modelTrimColor, function (ele) {
                 _.forEach(ele.colors, function (sub) {
-                  sub.colorCount = _.where(vehicleset, { model: ele.model.replace('_',' '), trim: ele.trim.replace('_',' '), ext_color_code: sub.ext_color_code }).length;
+                  sub.colorCount = _.where(vehicleset, { model: ele.model, trim: ele.trim, ext_color_code: sub.ext_color_code }).length;
                 });
               });
             }
@@ -232,30 +234,29 @@
                 params: _.assign({ make: dealerMake }, inventoryParams)
               })
               .success(function (data) {
-                $scope.vehicles = splityear(data);
+                $scope.vehicles = splityear(cleanData(data));
                 // $log.info(data.length);
               });
             });
           };
           var initApp = function () {
-            // var multipleMakes = parseInt('{setup_my_available_makes}' || '0', 10);
-            var multipleMakes = parseInt('1' || '0', 10);
+            var multipleMakes = parseInt('{setup_my_available_makes}' || '0', 10);
+            // var multipleMakes = parseInt('1' || '0', 10);
             if (multipleMakes > 0) {
-              $scope.makes = [
-                // { make: '{setup_dealer_primary_make}' },
-                // { make: '{setup_dealer_secondary_make_1}' }
+              $scope.makes.collection = [
                 { make: '{setup_dealer_primary_make}' },
+                { make: '{setup_dealer_secondary_make_1}' }
               ];
               if (multipleMakes > 1) {
-                $scope.makes.push({ make: '{setup_dealer_secondary_make_2}' });
+                $scope.makes.collection.push({ make: '{setup_dealer_secondary_make_2}' });
                 if (multipleMakes > 2) {
-                  $scope.makes.push({ make: '{setup_dealer_secondary_make_3}' });
+                  $scope.makes.collection.push({ make: '{setup_dealer_secondary_make_3}' });
                   if (multipleMakes > 3) {
-                    $scope.makes.push({ make: '{setup_dealer_secondary_make_4}' });
+                    $scope.makes.collection.push({ make: '{setup_dealer_secondary_make_4}' });
                   }
                 }
               }
-              $scope.makeSelected = $scope.makes[0];
+              $scope.makes.makeSelected = $scope.makes.collection[0];
             } else {
               dealerMake = '{setup_dealer_primary_make}';
               getData();
@@ -263,12 +264,10 @@
           }
           $scope.base = {};
           $scope.vehicles = [];
-          // $scope.makeSelected = '';
-          $scope.$watch('makeSelected', function (newv, oldv) {
-            $log.info('makeSelected', newv, oldv);
+          $scope.makes = {};
+          $scope.$watch('makes.makeSelected', function (newv, oldv) {
             if (!_.isEmpty(newv)) {
-              $log.info('multipleMakes', $scope.makeSelected, $scope.makes );
-              dealerMake = $scope.makeSelected.make;
+              dealerMake = $scope.makes.makeSelected.make;
               getData();
             }
           }, true);
