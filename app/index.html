@@ -1,0 +1,52 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Model Search - AngularBased</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <script src="http://vw-test.wpdlr.co/wp-content/themes/_fdt/js/custom.modernizr.js"></script>
+    <script src="http://vw-test.wpdlr.co/wp-includes/js/jquery/jquery.js?ver=1.10.2"></script>
+    <script src="http://vw-test.wpdlr.co/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script>
+
+    <link href="//cdn.wpdlr.co.s3.amazonaws.com/assets/general/css/foundation/default.css" rel="stylesheet" type="text/css">
+    <link href="//cdn.wpdlr.co/assets/general/css/foundation/general_enclosed_foundicons.css" rel="stylesheet">
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body class="row" ng-app="vehicleModelSearchApp">
+
+    <!-- Add your site or application content here -->
+    <div class="columns small-12" ng-controller="baseCtrl">
+      <div class="view-animate-container">
+        <div ng-view class="view-animate" autoscroll></div>
+      </div>
+    </div>
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/lodash/lodash.min.js"></script> -->
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular.min.js"></script> -->
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular-route.min.js"></script> -->
+    <!-- <script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular-animate.min.js"></script> -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+    <script src="//cdn.wpdlr.co/assets/general/js/foundation/foundation.min.js" defer="" async=""></script>
+    <script style="text/javascript">
+      window.onload = function() { jQuery(document).foundation(); };
+    </script>
+  </body>
+</html>
