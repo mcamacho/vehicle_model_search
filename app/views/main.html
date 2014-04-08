@@ -1,23 +1,22 @@
-<div class="row">
-  <div class="columns large-3">
-    <h2 ng-if="makes.makeSelected" class="header2">Select a Make</h2>
-    <select ng-if="makes.makeSelected" ng-model="makes.makeSelected" ng-options="obj.make for obj in makes.collection"></select>
-    <h2 class="header2">Select a Year</h2>
-    <select ng-model="base.yearSelected" ng-options="obj.yearlabel for obj in base.yearArray"></select>
-  </div>
-  <div class="columns large-9">
-    <ul class="breadcrumbs">
-      <li>Model</li>
-    </ul>
-    <h2 class="header2">Select a Model</h2>
-    <ul class="small-block-grid-2 large-block-grid-5">
-      <li ng-repeat="ele in baseF.models">
-        <a href="#/model/{{ele.model}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
-        <strong>{{ele.modelLabel}}</strong>
-        <br><small ng-if="ele.modelCount"><span>{{ele.modelCount}}</span> in Stock</small>
-        <br><small>Starts at <span>${{ele.msrpmodel}}</span> MSRP<sup>*</sup></small>
-      </li>
-    </ul>
-    <div ng-include="'views/disclaimer.html'"></div>
-  </div>
-</div>
+<ul class="breadcrumbs">
+  <li><select class="no-margin" style="width: initial;" ng-model="base.yearSelected" ng-options="obj.yearlabel for obj in base.yearArray"></select></li>
+  <li><select class="no-margin" style="width: initial;" ng-model="makes.makeSelected" ng-options="obj.make for obj in makes.collection"></select></li>
+  <li>Model</li>
+  <li>Trim</li>
+  <li>Color</li>
+</ul>
+<h2 class="header2">Select a Model</h2>
+<ul class="small-block-grid-2 large-block-grid-4">
+  <li ng-repeat="ele in baseF.models">
+    <table><tbody>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a></td></tr>
+      <tr>
+        <td><strong>{{ele.modelLabel}}</strong>
+          <br><font class="font-size-70em">Starts at ${{ele.msrpmodel}}<sup>*</sup></font></td>
+        <td class="text-center"><span ng-if="ele.modelCount">{{ele.modelCount}}
+          <br><font class="font-size-70em">in Stock</font></span></td>
+      </tr>
+    </tbody></table>
+  </li>
+</ul>
+<div ng-include="'views/disclaimer.html'"></div>

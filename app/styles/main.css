@@ -30,3 +30,11 @@
 input.ng-invalid {
   border-color: #660000;
 }
+
+.font-size-70em {
+  font-size: 0.70em;
+}
+
+.no-margin {
+  margin: 0 !important;
+}

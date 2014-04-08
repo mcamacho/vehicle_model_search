@@ -1,26 +1,22 @@
-<div class="row">
-  <div class="columns large-3">
-    <ul class="pricing-table">
-      <li class="bullet-item">Year: {{base.yearSelected.year}}</li>
-      <li class="bullet-item">Model: {{subase.current.modelLabel}}</li>
-      <li class="bullet-item">Trim: {{subase.current.trimLabel}}</li>
-    </ul>
-  </div>
-  <div class="columns large-9">
-    <ul class="breadcrumbs">
-      <li><a href="#">Model</a></li>
-      <li><a href="#/model/{{subase.modelsel}}">Trim</a></li>
-      <li>Color</li>
-    </ul>
-    <h2 class="header2">Select a Color</h2>
-    <ul class="small-block-grid-2 large-block-grid-5">
-      <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
-        <a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a>
-        <strong>{{ele.exterior_color}}</strong>
-        <br><small><span>{{ele.colorCount}}</span> in Stock</small>
-        <br><small>Starts at <span>${{ele.msrp}}</span> MSRP<sup>*</sup></small>
-      </li>
-    </ul>
-    <div ng-include="'views/disclaimer.html'"></div>
-  </div>
-</div>
+<ul class="breadcrumbs">
+  <li><a href="#">{{base.yearSelected.year}}</a></li>
+  <li><a href="#">{{makes.dealerMake}}</a></li>
+  <li><a href="#">{{subase.current.modelLabel}}</a></li>
+  <li><a href="#/model/{{subase.modelsel}}">{{subase.current.trimLabel}}</a></li>
+  <li>Color</li>
+</ul>
+<h2 class="header2">Select a Color</h2>
+<ul class="small-block-grid-2 large-block-grid-4">
+  <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
+    <table><tbody>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a></td></tr>
+      <tr>
+        <td><strong>{{ele.exterior_color}}</strong>
+          <br><font class="font-size-70em">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
+        <td class="text-center"><span>{{ele.colorCount}}
+          <br><font class="font-size-70em">in Stock</font></span></td>
+      </tr>
+    </tbody></table>
+  </li>
+</ul>
+<div ng-include="'views/disclaimer.html'"></div>
