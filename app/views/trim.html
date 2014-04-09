@@ -1,6 +1,6 @@
 <ul class="breadcrumbs">
   <li><a href="#">{{base.yearSelected.year}}</a></li>
-  <li><a href="#">{{makes.dealerMake}}</a></li>
+  <li ng-if="makes.makeSelected"><a href="#">{{makes.dealerMake}}</a></li>
   <li><a href="#">{{subase.current.modelLabel}}</a></li>
   <li>Trim</li>
   <li>Color</li>

@@ -252,7 +252,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     });
     $scope.$watch('vehicles', function (newv) {
       if (!_.isEmpty(newv)) {
-        updateYearSel();
+        //updateYearSel();
         countCollection();
       }
     });

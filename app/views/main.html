@@ -1,6 +1,6 @@
 <ul class="breadcrumbs">
   <li><select class="no-margin" style="width: initial;" ng-model="base.yearSelected" ng-options="obj.yearlabel for obj in base.yearArray"></select></li>
-  <li><select class="no-margin" style="width: initial;" ng-model="makes.makeSelected" ng-options="obj.make for obj in makes.collection"></select></li>
+  <li ng-if="makes.makeSelected"><select class="no-margin" style="width: initial;" ng-model="makes.makeSelected" ng-options="obj.make for obj in makes.collection"></select></li>
   <li>Model</li>
   <li>Trim</li>
   <li>Color</li>
