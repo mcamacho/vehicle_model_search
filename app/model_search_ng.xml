@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/3.8.1" created="2014-04-03 14:07" -->
+<!-- generator="WordPress/3.8.2" created="2014-04-09 16:12" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Mau Test Site</title>
 	<link>http://mau.wpdlr.co</link>
 	<description>Just another wpdlr Sites site</description>
-	<pubDate>Thu, 03 Apr 2014 14:07:32 +0000</pubDate>
+	<pubDate>Wed, 09 Apr 2014 16:12:50 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
 	<wp:base_site_url>http://wpdlr.co/</wp:base_site_url>
@@ -37,7 +37,7 @@
 
 
 
-	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<generator>http://wordpress.org/?v=3.8.2</generator>
 
 	<item>
 		<title>content: model search ng</title>
@@ -62,224 +62,294 @@
 		<wp:is_sticky>0</wp:is_sticky>
 		<wp:postmeta>
 			<wp:meta_key>html</wp:meta_key>
-						<wp:meta_value><![CDATA[  <div ng-controller="baseCtrl" ng-view></div>
+						<wp:meta_value><![CDATA[  <div class="columns small-12" ng-controller="baseCtrl">
+    <div class="view-animate-container">
+      <div ng-view autoscroll class="view-animate"></div>
+    </div>
+  </div>
 </div>
 <!-- vehicleModelSearchApp  -->
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/lodash/lodash.min.js"></script>
+<script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular.min.js"></script>
+<script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular-route.min.js"></script>
+<script src="http://cdn.wpdlr.co.s3.amazonaws.com/assets/general/js/angular/angular-animate.min.js"></script>
 <script type="text/javascript">
-  angular.module('vehicleModelSearchApp', ['ngRoute'])
-    .config(['$routeProvider', '$locationProvider',
-      function ($routeProvider, $locationProvider) {
-        $routeProvider
-          .when('/', {
-            templateUrl: 'main.html'
-          })
-          .when('/model/:model', {
-            controller: 'trimCtrl',
-            templateUrl: 'trim.html'
-          })
-          .when('/model/:model/trim/:trim', {
-            controller: 'colorCtrl',
-            templateUrl: 'color.html'
-          })
-          .when('/model/:model/trim/:trim/color/:ext_color_code', {
-            controller: 'quoteCtrl',
-            templateUrl: 'quote.html'
-          })
-          .otherwise({
-            redirectTo: '/'
-          });
-        $locationProvider.html5Mode(false);
-      }
-    ])
-    .constant('_', _)
-    .controller('trimCtrl', function ($scope, $log, $routeParams) {
-      $scope.subase = {
-        ele: _.findIndex($scope.baseF.modelTrim, $routeParams),
-        current: $routeParams
-      };
-      // $log.info($routeParams, $scope.baseF.modelTrim, $scope.subase.ele);
-    })
-    .controller('colorCtrl', function ($scope, $log, $routeParams) {
-      $scope.subase = {
-        ele: _.findIndex($scope.baseF.modelTrimColor, $routeParams),
-        current: $routeParams
-      };
-      // $log.info($routeParams, _.find($scope.baseF.modelTrimColor, { trim: $routeParams.trim }), $scope.subase.sel);
-    })
-    .controller('quoteCtrl', function ($scope, $log, $routeParams) {
-      $scope.subase = {
-        sel: _.find($scope.base.collection, $routeParams),
-        element_hash: '{element_hash}',
-        the_permalink: '{the_permalink}',
-        qtypeSelected: 'lease',
-        creditRating: 'great',
-        leaseTerm: '24',
-        milesYear: '10,000',
-        financeTerm: '24'
-      };
-      // $log.info($routeParams, $scope.subase.sel);
-    })
-    .controller('baseCtrl', function ($scope, $log, $http) {
-      var basicParams = {
-        f: 'json',
-        show: 'all',
-        type: 'new',
-        d: 'vehicles',
-        make: '{setup_dealer_primary_make}',
-        e: 'trim,evox_vif,ext_color_code,msrp'
-      };
-      var groupParams = _.assign({
-        q: 'group=year,model,trim,exterior_color',
-        k: 'year,model,trim,evox_vif,ext_color_code,exterior_color,msrp'
-      }, basicParams);
-      var inventoryParams = _.assign({
-        k: 'year,model,trim,ext_color_code'
-      }, basicParams);
-      var cleanData = function (data) {
-        return _.map(data, function (ele) {
-          return _.assign(ele, {
-            modelLabel: ele.model,
-            trimLabel: ele.trim,
-            model: ele.model.replace(' ', '_'),
-            trim: ele.trim.replace(' ', '_').replace('/', '*')
-          });
+angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
+  .config(['$routeProvider', '$locationProvider',
+    function ($routeProvider, $locationProvider) {
+      $routeProvider
+        .when('/', {
+          templateUrl: 'main.html'
+        })
+        .when('/model/:model', {
+          controller: 'trimCtrl',
+          templateUrl: 'trim.html'
+        })
+        .when('/model/:model/trim/:trim', {
+          controller: 'colorCtrl',
+          templateUrl: 'color.html'
+        })
+        .when('/model/:model/trim/:trim/color/:ext_color_code', {
+          controller: 'quoteCtrl',
+          templateUrl: 'quote.html'
+        })
+        .otherwise({
+          redirectTo: '/'
         });
-      };
-      var createTree = function (data) {
-        var tree = {};
-        tree.ttsrc = '{src}';
-        tree.yearArray = _.map(_.uniq(data, 'year'), function (ele) {
-          ele.yearlabel = ele.year;
+      $locationProvider.html5Mode(false);
+    }
+  ])
+  .constant('_', _)
+  .controller('trimCtrl', function ($scope, $log, $routeParams) {
+    $scope.$watch('baseF', function (newv) {
+      if (newv) {
+        var index = _.findIndex($scope.baseF.modelTrim, $routeParams);
+        $scope.subase = {
+          ele: index,
+          current: $scope.baseF.modelTrim[index].trimuniq[0]
+        };
+      }
+    });
+  })
+  .controller('colorCtrl', function ($scope, $log, $routeParams) {
+    $scope.$watch('baseF', function (newv) {
+      if (newv) {
+        var index = _.findIndex($scope.baseF.modelTrimColor, $routeParams);
+        $scope.subase = {
+          ele: index,
+          modelsel: $routeParams.model,
+          current: $scope.baseF.modelTrimColor[index].colors[0]
+        };
+      }
+    });
+  })
+  .controller('quoteCtrl', function ($scope, $log, $routeParams) {
+    $scope.snowpush = function () {
+      if (window._snaq) {
+        var fields = _.map($scope.mform, function (val,key) {
+          return key + '-' + val;
+        }).join();
+        var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.ext_color_code;
+        _snaq.push({
+          category: 'webform',
+          action: 'form-fields',
+          label: fields,
+          property: prop,
+          value: $scope.subase.current.msrp
+        });
+      }
+    };
+    $scope.$watch('base.collection', function (newv) {
+      if (newv) {
+        $scope.subase = {
+          current: _.find($scope.base.collection, $routeParams),
+          element_hash: '{element_hash}',
+          the_permalink: '{the_permalink}',
+          modelsel: $routeParams.model,
+          trimsel: $routeParams.trim
+        };
+        $scope.mform = {
+          qtypeSelected: 'lease',
+          creditRating: 'great',
+          leaseTerm: '24',
+          milesYear: '10000',
+          financeTerm: '24'
+        };
+      }
+    });
+  })
+  .controller('baseCtrl', function ($scope, $log, $http) {
+    var basicParams = {
+      f: 'json',
+      show: 'all',
+      type: 'new',
+      d: 'vehicles',
+      e: 'trim,evox_vif,ext_color_code,msrp'
+    };
+    var groupParams = _.assign({
+      q: 'group=year,model,trim,exterior_color',
+      k: 'year,model,trim,evox_vif,ext_color_code,exterior_color,msrp'
+    }, basicParams);
+    var inventoryParams = _.assign({
+      k: 'year,model,trim,ext_color_code'
+    }, basicParams);
+    var cleanData = function (data) {
+      return _.map(data, function (ele) {
+        return _.assign(ele, {
+          modelLabel: ele.model,
+          trimLabel: ele.trim,
+          model: ele.model.replace(/[ ]/g, '_'),
+          trim: ele.trim.replace(/[/]/g, '+').replace(/[ ]/g, '_')
+        });
+      });
+    };
+    var createTree = function (data) {
+      var tree = {};
+      tree.ttsrc = '{src}';
+      tree.yearArray = _.map(_.uniq(data, 'year'), function (ele) {
+        ele.yearlabel = ele.year;
+        return ele;
+      });
+      tree.yearSelected = tree.yearArray[0];
+      tree.collection = _.sortBy(data, 'ext_color_code').reverse();
+      return tree;
+    };
+    var filterCollection = function () {
+      var data = _.where($scope.base.collection, { year: $scope.base.yearSelected.year });
+      var tree = {};
+      tree.models = (function () {
+        var msrpuniq = _.uniq(_.sortBy(data, 'msrp'), 'model');
+        var modeluniq = _.map(_.uniq(data, 'model'), function (ele) {
+          ele.msrpmodel = _.find(msrpuniq, { model: ele.model }).msrp;
           return ele;
         });
-        tree.yearSelected = tree.yearArray[0];
-        tree.collection = _.sortBy(data, 'ext_color_code').reverse();
-        return tree;
-      };
-      var filterCollection = function () {
-        var data = _.where($scope.base.collection, { year: $scope.base.yearSelected.year });
-        var tree = {};
-        tree.models = (function () {
-          var msrpuniq = _.uniq(_.sortBy(data, 'msrp'), 'model');
-          var modeluniq = _.map(_.uniq(data, 'model'), function (ele) {
-            ele.msrpmodel = _.find(msrpuniq, { model: ele.model }).msrp;
-            return ele;
-          });
-          return _.sortBy(modeluniq, 'model');
-        }());
-        tree.modelTrim = _.map(tree.models, function (ele) {
-          var trims = _.where(data, {
-            model: ele.model
-          });
-          var trimsort = _.sortBy(trims, 'msrp');
-          return {
-            model: ele.model,
-            trimuniq: _.sortBy(
-              _.map(
-                _.uniq(trims, 'trim'), function (ele) {
-                  ele.msrptrim = _.find(trimsort, { trim: ele.trim }).msrp;
-                  return ele;
-                }
-              ), 'msrp')
-          }
+        return _.sortBy(modeluniq, 'model');
+      }());
+      tree.modelTrim = _.map(tree.models, function (ele) {
+        var trims = _.where(data, {
+          model: ele.model
         });
-        tree.modelTrimColor = _.flatten(_.map(tree.modelTrim, function (ele) {
-          var trimarray = _.map(ele.trimuniq, function (oto) {
-            var colors = _.where(data, {
-              model: oto.model,
-              trim: oto.trim
-            });
-            return {
-              model: oto.model,
-              trim: oto.trim,
-              colors: _.sortBy(_.uniq(colors, 'ext_color_code'), 'msrp')
-            };
-          });
-          return trimarray;
-        }));
-        return tree;
-      };
-      var splityear = function (data) {
-        // split the inventory collection by year
-        // $log.info('yearArray',$scope.base.yearArray);
-        var split = [];
-        for (var i = $scope.base.yearArray.length - 1; i >= 0; i--) {
-          split.push({
-            year: $scope.base.yearArray[i].year,
-            vehicles: _.where(data, { year: $scope.base.yearArray[i].year })
-          });
+        var trimsort = _.sortBy(trims, 'msrp');
+        return {
+          model: ele.model,
+          trimuniq: _.sortBy(
+            _.map(
+              _.uniq(trims, 'trim'), function (ele) {
+                ele.msrptrim = _.find(trimsort, { trim: ele.trim }).msrp;
+                return ele;
+              }
+            ), 'msrp')
         };
-        return split;
-      };
-      var updateYearSel =  function () {
-        // modify yearArray -> yearlabel
-        _.forEach($scope.base.yearArray, function (ele) {
-          var yearele = _.find($scope.vehicles, { year: ele.yearlabel });
-          ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' vehicles)';
+      });
+      tree.modelTrimColor = _.flatten(_.map(tree.modelTrim, function (ele) {
+        var trimarray = _.map(ele.trimuniq, function (oto) {
+          var colors = _.where(data, {
+            model: oto.model,
+            trim: oto.trim
+          });
+          return {
+            model: oto.model,
+            trim: oto.trim,
+            colors: _.sortBy(_.uniq(colors, 'ext_color_code'), 'msrp')
+          };
         });
-      };
-      var countCollection = function () {
-        // process the inventory and assign the new attribute to the base.collection
-        if (_.isEmpty($scope.baseF.models[0].modelCount)) {
-          var vehicleset = _.find($scope.vehicles, { year: $scope.base.yearSelected.year }).vehicles;
-          _.forEach($scope.baseF.models, function (ele) {
-            ele.modelCount = _.where(vehicleset, { model: ele.modelLabel }).length;
-          });
-          _.forEach($scope.baseF.modelTrim, function (ele) {
-            _.forEach(ele.trimuniq, function (sub) {
-              sub.trimCount = _.where(vehicleset, { model: ele.model.replace('_',' '), trim: sub.trimLabel }).length;
-            });
-          });
-          _.forEach($scope.baseF.modelTrimColor, function (ele) {
-            _.forEach(ele.colors, function (sub) {
-              sub.colorCount = _.where(vehicleset, { model: ele.model.replace('_',' '), trim: ele.trim.replace('_',' '), ext_color_code: sub.ext_color_code }).length;
-            });
-          });
-        }
-      };
-      $scope.base = {};
-      $scope.vehicles = [];
-      $scope.$watch('base.yearSelected', function (newv, oldv) {
-        if (newv) {
-          $scope.baseF = filterCollection();
-          if (!_.isEmpty($scope.vehicles)) {
-            countCollection();
-          }
-        }
+        return trimarray;
+      }));
+      return tree;
+    };
+    var splityear = function (data) {
+      // split the inventory collection by year
+      // $log.info('yearArray',$scope.base.yearArray);
+      var split = [];
+      for (var i = $scope.base.yearArray.length - 1; i >= 0; i--) {
+        split.push({
+          year: $scope.base.yearArray[i].year,
+          vehicles: _.where(data, { year: $scope.base.yearArray[i].year })
+        });
+      }
+      return split;
+    };
+    var updateYearSel =  function () {
+      // modify yearArray -> yearlabel
+      _.forEach($scope.base.yearArray, function (ele) {
+        var yearele = _.find($scope.vehicles, { year: ele.yearlabel });
+        ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' in Stock)';
       });
-      $scope.$watch('vehicles', function (newv, oldv) {
-        if (!_.isEmpty(newv)) {
-          updateYearSel();
-          countCollection();
-        }
-      });
+    };
+    var countCollection = function () {
+      // process the inventory and assign the new attribute to the base.collection
+      if (_.isEmpty($scope.baseF.models[0].modelCount)) {
+        var vehicleset = _.find($scope.vehicles, { year: $scope.base.yearSelected.year }).vehicles;
+        _.forEach($scope.baseF.models, function (ele) {
+          ele.modelCount = _.where(vehicleset, { model: ele.model }).length;
+        });
+        _.forEach($scope.baseF.modelTrim, function (ele) {
+          _.forEach(ele.trimuniq, function (sub) {
+            sub.trimCount = _.where(vehicleset, { model: ele.model, trim: sub.trim }).length;
+          });
+        });
+        _.forEach($scope.baseF.modelTrimColor, function (ele) {
+          _.forEach(ele.colors, function (sub) {
+            sub.colorCount = _.where(vehicleset, { model: ele.model, trim: ele.trim, ext_color_code: sub.ext_color_code }).length;
+          });
+        });
+      }
+    };
+    var getData = function () {
       $http({
         method: 'POST',
-        // method: 'GET',
+        //method: 'GET',
         url: '{home}/api/',
-        // url: 'model.json',
-        params: groupParams
+        //url: 'model.json',
+        params: _.assign({ make: $scope.makes.dealerMake }, groupParams)
       })
       .success(function (data) {
         $scope.base = createTree(cleanData(data));
         // get complete inventory and count by year/model, year/trim, year/color
         $http({
           method: 'POST',
-          // method: 'GET',
+          //method: 'GET',
           url: '{home}/api/',
-          // url: 'inventory.json',
-          params: inventoryParams
+          //url: 'inventory.json',
+          params: _.assign({ make: $scope.makes.dealerMake }, inventoryParams)
         })
         .success(function (data) {
-          $scope.vehicles = splityear(data);
+          $scope.vehicles = splityear(cleanData(data));
           // $log.info(data.length);
         });
       });
+    };
+    var initApp = function () {
+      var multipleMakes = parseInt('{setup_my_available_makes}' || '0', 10);
+      // var multipleMakes = parseInt('1' || '0', 10);
+      if (multipleMakes > 0) {
+        $scope.makes.collection = [
+          { make: '{setup_dealer_primary_make}' },
+          { make: '{setup_dealer_secondary_make_1}' }
+        ];
+        if (multipleMakes > 1) {
+          $scope.makes.collection.push({ make: '{setup_dealer_secondary_make_2}' });
+          if (multipleMakes > 2) {
+            $scope.makes.collection.push({ make: '{setup_dealer_secondary_make_3}' });
+            if (multipleMakes > 3) {
+              $scope.makes.collection.push({ make: '{setup_dealer_secondary_make_4}' });
+            }
+          }
+        }
+        $scope.makes.makeSelected = $scope.makes.collection[0];
+      } else {
+        $scope.makes.dealerMake = '{setup_dealer_primary_make}';
+        getData();
+      }
+    };
+    $scope.base = {};
+    $scope.vehicles = [];
+    $scope.makes = {
+      dealerMake: ''
+    };
+    $scope.$watch('makes.makeSelected', function (newv) {
+      if (!_.isEmpty(newv)) {
+        $scope.makes.dealerMake = $scope.makes.makeSelected.make;
+        getData();
+      }
+    }, true);
+    $scope.$watch('base.yearSelected', function (newv) {
+      if (newv) {
+        $scope.baseF = filterCollection();
+        if (!_.isEmpty($scope.vehicles)) {
+          countCollection();
+        }
+      }
     });
+    $scope.$watch('vehicles', function (newv) {
+      if (!_.isEmpty(newv)) {
+        //updateYearSel();
+        countCollection();
+      }
+    });
+    initApp();
+  });
 </script>]]></wp:meta_value>
 					</wp:postmeta>
 		<wp:postmeta>
@@ -304,115 +374,156 @@
 					</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>html_preloop</wp:meta_key>
-						<wp:meta_value><![CDATA[<div class="row" ng-app="vehicleModelSearchApp">
+						<wp:meta_value><![CDATA[<script type="text/javascript">
+  var _snaq = {
+    push: function () {
+     console.log('snaq',arguments);
+    }
+  }
+</script>
+<div class="row" ng-app="vehicleModelSearchApp">
+<script type="text/ng-template" id="disclaimer.html">
+<p><small>* MSRP includes destination and handling, but excludes applicable taxes, title, registration, license, options and dealer fees. Regional MSRP pricing may vary.</small></p>
+</script>
 <script type="text/ng-template" id="main.html">
-<h1>Select a Model</h1>
-<div class="row">
-  <div class="columns large-3">
-    <select ng-model="base.yearSelected" ng-options="obj.yearlabel for obj in base.yearArray"></select>
-  </div>
-  <div class="columns large-9">
-    <ul class="small-block-grid-2 large-block-grid-5">
-      <li ng-repeat="ele in baseF.models">
-        <a href="#/model/{{ele.model}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110&f=2"></a>
-        <strong>{{ele.modelLabel}}</strong>
-        <br><small><span>{{ele.modelCount}}</span> Vehicles</small>
-        <br><small>Starts at <span>${{ele.msrpmodel}}</span> MSRP</small>
-      </li>
-    </ul>
-  </div>
-</div>
+<ul class="breadcrumbs">
+  <li><select class="no-margin" style="width: initial;" ng-model="base.yearSelected" ng-options="obj.yearlabel for obj in base.yearArray"></select></li>
+  <li ng-if="makes.makeSelected"><select class="no-margin" style="width: initial;" ng-model="makes.makeSelected" ng-options="obj.make for obj in makes.collection"></select></li>
+  <li>Model</li>
+  <li>Trim</li>
+  <li>Color</li>
+</ul>
+<h2 class="header2">Select a Model</h2>
+<ul class="small-block-grid-2 large-block-grid-4">
+  <li ng-repeat="ele in baseF.models">
+    <table><tbody>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}" data-snowplow="model-search:add:model:{{ele.model}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110&f=2"></a></td></tr>
+      <tr>
+        <td><strong>{{ele.modelLabel}}</strong>
+          <br><font class="font-size-70em">Starts at ${{ele.msrpmodel}}<sup>*</sup></font></td>
+        <td class="text-center primary"><span ng-if="ele.modelCount">{{ele.modelCount}}
+          <br><font class="font-size-70em">in Stock</font></span></td>
+      </tr>
+    </tbody></table>
+  </li>
+</ul>
+<div ng-include="'disclaimer.html'"></div>
 </script>
-  <script type="text/ng-template" id="trim.html">
-<h1>Select a Trim</h1>
-<div class="row">
-  <div class="columns large-3">
-    <ul>
-      <li>Year: {{base.yearSelected.year}}</li>
-      <li>Model: {{subase.current.model.replace('_',' ')}}</li>
-    </ul>
-  </div>
-  <div class="columns large-9">
-    <ul class="small-block-grid-2 large-block-grid-5">
-      <li ng-repeat="ele in baseF.modelTrim[subase.ele].trimuniq">
-        <a href="#/model/{{ele.model}}/trim/{{ele.trim}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110&f=2"></a>
-        <strong>{{ele.trim}}</strong>
-        <br><small><span>{{ele.trimCount}}</span> Vehicles</small>
-        <br><small>Starts at <span>${{ele.msrptrim}}</span> MSRP</small>
-      </li>
-    </ul>
-  </div>
-</div>
+<script type="text/ng-template" id="trim.html">
+<ul class="breadcrumbs">
+  <li><a href="#" data-snowplow="model-search:removed:model:{{subase.current.model}}">{{base.yearSelected.year}}</a></li>
+  <li ng-if="makes.makeSelected"><a href="#" data-snowplow="model-search:removed:model:{{subase.current.model}}">{{makes.dealerMake}}</a></li>
+  <li><a href="#" data-snowplow="model-search:removed:model:{{subase.current.model}}">{{subase.current.modelLabel}}</a></li>
+  <li>Trim</li>
+  <li>Color</li>
+</ul>
+<h2 class="header2">Select a Trim</h2>
+<ul class="small-block-grid-2 large-block-grid-4">
+  <li ng-repeat="ele in baseF.modelTrim[subase.ele].trimuniq">
+    <table><tbody>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}" data-snowplow="model-search:add:trim:{{ele.trim}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110&f=2"></a></td></tr>
+      <tr>
+        <td><strong>{{ele.trimLabel}}</strong>
+          <br><font class="font-size-70em">Starts at ${{ele.msrptrim}}<sup>*</sup></font></td>
+        <td class="text-center primary"><span>{{ele.trimCount}}
+          <br><font class="font-size-70em">in Stock</font></span></td>
+      </tr>
+    </tbody></table>
+  </li>
+</ul>
+<div ng-include="'disclaimer.html'"></div>
 </script>
-  <script type="text/ng-template" id="color.html">
-<h1>Select a Color</h1>
-<div class="row">
-  <div class="columns large-3">
-    <ul>
-      <li>Year: {{base.yearSelected.year}}</li>
-      <li>Model: {{subase.current.model.replace('_',' ')}}</li>
-      <li>Trim: {{subase.current.trim}}</li>
-    </ul>
-  </div>
-  <div class="columns large-9">
-    <ul class="small-block-grid-2 large-block-grid-5">
-      <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
-        <a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110"></a>
-        <strong>{{ele.exterior_color}}</strong>
-        <br><small><span>{{ele.colorCount}}</span> Vehicles</small>
-        <br><small>Starts at <span>${{ele.msrp}}</span> MSRP</small>
-      </li>
-    </ul>
-  </div>
-</div>
+<script type="text/ng-template" id="color.html">
+<ul class="breadcrumbs">
+  <li><a href="#" data-snowplow="model-search:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{base.yearSelected.year}}</a></li>
+  <li ng-if="makes.makeSelected"><a href="#" data-snowplow="model-search:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{makes.dealerMake}}</a></li>
+  <li><a href="#" data-snowplow="model-search:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{subase.current.modelLabel}}</a></li>
+  <li><a href="#/model/{{subase.modelsel}}" data-snowplow="model-search:removed:trim:{{subase.current.trim}}">{{subase.current.trimLabel}}</a></li>
+  <li>Color</li>
+</ul>
+<h2 class="header2">Select a Color</h2>
+<ul class="small-block-grid-2 large-block-grid-4">
+  <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
+    <table><tbody>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}" data-snowplow="model-search:add:color:{{ele.ext_color_code}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110"></a></td></tr>
+      <tr>
+        <td><strong>{{ele.exterior_color}}</strong>
+          <br><font class="font-size-70em">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
+        <td class="text-center primary"><span>{{ele.colorCount}}
+          <br><font class="font-size-70em">in Stock</font></span></td>
+      </tr>
+    </tbody></table>
+  </li>
+</ul>
+<div ng-include="'disclaimer.html'"></div>
 </script>
 <script type="text/ng-template" id="quote.html">
-<h1>Place your quote</h1>
 <div class="row">
   <div class="columns large-6">
-    <ul>
-      <li>Year: <strong>{{subase.sel.year}}</strong></li>
-      <li>Model: <strong>{{subase.sel.modelLabel}}</strong></li>
-      <li>Trim: <strong>{{subase.sel.trim}}</strong></li>
-      <li>Color: <strong>{{subase.sel.exterior_color}}</strong></li>
-      <li>MSRP: $<strong>{{subase.sel.msrp}}</strong></li>
-      <li><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.sel.evox_vif}}/{{subase.sel.evox_vif}}_cc0640_001_{{subase.sel.ext_color_code}}.png&w=640&h=320"></li>
+    <ul class="pricing-table">
+      <li class="bullet-item">Year: <strong>{{subase.current.year}}</strong></li>
+      <li class="bullet-item">Model: <strong>{{subase.current.modelLabel}}</strong></li>
+      <li class="bullet-item">Trim: <strong>{{subase.current.trimLabel}}</strong></li>
+      <li class="bullet-item">Color: <strong>{{subase.current.exterior_color}}</strong></li>
+      <li class="price">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
+      <li><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.ext_color_code}}.png&w=640&h=320"></li>
     </ul>
   </div>
   <div class="columns large-6">
-    <form name="mquo" action="{{subase.the_permalink}}" method="post" id="{{subase.element_hash}}">
-      <p><strong>Personal Information</strong></p>
+    <ul class="breadcrumbs">
+      <li><a href="#" data-snowplow="model-search:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}">{{base.yearSelected.year}}</a></li>
+      <li ng-if="makes.makeSelected"><a href="#" data-snowplow="model-search:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}">{{makes.dealerMake}}</a></li>
+      <li><a href="#" data-snowplow="model-search:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}">{{subase.current.modelLabel}}</a></li>
+      <li><a href="#/model/{{subase.modelsel}}" data-snowplow="model-search:removed:trim,color:{{subase.current.trim}},{{subase.current.ext_color_code}}">{{subase.current.trimLabel}}</a></li>
+      <li><a href="#/model/{{subase.modelsel}}/trim/{{subase.trimsel}}" data-snowplow="model-search:removed:color:{{subase.current.ext_color_code}}">{{subase.current.exterior_color}}</a></li>
+    </ul>
+    <form class="mform" ng-submit="snowpush()" action="/#/" name="mquo" method="post" id="{{subase.element_hash}}">
+      <div class="panel radius"><div class="row" style="line-height:2em">
+        <div class="columns large-6">
+          <label class="left small-5">Quote Type</label>
+          <select class="selecth small-5" id="qtype" name="quote_type" ng-model="mform.qtypeSelected">
+            <option value="lease">Lease</option>
+            <option value="finance">Finance</option>
+            <option value="purchase">Purchase</option>
+          </select>
+        </div>
+        <div ng-if="mform.qtypeSelected !== 'purchase'" class="columns large-6">
+          <label class="left small-5">Credit Rating</label>
+          <select class="selecth small-5" name="credit_rating" ng-model="mform.creditRating">
+            <option value="great">Great</option>
+            <option value="good">Good</option>
+            <option value="soso">So-so</option>
+            <option value="notgood">Not so good</option>
+          </select>
+        </div>
+      </div></div>
+      <!-- quote type / credit rating -->
       <div class="row">
         <div class="columns small-4">
           <label for="first_name">First Name<span ng-show="mquo.first_name.$error.required"> * </span></label>
-          <input type="text" id="first_name" name="first_name" ng-model="subase.firstName" required>
+          <input type="text" id="first_name" name="first_name" ng-model="mform.firstName" required>
         </div>
         <div class="columns small-4">
           <label for="last_name">Last Name<span ng-show="mquo.last_name.$error.required"> * </span></label>
-          <input type="text" id="last_name" name="last_name" ng-model="subase.lastName" required>
+          <input type="text" id="last_name" name="last_name" ng-model="mform.lastName" required>
         </div>
         <div class="columns small-4">
           <label for="email">Email<span ng-show="mquo.email.$error.required"> * </span></label>
-          <input type="email" id="email" name="email" ng-model="subase.email" required>
+          <input type="email" id="email" name="email" ng-model="mform.email" required>
         </div>
       </div>
       <!-- Personal Information -->
-      <input type="hidden" name="year" value="{{subase.sel.year}}">
-      <input type="hidden" name="model" value="{{subase.sel.modelLabel}}">
-      <input type="hidden" name="trim" value="{{subase.sel.trim}}">
-      <input type="hidden" name="color" value="{{subase.sel.exterior_color}}">
-      <input type="hidden" name="msrp" value="{{subase.sel.msrp}}">
+      <input type="hidden" name="year" value="{{subase.current.year}}">
+      <input type="hidden" name="model" value="{{subase.current.modelLabel}}">
+      <input type="hidden" name="trim" value="{{subase.current.trimLabel}}">
+      <input type="hidden" name="color" value="{{subase.current.exterior_color}}">
+      <input type="hidden" name="msrp" value="{{subase.current.msrp}}">
       <!-- Model Information -->
-      <p><strong>Quote Type</strong></p>
-      <select id="qtype" name="quote_type" ng-model="subase.qtypeSelected">
-        <option value="lease">Lease</option>
-        <option value="finance">Finance</option>
-        <option value="purchase">Purchase</option>
-      </select>
-      <div ng-if="subase.qtypeSelected === 'lease'" class="row">
-        <div class="columns small-4">
+      <div ng-if="mform.qtypeSelected === 'lease'" class="row">
+        <div class="columns small-4 large-4">
           <label for="lease_term">Term</label>
-          <select id="lease_term" name="lease_term" ng-model="subase.leaseTerm">
+          <select class="selecth" id="lease_term" name="lease_term" ng-model="mform.leaseTerm">
+            <option value="any">Any</option>
             <option value="24">24 mo.</option>
             <option value="36">36 mo.</option>
             <option value="39">39 mo.</option>
@@ -420,78 +531,118 @@
             <option value="48">48 mo.</option>
           </select>
         </div>
-        <div class="columns small-4">
+        <div class="columns small-4 large-4">
           <label for="miles_year">Miles per year</label>
-          <select id="miles_year" name="miles_year" ng-model="subase.milesYear">
-            <option value="10,000">10,000 mi.</option>
-            <option value="12,000">12,000 mi.</option>
-            <option value="15,000">15,000 mi.</option>
-            <option value="18,000">18,000 mi.</option>
-            <option value="20,000">20,000 mi.</option>
+          <select class="selecth" id="miles_year" name="miles_year" ng-model="mform.milesYear">
+            <option value="10000">10,000 mi.</option>
+            <option value="12000">12,000 mi.</option>
+            <option value="15000">15,000 mi.</option>
+            <option value="18000">18,000 mi.</option>
+            <option value="20000">20,000 mi.</option>
           </select>
         </div>
-        <div class="columns small-4">
+        <div class="columns small-12 large-4">
           <label for="max_down">Max down-payment<span ng-show="mquo.max_down.$error.required"> * </span></label>
-          <input type="text" id="max_down" name="max_down" ng-model="subase.maxDown" required>
+          <input type="number" id="max_down" name="max_down" ng-model="mform.maxDown" required>
         </div>
-        <div class="columns small-4">
-          <label for="credit_rating">Credit Rating</label>
-          <select name="credit_rating" ng-model="subase.creditRating">
-            <option value="great">Great</option>
-            <option value="good">Good</option>
-            <option value="soso">So-so</option>
-            <option value="notgood">Not so good</option>
-          </select>
-        </div>
-        <div class="columns small-4">
-          <label for="additional_equipment">Additional Equipment</label>
-          <textarea name="additional_equipment" ng-model="subase.additionalEquipment"></textarea>
+        <div class="columns large-12">
+          <label for="additional_equipment">Additional Equipment/Notes/Details</label>
+          <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
-      <div ng-if="subase.qtypeSelected === 'finance'" class="row">
-        <div class="columns small-4">
+      <div ng-if="mform.qtypeSelected === 'finance'" class="row">
+        <div class="columns small-6">
           <label for="finance_term">Term</label>
-          <select id="finance_term" name="finance_term" ng-model="subase.financeTerm">
+          <select class="selecth" id="finance_term" name="finance_term" ng-model="mform.financeTerm">
+            <option value="any">Any</option>
             <option value="24">24 mo.</option>
             <option value="48">48 mo.</option>
             <option value="72">72 mo.</option>
-            <option value="96">96 mo.</option>
-            <option value="120">120 mo.</option>
-            <option value="144">144 mo.</option>
           </select>
         </div>
-        <div class="columns small-4">
+        <div class="columns small-6">
           <label for="max_down">Max down-payment<span ng-show="mquo.max_down.$error.required"> * </span></label>
-          <input type="text" id="max_down" name="max_down" ng-model="subase.maxDown" required>
+          <input type="number" id="max_down" name="max_down" ng-model="mform.maxDown" required>
         </div>
-        <div class="columns small-4">
-          <label for="credit_rating">Credit Rating</label>
-          <select name="credit_rating" ng-model="subase.creditRating">
-            <option value="great">Great</option>
-            <option value="good">Good</option>
-            <option value="soso">So-so</option>
-            <option value="notgood">Not so good</option>
-          </select>
-        </div>
-        <div class="columns small-4">
+        <div class="columns large-12">
           <label for="additional_equipment">Additional Equipment</label>
-          <textarea name="additional_equipment" ng-model="subase.additionalEquipment"></textarea>
+          <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
-      <div ng-if="subase.qtypeSelected === 'purchase'" class="row">
-        <div class="columns small-4">
+      <div ng-if="mform.qtypeSelected === 'purchase'" class="row">
+        <div class="columns large-12">
           <label for="additional_equipment">Additional Equipment</label>
-          <textarea name="additional_equipment" ng-model="subase.additionalEquipment"></textarea>
+          <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
       <!-- Quote Type -->
       <input type="hidden" name="dForm-ID" value="{{subase.element_hash}}">
       <input type="hidden" name="dForm-Subject" value="Model Quote">
-      <input type="submit" name="dForm-Submit" value="Submit">
+      <div class="text-right">
+        <span ng-hide="mquo.$valid" class="radius alert label">Please Fill all the Fields</span>
+        <input class="button small" ng-if="mquo.$valid" type="submit" name="dForm-Submit" value="Submit" data-snowplow="webform:form-submit:instock-quote:{{subase.current.year}},{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}:{{subase.current.msrp}}">
+      </div>
     </form>
+    <div ng-include="'disclaimer.html'"></div>
   </div>
 </div>
 </script>]]></wp:meta_value>
+					</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>css</wp:meta_key>
+						<wp:meta_value><![CDATA[.header1 {
+  font-size: 1.5em;
+}
+.header2 {
+  font-size: 1.25em;
+}
+
+.view-animate-container {
+  position: relative;
+}
+ 
+.view-animate {
+  width: 100%;
+  background: white;
+}
+ 
+.view-animate.ng-enter {
+  -webkit-transition:opacity 0.5s;
+  transition:opacity 0.5s;
+  opacity: 0;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+input.ng-invalid {
+  border-color: #CEADAD;
+}
+
+/*.breadcrumbs a,.breadcrumbs > *:before { display: inline-block; }*/
+.mform input {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.selecth {
+  margin: 0;
+  border: 1px solid #ccc;
+  height: 32px;
+  line-height: 32px;
+  padding: 4px 6px;
+  font-size: 14px;
+  color: #555;
+  vertical-align: middle;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.primary {
+  color: {setup_color_1}
+}]]></wp:meta_value>
 					</wp:postmeta>
 	</item>
 </channel>

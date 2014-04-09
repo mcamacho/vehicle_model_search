@@ -41,8 +41,7 @@ input.ng-invalid {
 
 .selecth {
   margin: 0;
-  background-color: #fff;
-  /*border: 1px solid #ccc;*/
+  border: 1px solid #ccc;
   height: 32px;
   line-height: 32px;
   padding: 4px 6px;
@@ -52,5 +51,4 @@ input.ng-invalid {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  align-items: center;
 }

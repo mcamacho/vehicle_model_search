@@ -57,11 +57,13 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           // element_hash: '{element_hash}',
           // the_permalink: '{the_permalink}',
           modelsel: $routeParams.model,
-          trimsel: $routeParams.trim,
+          trimsel: $routeParams.trim
+        };
+        $scope.mform = {
           qtypeSelected: 'lease',
           creditRating: 'great',
           leaseTerm: '24',
-          milesYear: '10,000',
+          milesYear: '10000',
           financeTerm: '24'
         };
       }
