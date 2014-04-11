@@ -5,19 +5,21 @@
       <li class="bullet-item">Model: <strong>{{subase.current.modelLabel}}</strong></li>
       <li class="bullet-item">Trim: <strong>{{subase.current.trimLabel}}</strong></li>
       <li class="bullet-item">Color: <strong>{{subase.current.exterior_color}}</strong></li>
+      <li class="bullet-item">Vin: <strong>{{subase.current.vin}}</strong></li>
       <li class="price">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
-      <li><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.ext_color_code}}.png"></li>
+      <li><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.extColorCode}}.png" class="grid-img" alt="{{ele.model}}"></li>
     </ul>
   </div>
   <div class="columns large-6">
     <ul class="breadcrumbs">
-      <li><a href="#">{{base.yearSelected.year}}</a></li>
-      <li ng-if="makes.makeSelected"><a href="#">{{makes.dealerMake}}</a></li>
-      <li><a href="#">{{subase.current.modelLabel}}</a></li>
-      <li><a href="#/model/{{subase.modelsel}}">{{subase.current.trimLabel}}</a></li>
-      <li><a href="#/model/{{subase.modelsel}}/trim/{{subase.trimsel}}">{{subase.current.exterior_color}}</a></li>
+      <li><a href="#" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{base.yearSelected.year}}</a></li>
+      <li ng-if="makes.makeSelected"><a href="#" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{makes.dealerMake}}</a></li>
+      <li><a href="#" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{subase.current.modelLabel}}</a></li>
+      <li><a href="#/model/{{subase.modelsel}}" data-snowplow="instock-quote:removed:trim,color:{{subase.current.trim}},{{subase.current.exterior_color}}">{{subase.current.trimLabel}}</a></li>
+      <li><a href="#/model/{{subase.modelsel}}/trim/{{subase.trimsel}}" data-snowplow="instock-quote:removed:color:{{subase.current.exterior_color}}">{{subase.current.exterior_color}}</a></li>
     </ul>
-    <form name="mquo" action="{{subase.the_permalink}}" method="post" id="{{subase.element_hash}}">
+<!--     <form class="mform" name="mquo" method="get" id="{{subase.elementHash}}"> -->
+    <form class="mform" name="mquo" method="get" id="elementHash">
       <div class="panel radius"><div class="row" style="line-height:2em">
         <div class="columns large-6">
           <label class="left small-5">Quote Type</label>
@@ -41,15 +43,15 @@
       <div class="row">
         <div class="columns small-4">
           <label for="first_name">First Name<span ng-show="mquo.first_name.$error.required"> * </span></label>
-          <input type="text" id="first_name" name="first_name" ng-model="mform.firstName" required>
+          <input type="text" id="first_name" name="first_name-r" ng-model="mform.firstName" required>
         </div>
         <div class="columns small-4">
           <label for="last_name">Last Name<span ng-show="mquo.last_name.$error.required"> * </span></label>
-          <input type="text" id="last_name" name="last_name" ng-model="mform.lastName" required>
+          <input type="text" id="last_name" name="last_name-r" ng-model="mform.lastName" required>
         </div>
         <div class="columns small-4">
           <label for="email">Email<span ng-show="mquo.email.$error.required"> * </span></label>
-          <input type="email" id="email" name="email" ng-model="mform.email" required>
+          <input type="email" id="email" name="email-r" ng-model="mform.email" required>
         </div>
       </div>
       <!-- Personal Information -->
@@ -96,8 +98,11 @@
           <select class="selecth" id="finance_term" name="finance_term" ng-model="mform.financeTerm">
             <option value="any">Any</option>
             <option value="24">24 mo.</option>
+            <option value="26">26 mo.</option>
             <option value="48">48 mo.</option>
+            <option value="60">60 mo.</option>
             <option value="72">72 mo.</option>
+            <option value="84">84 mo.</option>
           </select>
         </div>
         <div class="columns small-6">
@@ -105,22 +110,23 @@
           <input type="number" id="max_down" name="max_down" ng-model="mform.maxDown" required>
         </div>
         <div class="columns large-12">
-          <label for="additional_equipment">Additional Equipment</label>
+          <label for="additional_equipment">Additional Equipment/Notes/Details</label>
           <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
       <div ng-if="mform.qtypeSelected === 'purchase'" class="row">
         <div class="columns large-12">
-          <label for="additional_equipment">Additional Equipment</label>
+          <label for="additional_equipment">Additional Equipment/Notes/Details</label>
           <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
       <!-- Quote Type -->
+      <input type="hidden" name="dForm" value="{{subase.current.vin}}">
       <input type="hidden" name="dForm-ID" value="{{subase.element_hash}}">
-      <input type="hidden" name="dForm-Subject" value="Model Quote">
+      <input type="hidden" name="dForm-Subject" value="InStockQuote">
       <div class="text-right">
         <span ng-hide="mquo.$valid" class="radius alert label">Please Fill all the Fields</span>
-        <input class="button small" ng-if="mquo.$valid" type="submit" name="dForm-Submit" value="Submit">
+        <input class="button small" ng-if="mquo.$valid" ng-click="snowpush()" type="submit" name="dForm-Submit" value="Submit">
       </div>
     </form>
     <div ng-include="'views/disclaimer.html'"></div>

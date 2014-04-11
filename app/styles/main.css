@@ -8,12 +8,12 @@
 .view-animate-container {
   position: relative;
 }
- 
+
 .view-animate {
   width: 100%;
   background: white;
 }
- 
+
 .view-animate.ng-enter {
   -webkit-transition:opacity 0.5s;
   transition:opacity 0.5s;
@@ -51,4 +51,8 @@ input.ng-invalid {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+}
+
+.grid-img {
+  width: 100%;
 }

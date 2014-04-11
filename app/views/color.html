@@ -1,19 +1,19 @@
 <ul class="breadcrumbs">
-  <li><a href="#">{{base.yearSelected.year}}</a></li>
-  <li ng-if="makes.makeSelected"><a href="#">{{makes.dealerMake}}</a></li>
-  <li><a href="#">{{subase.current.modelLabel}}</a></li>
-  <li><a href="#/model/{{subase.modelsel}}">{{subase.current.trimLabel}}</a></li>
+  <li><a href="#" data-snowplow="instock-quote:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{base.yearSelected.year}}</a></li>
+  <li ng-if="makes.makeSelected"><a href="#" data-snowplow="instock-quote:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{makes.dealerMake}}</a></li>
+  <li><a href="#" data-snowplow="instock-quote:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{subase.current.modelLabel}}</a></li>
+  <li><a href="#/model/{{subase.modelsel}}" data-snowplow="instock-quote:removed:trim:{{subase.current.trim}}">{{subase.current.trimLabel}}</a></li>
   <li>Color</li>
 </ul>
 <h2 class="header2">Select a Color</h2>
-<ul class="small-block-grid-2 large-block-grid-4">
+<ul class="small-block-grid-2 large-block-grid-5">
   <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
     <table><tbody>
-      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png"></a></td></tr>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.extColorCode}}" data-snowplow="instock-quote:add:color:{{ele.exterior_color}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png" class="grid-img" alt="{{ele.exterior_color}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.exterior_color}}</strong>
           <br><font class="font-size-70em">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
-        <td class="text-center"><span>{{ele.colorCount}}
+        <td class="text-center primary"><span>{{ele.colorCount}}
           <br><font class="font-size-70em">in Stock</font></span></td>
       </tr>
     </tbody></table>

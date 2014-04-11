@@ -44,7 +44,16 @@
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 
+    <script type="text/javascript">
+    // fake function to trigger from submission and snowplow
+    window._snaq = {
+      push: function () {
+        window.console.log(arguments);
+      }
+    };
+    </script>
     <script src="//cdn.wpdlr.co/assets/general/js/foundation/foundation.min.js" defer="" async=""></script>
+    <script src="//cdn.wpdlr.co/assets/general/js/plugins/snowplowevent.js"></script>
     <script style="text/javascript">
       window.onload = function() { jQuery(document).foundation(); };
     </script>
