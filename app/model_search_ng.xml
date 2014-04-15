@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/3.8.2" created="2014-04-09 16:12" -->
+<!-- generator="WordPress/3.8.3" created="2014-04-15 17:09" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Mau Test Site</title>
 	<link>http://mau.wpdlr.co</link>
 	<description>Just another wpdlr Sites site</description>
-	<pubDate>Wed, 09 Apr 2014 16:12:50 +0000</pubDate>
+	<pubDate>Tue, 15 Apr 2014 17:09:11 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
 	<wp:base_site_url>http://wpdlr.co/</wp:base_site_url>
@@ -37,7 +37,7 @@
 
 
 
-	<generator>http://wordpress.org/?v=3.8.2</generator>
+	<generator>http://wordpress.org/?v=3.8.3</generator>
 
 	<item>
 		<title>content: model search ng</title>
@@ -90,7 +90,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           controller: 'colorCtrl',
           templateUrl: 'color.html'
         })
-        .when('/model/:model/trim/:trim/color/:ext_color_code', {
+        .when('/model/:model/trim/:trim/color/:extColorCode', {
           controller: 'quoteCtrl',
           templateUrl: 'quote.html'
         })
@@ -124,28 +124,27 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       }
     });
   })
-  .controller('quoteCtrl', function ($scope, $log, $routeParams) {
+  .controller('quoteCtrl', function ($scope, $window, $log, $routeParams) {
     $scope.snowpush = function () {
-      if (window._snaq) {
+      if ($window._snaq) {
         var fields = _.map($scope.mform, function (val,key) {
           return key + '-' + val;
         }).join();
-        var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.ext_color_code;
-        _snaq.push({
-          category: 'webform',
-          action: 'form-fields',
-          label: fields,
-          property: prop,
-          value: $scope.subase.current.msrp
-        });
+        var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.extColorCode;
+        //$window._snaq.push(['trackStructEvent', 'webform', 'form-fields', fields, prop, $scope.subase.current.vin]);
+        //$window._snaq.push(['trackStructEvent', 'webform', 'form-submit', 'instock-quote', prop, $scope.subase.current.vin]);
+        $window._snaq.push(['trackStructEvent', 'webform', 'form-submit', 'instock-quote', 'test', 'test']);
+        $window.document.getElementById('{element_hash}').action = '{home}';
+        $window.setTimeout(function () {
+          $window.document.getElementById('{element_hash}').submit();
+        },500);
       }
     };
     $scope.$watch('base.collection', function (newv) {
       if (newv) {
         $scope.subase = {
           current: _.find($scope.base.collection, $routeParams),
-          element_hash: '{element_hash}',
-          the_permalink: '{the_permalink}',
+          elementHash: '{element_hash}',
           modelsel: $routeParams.model,
           trimsel: $routeParams.trim
         };
@@ -165,14 +164,14 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       show: 'all',
       type: 'new',
       d: 'vehicles',
-      e: 'trim,evox_vif,ext_color_code,msrp'
+      e: 'trim,evox_vif,ext_color_code'
     };
     var groupParams = _.assign({
       q: 'group=year,model,trim,exterior_color',
-      k: 'year,model,trim,evox_vif,ext_color_code,exterior_color,msrp'
+      k: 'year,model,trim,evox_vif,ext_color_code=extColorCode,exterior_color,msrp,vin'
     }, basicParams);
     var inventoryParams = _.assign({
-      k: 'year,model,trim,ext_color_code'
+      k: 'year,model,trim,ext_color_code=extColorCode'
     }, basicParams);
     var cleanData = function (data) {
       return _.map(data, function (ele) {
@@ -192,7 +191,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         return ele;
       });
       tree.yearSelected = tree.yearArray[0];
-      tree.collection = _.sortBy(data, 'ext_color_code').reverse();
+      tree.collection = _.sortBy(data, 'extColorCode').reverse();
       return tree;
     };
     var filterCollection = function () {
@@ -231,7 +230,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           return {
             model: oto.model,
             trim: oto.trim,
-            colors: _.sortBy(_.uniq(colors, 'ext_color_code'), 'msrp')
+            colors: _.sortBy(_.uniq(colors, 'extColorCode'), 'msrp')
           };
         });
         return trimarray;
@@ -250,13 +249,13 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       }
       return split;
     };
-    var updateYearSel =  function () {
-      // modify yearArray -> yearlabel
-      _.forEach($scope.base.yearArray, function (ele) {
-        var yearele = _.find($scope.vehicles, { year: ele.yearlabel });
-        ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' in Stock)';
-      });
-    };
+    // var updateYearSel =  function () {
+    //  // modify yearArray -> yearlabel
+    //   _.forEach($scope.base.yearArray, function (ele) {
+    //     var yearele = _.find($scope.vehicles, { year: ele.yearlabel });
+    //     ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' in Stock)';
+    //   });
+    // };
     var countCollection = function () {
       // process the inventory and assign the new attribute to the base.collection
       if (_.isEmpty($scope.baseF.models[0].modelCount)) {
@@ -271,7 +270,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         });
         _.forEach($scope.baseF.modelTrimColor, function (ele) {
           _.forEach(ele.colors, function (sub) {
-            sub.colorCount = _.where(vehicleset, { model: ele.model, trim: ele.trim, ext_color_code: sub.ext_color_code }).length;
+            sub.colorCount = _.where(vehicleset, { model: ele.model, trim: ele.trim, extColorCode: sub.extColorCode }).length;
           });
         });
       }
@@ -350,6 +349,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     });
     initApp();
   });
+
 </script>]]></wp:meta_value>
 					</wp:postmeta>
 		<wp:postmeta>
@@ -374,14 +374,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
 					</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>html_preloop</wp:meta_key>
-						<wp:meta_value><![CDATA[<script type="text/javascript">
-  var _snaq = {
-    push: function () {
-     console.log('snaq',arguments);
-    }
-  }
-</script>
-<div class="row" ng-app="vehicleModelSearchApp">
+						<wp:meta_value><![CDATA[<div class="row" ng-app="vehicleModelSearchApp">
 <script type="text/ng-template" id="disclaimer.html">
 <p><small>* MSRP includes destination and handling, but excludes applicable taxes, title, registration, license, options and dealer fees. Regional MSRP pricing may vary.</small></p>
 </script>
@@ -394,10 +387,10 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
   <li>Color</li>
 </ul>
 <h2 class="header2">Select a Model</h2>
-<ul class="small-block-grid-2 large-block-grid-4">
+<ul class="small-block-grid-2 large-block-grid-5">
   <li ng-repeat="ele in baseF.models">
     <table><tbody>
-      <tr><td colspan="2"><a href="#/model/{{ele.model}}" data-snowplow="model-search:add:model:{{ele.model}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110&f=2"></a></td></tr>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}" data-snowplow="instock-quote:add:model:{{ele.model}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png&w=230&h=110&f=2" class="grid-img" alt="{{ele.model}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.modelLabel}}</strong>
           <br><font class="font-size-70em">Starts at ${{ele.msrpmodel}}<sup>*</sup></font></td>
@@ -411,17 +404,17 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
 </script>
 <script type="text/ng-template" id="trim.html">
 <ul class="breadcrumbs">
-  <li><a href="#" data-snowplow="model-search:removed:model:{{subase.current.model}}">{{base.yearSelected.year}}</a></li>
-  <li ng-if="makes.makeSelected"><a href="#" data-snowplow="model-search:removed:model:{{subase.current.model}}">{{makes.dealerMake}}</a></li>
-  <li><a href="#" data-snowplow="model-search:removed:model:{{subase.current.model}}">{{subase.current.modelLabel}}</a></li>
+  <li><a href="#" data-snowplow="instock-quote:removed:model:{{subase.current.model}}">{{base.yearSelected.year}}</a></li>
+  <li ng-if="makes.makeSelected"><a href="#" data-snowplow="instock-quote:removed:model:{{subase.current.model}}">{{makes.dealerMake}}</a></li>
+  <li><a href="#" data-snowplow="instock-quote:removed:model:{{subase.current.model}}">{{subase.current.modelLabel}}</a></li>
   <li>Trim</li>
   <li>Color</li>
 </ul>
 <h2 class="header2">Select a Trim</h2>
-<ul class="small-block-grid-2 large-block-grid-4">
+<ul class="small-block-grid-2 large-block-grid-5">
   <li ng-repeat="ele in baseF.modelTrim[subase.ele].trimuniq">
     <table><tbody>
-      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}" data-snowplow="model-search:add:trim:{{ele.trim}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110&f=2"></a></td></tr>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}" data-snowplow="instock-quote:add:trim:{{ele.trim}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png&w=230&h=110&f=2" class="grid-img" alt="{{ele.trim}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.trimLabel}}</strong>
           <br><font class="font-size-70em">Starts at ${{ele.msrptrim}}<sup>*</sup></font></td>
@@ -435,17 +428,17 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
 </script>
 <script type="text/ng-template" id="color.html">
 <ul class="breadcrumbs">
-  <li><a href="#" data-snowplow="model-search:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{base.yearSelected.year}}</a></li>
-  <li ng-if="makes.makeSelected"><a href="#" data-snowplow="model-search:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{makes.dealerMake}}</a></li>
-  <li><a href="#" data-snowplow="model-search:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{subase.current.modelLabel}}</a></li>
-  <li><a href="#/model/{{subase.modelsel}}" data-snowplow="model-search:removed:trim:{{subase.current.trim}}">{{subase.current.trimLabel}}</a></li>
+  <li><a href="#" data-snowplow="instock-quote:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{base.yearSelected.year}}</a></li>
+  <li ng-if="makes.makeSelected"><a href="#" data-snowplow="instock-quote:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{makes.dealerMake}}</a></li>
+  <li><a href="#" data-snowplow="instock-quote:removed:model,trim:{{subase.current.model}},{{subase.current.trim}}">{{subase.current.modelLabel}}</a></li>
+  <li><a href="#/model/{{subase.modelsel}}" data-snowplow="instock-quote:removed:trim:{{subase.current.trim}}">{{subase.current.trimLabel}}</a></li>
   <li>Color</li>
 </ul>
 <h2 class="header2">Select a Color</h2>
-<ul class="small-block-grid-2 large-block-grid-4">
+<ul class="small-block-grid-2 large-block-grid-5">
   <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
     <table><tbody>
-      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.ext_color_code}}" data-snowplow="model-search:add:color:{{ele.ext_color_code}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.ext_color_code}}.png&w=230&h=110"></a></td></tr>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.extColorCode}}" data-snowplow="instock-quote:add:color:{{ele.exterior_color}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png&w=230&h=110" class="grid-img" alt="{{ele.exterior_color}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.exterior_color}}</strong>
           <br><font class="font-size-70em">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
@@ -465,19 +458,20 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       <li class="bullet-item">Model: <strong>{{subase.current.modelLabel}}</strong></li>
       <li class="bullet-item">Trim: <strong>{{subase.current.trimLabel}}</strong></li>
       <li class="bullet-item">Color: <strong>{{subase.current.exterior_color}}</strong></li>
+      <li class="bullet-item">Vin: <strong>{{subase.current.vin}}</strong></li>
       <li class="price">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
-      <li><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.ext_color_code}}.png&w=640&h=320"></li>
+      <li><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.extColorCode}}.png&w=640&h=320" class="grid-img" alt="{{ele.model}}"></li>
     </ul>
   </div>
   <div class="columns large-6">
     <ul class="breadcrumbs">
-      <li><a href="#" data-snowplow="model-search:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}">{{base.yearSelected.year}}</a></li>
-      <li ng-if="makes.makeSelected"><a href="#" data-snowplow="model-search:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}">{{makes.dealerMake}}</a></li>
-      <li><a href="#" data-snowplow="model-search:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}">{{subase.current.modelLabel}}</a></li>
-      <li><a href="#/model/{{subase.modelsel}}" data-snowplow="model-search:removed:trim,color:{{subase.current.trim}},{{subase.current.ext_color_code}}">{{subase.current.trimLabel}}</a></li>
-      <li><a href="#/model/{{subase.modelsel}}/trim/{{subase.trimsel}}" data-snowplow="model-search:removed:color:{{subase.current.ext_color_code}}">{{subase.current.exterior_color}}</a></li>
+      <li><a href="#" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{base.yearSelected.year}}</a></li>
+      <li ng-if="makes.makeSelected"><a href="#" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{makes.dealerMake}}</a></li>
+      <li><a href="#" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{subase.current.modelLabel}}</a></li>
+      <li><a href="#/model/{{subase.modelsel}}" data-snowplow="instock-quote:removed:trim,color:{{subase.current.trim}},{{subase.current.exterior_color}}">{{subase.current.trimLabel}}</a></li>
+      <li><a href="#/model/{{subase.modelsel}}/trim/{{subase.trimsel}}" data-snowplow="instock-quote:removed:color:{{subase.current.exterior_color}}">{{subase.current.exterior_color}}</a></li>
     </ul>
-    <form class="mform" ng-submit="snowpush()" action="/#/" name="mquo" method="post" id="{{subase.element_hash}}">
+    <form class="mform" name="mquo" method="post" id="{{subase.elementHash}}">
       <div class="panel radius"><div class="row" style="line-height:2em">
         <div class="columns large-6">
           <label class="left small-5">Quote Type</label>
@@ -501,15 +495,15 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       <div class="row">
         <div class="columns small-4">
           <label for="first_name">First Name<span ng-show="mquo.first_name.$error.required"> * </span></label>
-          <input type="text" id="first_name" name="first_name" ng-model="mform.firstName" required>
+          <input type="text" id="first_name" name="first_name-r" ng-model="mform.firstName" required>
         </div>
         <div class="columns small-4">
           <label for="last_name">Last Name<span ng-show="mquo.last_name.$error.required"> * </span></label>
-          <input type="text" id="last_name" name="last_name" ng-model="mform.lastName" required>
+          <input type="text" id="last_name" name="last_name-r" ng-model="mform.lastName" required>
         </div>
         <div class="columns small-4">
           <label for="email">Email<span ng-show="mquo.email.$error.required"> * </span></label>
-          <input type="email" id="email" name="email" ng-model="mform.email" required>
+          <input type="email" id="email" name="email-r" ng-model="mform.email" required>
         </div>
       </div>
       <!-- Personal Information -->
@@ -556,8 +550,11 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           <select class="selecth" id="finance_term" name="finance_term" ng-model="mform.financeTerm">
             <option value="any">Any</option>
             <option value="24">24 mo.</option>
+            <option value="26">26 mo.</option>
             <option value="48">48 mo.</option>
+            <option value="60">60 mo.</option>
             <option value="72">72 mo.</option>
+            <option value="84">84 mo.</option>
           </select>
         </div>
         <div class="columns small-6">
@@ -565,22 +562,23 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           <input type="number" id="max_down" name="max_down" ng-model="mform.maxDown" required>
         </div>
         <div class="columns large-12">
-          <label for="additional_equipment">Additional Equipment</label>
+          <label for="additional_equipment">Additional Equipment/Notes/Details</label>
           <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
       <div ng-if="mform.qtypeSelected === 'purchase'" class="row">
         <div class="columns large-12">
-          <label for="additional_equipment">Additional Equipment</label>
+          <label for="additional_equipment">Additional Equipment/Notes/Details</label>
           <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
       <!-- Quote Type -->
+      <input type="hidden" name="dForm" value="{{subase.current.vin}}">
       <input type="hidden" name="dForm-ID" value="{{subase.element_hash}}">
-      <input type="hidden" name="dForm-Subject" value="Model Quote">
+      <input type="hidden" name="dForm-Subject" value="InStockQuote">
       <div class="text-right">
         <span ng-hide="mquo.$valid" class="radius alert label">Please Fill all the Fields</span>
-        <input class="button small" ng-if="mquo.$valid" type="submit" name="dForm-Submit" value="Submit" data-snowplow="webform:form-submit:instock-quote:{{subase.current.year}},{{subase.current.model}},{{subase.current.trim}},{{subase.current.ext_color_code}}:{{subase.current.msrp}}">
+        <input class="button small" ng-if="mquo.$valid" ng-click="snowpush()" type="submit" name="dForm-Submit" value="Submit">
       </div>
     </form>
     <div ng-include="'disclaimer.html'"></div>
@@ -621,7 +619,7 @@ input.ng-invalid {
 }
 
 /*.breadcrumbs a,.breadcrumbs > *:before { display: inline-block; }*/
-.mform input {
+.mform input, .mform textarea {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -642,6 +640,10 @@ input.ng-invalid {
 
 .primary {
   color: {setup_color_1}
+}
+
+.grid-img {
+  width: 100%;
 }]]></wp:meta_value>
 					</wp:postmeta>
 	</item>
