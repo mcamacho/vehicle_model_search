@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/3.8.3" created="2014-04-15 17:09" -->
+<!-- generator="WordPress/3.8.3" created="2014-04-16 12:04" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Mau Test Site</title>
 	<link>http://mau.wpdlr.co</link>
 	<description>Just another wpdlr Sites site</description>
-	<pubDate>Tue, 15 Apr 2014 17:09:11 +0000</pubDate>
+	<pubDate>Wed, 16 Apr 2014 12:04:25 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
 	<wp:base_site_url>http://wpdlr.co/</wp:base_site_url>
@@ -194,13 +194,16 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       tree.collection = _.sortBy(data, 'extColorCode').reverse();
       return tree;
     };
+    var isNum = function (obj) {
+      return _.isNaN(parseInt(obj, 10)) ? '' : obj;
+    };
     var filterCollection = function () {
       var data = _.where($scope.base.collection, { year: $scope.base.yearSelected.year });
       var tree = {};
       tree.models = (function () {
         var msrpuniq = _.uniq(_.sortBy(data, 'msrp'), 'model');
         var modeluniq = _.map(_.uniq(data, 'model'), function (ele) {
-          ele.msrpmodel = _.find(msrpuniq, { model: ele.model }).msrp;
+          ele.msrpmodel = isNum(_.find(msrpuniq, { model: ele.model }).msrp);
           return ele;
         });
         return _.sortBy(modeluniq, 'model');
@@ -215,7 +218,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           trimuniq: _.sortBy(
             _.map(
               _.uniq(trims, 'trim'), function (ele) {
-                ele.msrptrim = _.find(trimsort, { trim: ele.trim }).msrp;
+                ele.msrptrim = isNum(_.find(trimsort, { trim: ele.trim }).msrp);
                 return ele;
               }
             ), 'msrp')
@@ -230,7 +233,11 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           return {
             model: oto.model,
             trim: oto.trim,
-            colors: _.sortBy(_.uniq(colors, 'extColorCode'), 'msrp')
+            colors: _.sortBy(
+              _.map(_.uniq(colors, 'extColorCode'), function (ele) {
+                ele.msrp = isNum(ele.msrp);
+                return ele;
+              }), 'msrp')
           };
         });
         return trimarray;
@@ -393,7 +400,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       <tr><td colspan="2"><a href="#/model/{{ele.model}}" data-snowplow="instock-quote:add:model:{{ele.model}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png&w=230&h=110&f=2" class="grid-img" alt="{{ele.model}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.modelLabel}}</strong>
-          <br><font class="font-size-70em">Starts at ${{ele.msrpmodel}}<sup>*</sup></font></td>
+          <br><font class="font-size-70em" ng-show="ele.msrpmodel">Starts at ${{ele.msrpmodel}}<sup>*</sup></font></td>
         <td class="text-center primary"><span ng-if="ele.modelCount">{{ele.modelCount}}
           <br><font class="font-size-70em">in Stock</font></span></td>
       </tr>
@@ -417,7 +424,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}" data-snowplow="instock-quote:add:trim:{{ele.trim}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png&w=230&h=110&f=2" class="grid-img" alt="{{ele.trim}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.trimLabel}}</strong>
-          <br><font class="font-size-70em">Starts at ${{ele.msrptrim}}<sup>*</sup></font></td>
+          <br><font class="font-size-70em" ng-show="ele.msrptrim">Starts at ${{ele.msrptrim}}<sup>*</sup></font></td>
         <td class="text-center primary"><span>{{ele.trimCount}}
           <br><font class="font-size-70em">in Stock</font></span></td>
       </tr>
@@ -441,7 +448,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.extColorCode}}" data-snowplow="instock-quote:add:color:{{ele.exterior_color}}"><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png&w=230&h=110" class="grid-img" alt="{{ele.exterior_color}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.exterior_color}}</strong>
-          <br><font class="font-size-70em">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
+          <br><font class="font-size-70em" ng-show="ele.msrp">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
         <td class="text-center primary"><span>{{ele.colorCount}}
           <br><font class="font-size-70em">in Stock</font></span></td>
       </tr>
@@ -459,7 +466,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       <li class="bullet-item">Trim: <strong>{{subase.current.trimLabel}}</strong></li>
       <li class="bullet-item">Color: <strong>{{subase.current.exterior_color}}</strong></li>
       <li class="bullet-item">Vin: <strong>{{subase.current.vin}}</strong></li>
-      <li class="price">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
+      <li class="price" ng-show="subase.current.msrp">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
       <li><img ng-src="{{base.ttsrc}}http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.extColorCode}}.png&w=640&h=320" class="grid-img" alt="{{ele.model}}"></li>
     </ul>
   </div>

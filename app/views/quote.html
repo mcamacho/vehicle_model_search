@@ -6,7 +6,7 @@
       <li class="bullet-item">Trim: <strong>{{subase.current.trimLabel}}</strong></li>
       <li class="bullet-item">Color: <strong>{{subase.current.exterior_color}}</strong></li>
       <li class="bullet-item">Vin: <strong>{{subase.current.vin}}</strong></li>
-      <li class="price">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
+      <li class="price" ng-show="subase.current.msrp">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
       <li><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.extColorCode}}.png" class="grid-img" alt="{{ele.model}}"></li>
     </ul>
   </div>

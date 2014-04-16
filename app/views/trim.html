@@ -12,7 +12,7 @@
       <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}" data-snowplow="instock-quote:add:trim:{{ele.trim}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png" class="grid-img" alt="{{ele.trim}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.trimLabel}}</strong>
-          <br><font class="font-size-70em">Starts at ${{ele.msrptrim}}<sup>*</sup></font></td>
+          <br><font class="font-size-70em" ng-show="ele.msrptrim">Starts at ${{ele.msrptrim}}<sup>*</sup></font></td>
         <td class="text-center primary"><span>{{ele.trimCount}}
           <br><font class="font-size-70em">in Stock</font></span></td>
       </tr>

@@ -121,13 +121,16 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       tree.collection = _.sortBy(data, 'extColorCode').reverse();
       return tree;
     };
+    var isNum = function (obj) {
+      return _.isNaN(parseInt(obj, 10)) ? '' : obj;
+    };
     var filterCollection = function () {
       var data = _.where($scope.base.collection, { year: $scope.base.yearSelected.year });
       var tree = {};
       tree.models = (function () {
         var msrpuniq = _.uniq(_.sortBy(data, 'msrp'), 'model');
         var modeluniq = _.map(_.uniq(data, 'model'), function (ele) {
-          ele.msrpmodel = _.find(msrpuniq, { model: ele.model }).msrp;
+          ele.msrpmodel = isNum(_.find(msrpuniq, { model: ele.model }).msrp);
           return ele;
         });
         return _.sortBy(modeluniq, 'model');
@@ -142,7 +145,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           trimuniq: _.sortBy(
             _.map(
               _.uniq(trims, 'trim'), function (ele) {
-                ele.msrptrim = _.find(trimsort, { trim: ele.trim }).msrp;
+                ele.msrptrim = isNum(_.find(trimsort, { trim: ele.trim }).msrp);
                 return ele;
               }
             ), 'msrp')
@@ -157,7 +160,11 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           return {
             model: oto.model,
             trim: oto.trim,
-            colors: _.sortBy(_.uniq(colors, 'extColorCode'), 'msrp')
+            colors: _.sortBy(
+              _.map(_.uniq(colors, 'extColorCode'), function (ele) {
+                ele.msrp = isNum(ele.msrp);
+                return ele;
+              }), 'msrp')
           };
         });
         return trimarray;

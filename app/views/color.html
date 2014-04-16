@@ -12,7 +12,7 @@
       <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.extColorCode}}" data-snowplow="instock-quote:add:color:{{ele.exterior_color}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png" class="grid-img" alt="{{ele.exterior_color}}"></a></td></tr>
       <tr>
         <td><strong>{{ele.exterior_color}}</strong>
-          <br><font class="font-size-70em">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
+          <br><font class="font-size-70em" ng-show="ele.msrp">Starts at ${{ele.msrp}}<sup>*</sup></font></td>
         <td class="text-center primary"><span>{{ele.colorCount}}
           <br><font class="font-size-70em">in Stock</font></span></td>
       </tr>
