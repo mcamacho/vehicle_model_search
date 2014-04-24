@@ -45,6 +45,13 @@
     <!-- endbuild -->
 
     <script type="text/javascript">
+    // onerror event callback function - loads the 90 degrees vehicle angle
+    function replaceImg(ele) {
+      var evox = ele.getAttribute('data-evox');
+      var tempImg = '{src}http://cdn.wpdlr.co/assets/vehicles/evox/'+evox+'/'+evox+'_st0640_090.png&w=230&h=110&f=3,-255';
+      ele.onerror = '';
+      ele.src = tempImg;
+    }
     // fake function to trigger from submission and snowplow
     window._snaq = {
       push: function () {

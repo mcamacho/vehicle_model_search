@@ -9,7 +9,7 @@
 <ul class="small-block-grid-2 large-block-grid-5">
   <li ng-repeat="ele in baseF.modelTrimColor[subase.ele].colors">
     <table><tbody>
-      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.extColorCode}}" data-snowplow="instock-quote:add:color:{{ele.exterior_color}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png" class="grid-img" alt="{{ele.exterior_color}}"></a></td></tr>
+      <tr><td colspan="2"><a href="#/model/{{ele.model}}/trim/{{ele.trim}}/color/{{ele.extColorCode}}" data-snowplow="instock-quote:add:color:{{ele.exterior_color}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png" class="grid-img" alt="{{ele.exterior_color}}" data-evox="{{ele.evox_vif}}" onerror="replaceImg(this)"></a></td></tr>
       <tr>
         <td><strong>{{ele.exterior_color}}</strong>
           <br><font class="font-size-70em" ng-show="ele.msrp">Starts at ${{ele.msrp}}<sup>*</sup></font></td>

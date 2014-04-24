@@ -49,22 +49,41 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       }
     });
   })
-  .controller('quoteCtrl', function ($scope, $window, $log, $routeParams) {
+  .controller('quoteCtrl', function ($scope, $window, $log, $routeParams, $http) {
+    $scope.formPrint = function () {
+      $window.print();
+    };
     $scope.snowpush = function () {
-      if ($window._snaq) {
-        var fields = _.map($scope.mform, function (val,key) {
-          return key + '-' + val;
-        }).join();
-        var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.extColorCode;
-        $window._snaq.push(['trackStructEvent', 'webform', 'form-fields', fields, prop, $scope.subase.current.vin]);
-        $window._snaq.push(['trackStructEvent', 'webform', 'form-submit', 'instock-quote', prop, $scope.subase.current.vin]);
-        // $window.document.getElementById('{element_hash}').action = '{home}';
-        $window.document.getElementById('elementHash').action = '/';
-        $window.setTimeout(function () {
-          // $window.document.getElementById('{element_hash}').submit();
-          $window.document.getElementById('elementHash').submit();
-        },500);
+      // filter mform
+      var mformData = {};
+      if ($scope.mform.quoteTypeSelected === 'lease') {
+        mformData = _.omit($scope.mform, 'financeTerm');
+        mformData['dForm-Subject'] = 'lease';
+      } else if ($scope.mform.quoteTypeSelected === 'finance') {
+        mformData = _.omit($scope.mform, ['leaseTerm', 'leaseMilesYear']);
+      } else if ($scope.mform.quoteTypeSelected === 'purchase') {
+        mformData = _.omit($scope.mform, ['creditRating', 'financeTerm', 'leaseTerm', 'leaseMilesYear']);
       }
+      var datar = _.pairs(mformData).join('&').replace(/,/g,'=');
+      $http({
+        method: 'GET',
+        // method: 'POST',
+        url: '../',
+        // url: '{home}/',
+        data: datar,
+        headers: {
+          'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+        }
+      })
+      .success(function () {
+        if ($window._snaq) {
+          var fields = _.pairs(mformData).join('&').replace(/,/g,':');
+          var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.extColorCode;
+          $window._snaq.push(['trackStructEvent', 'webform', 'form-fields', fields, prop, '']);
+          $window._snaq.push(['trackStructEvent', 'webform', 'form-submit', 'instock-quote', prop, '']);
+          $scope.subase.thankyou = true;
+        }
+      });
     };
     $scope.$watch('base.collection', function (newv) {
       if (newv) {
@@ -76,11 +95,17 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           trimsel: $routeParams.trim
         };
         $scope.mform = {
-          qtypeSelected: 'lease',
-          creditRating: 'great',
-          leaseTerm: '24',
-          milesYear: '10000',
-          financeTerm: '24'
+          'first_name-r': '',
+          'last_name-r': '',
+          'email-r': '',
+          'dForm': $scope.subase.current.vin,
+          'dForm-ID': $scope.subase.elementHash,
+          'dForm-Subject': 'buy',
+          'quoteTypeSelected': 'lease',
+          'creditRating': 'great',
+          'leaseTerm': '24',
+          'leaseMilesYear': '10000',
+          'financeTerm': '24'
         };
       }
     });

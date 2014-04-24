@@ -18,18 +18,18 @@
       <li><a href="#/model/{{subase.modelsel}}" data-snowplow="instock-quote:removed:trim,color:{{subase.current.trim}},{{subase.current.exterior_color}}">{{subase.current.trimLabel}}</a></li>
       <li><a href="#/model/{{subase.modelsel}}/trim/{{subase.trimsel}}" data-snowplow="instock-quote:removed:color:{{subase.current.exterior_color}}">{{subase.current.exterior_color}}</a></li>
     </ul>
-<!--     <form class="mform" name="mquo" method="get" id="{{subase.elementHash}}"> -->
-    <form class="mform" name="mquo" method="get" id="elementHash">
+    <!-- <form class="mform" name="mquo" id="{{subase.elementHash}}" ng-hide="subase.thankyou"> -->
+    <form class="mform" name="mquo" id="elementHash" ng-hide="subase.thankyou">
       <div class="panel radius"><div class="row" style="line-height:2em">
         <div class="columns large-6">
           <label class="left small-5">Quote Type</label>
-          <select class="selecth small-5" id="qtype" name="quote_type" ng-model="mform.qtypeSelected">
+          <select class="selecth small-5" id="qtype" name="quote_type" ng-model="mform.quoteTypeSelected">
             <option value="lease">Lease</option>
             <option value="finance">Finance</option>
             <option value="purchase">Purchase</option>
           </select>
         </div>
-        <div ng-if="mform.qtypeSelected !== 'purchase'" class="columns large-6">
+        <div ng-if="mform.quoteTypeSelected !== 'purchase'" class="columns large-6">
           <label class="left small-5">Credit Rating</label>
           <select class="selecth small-5" name="credit_rating" ng-model="mform.creditRating">
             <option value="great">Great</option>
@@ -43,25 +43,18 @@
       <div class="row">
         <div class="columns small-4">
           <label for="first_name">First Name<span ng-show="mquo.first_name.$error.required"> * </span></label>
-          <input type="text" id="first_name" name="first_name-r" ng-model="mform.firstName" required>
+          <input type="text" id="first_name" name="first_name-r" ng-model="mform['first_name-r']" required>
         </div>
         <div class="columns small-4">
           <label for="last_name">Last Name<span ng-show="mquo.last_name.$error.required"> * </span></label>
-          <input type="text" id="last_name" name="last_name-r" ng-model="mform.lastName" required>
+          <input type="text" id="last_name" name="last_name-r" ng-model="mform['last_name-r']" required>
         </div>
         <div class="columns small-4">
           <label for="email">Email<span ng-show="mquo.email.$error.required"> * </span></label>
-          <input type="email" id="email" name="email-r" ng-model="mform.email" required>
+          <input type="email" id="email" name="email-r" ng-model="mform['email-r']" required>
         </div>
       </div>
-      <!-- Personal Information -->
-      <input type="hidden" name="year" value="{{subase.current.year}}">
-      <input type="hidden" name="model" value="{{subase.current.modelLabel}}">
-      <input type="hidden" name="trim" value="{{subase.current.trimLabel}}">
-      <input type="hidden" name="color" value="{{subase.current.exterior_color}}">
-      <input type="hidden" name="msrp" value="{{subase.current.msrp}}">
-      <!-- Model Information -->
-      <div ng-if="mform.qtypeSelected === 'lease'" class="row">
+      <div ng-if="mform.quoteTypeSelected === 'lease'" class="row">
         <div class="columns small-4 large-4">
           <label for="lease_term">Term</label>
           <select class="selecth" id="lease_term" name="lease_term" ng-model="mform.leaseTerm">
@@ -75,7 +68,7 @@
         </div>
         <div class="columns small-4 large-4">
           <label for="miles_year">Miles per year</label>
-          <select class="selecth" id="miles_year" name="miles_year" ng-model="mform.milesYear">
+          <select class="selecth" id="miles_year" name="miles_year" ng-model="mform.leaseMilesYear">
             <option value="10000">10,000 mi.</option>
             <option value="12000">12,000 mi.</option>
             <option value="15000">15,000 mi.</option>
@@ -92,7 +85,7 @@
           <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
-      <div ng-if="mform.qtypeSelected === 'finance'" class="row">
+      <div ng-if="mform.quoteTypeSelected === 'finance'" class="row">
         <div class="columns small-6">
           <label for="finance_term">Term</label>
           <select class="selecth" id="finance_term" name="finance_term" ng-model="mform.financeTerm">
@@ -114,21 +107,34 @@
           <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
-      <div ng-if="mform.qtypeSelected === 'purchase'" class="row">
+      <div ng-if="mform.quoteTypeSelected === 'purchase'" class="row">
         <div class="columns large-12">
           <label for="additional_equipment">Additional Equipment/Notes/Details</label>
           <textarea name="additional_equipment" ng-model="mform.additionalEquipment"></textarea>
         </div>
       </div>
-      <!-- Quote Type -->
-      <input type="hidden" name="dForm" value="{{subase.current.vin}}">
-      <input type="hidden" name="dForm-ID" value="{{subase.element_hash}}">
-      <input type="hidden" name="dForm-Subject" value="InStockQuote">
       <div class="text-right">
         <span ng-hide="mquo.$valid" class="radius alert label">Please Fill all the Fields</span>
         <input class="button small" ng-if="mquo.$valid" ng-click="snowpush()" type="submit" name="dForm-Submit" value="Submit">
       </div>
     </form>
+    <div ng-show="subase.thankyou">
+      <p>Thank You! {{mform['first_name-r']}} {{mform['last_name-r']}}<br>
+        Your {{mform.quoteTypeSelected}} quote:</p>
+      <ul ng-if="mform.quoteTypeSelected === 'lease'">
+        <li><span>Term:</span> {{mform.leaseTerm}}</li>
+        <li><span>Miles/Year:</span> {{mform.leaseMilesYear}}</li>
+        <li><span>Max down-payment:</span> {{mform.maxDown}}</li>
+      </ul>
+      <ul ng-if="mform.quoteTypeSelected === 'finance'">
+        <li><span>Term:</span> {{mform.financeTerm}}</li>
+        <li><span>Max down-payment:</span> {{mform.maxDown}}</li>
+      </ul>
+      <p ng-if="mform.additionalEquipment">Additional Equipment/Notes/Details<br>{{mform.additionalEquipment}}</p>
+      <p>We will get back to you shortly. If you have any questions please call, {setup_dealer_phone_main}.</p>
+      <button class="small" ng-click="formPrint()">Print</button>
+      <a href="#" class="button small">Reset</a>
+    </div>
     <div ng-include="'views/disclaimer.html'"></div>
   </div>
 </div>
