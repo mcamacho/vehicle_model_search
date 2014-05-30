@@ -5,22 +5,25 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     function ($routeProvider, $locationProvider) {
       $routeProvider
         .when('/', {
+          redirectTo: '/year/0000/make/main'
+        })
+        .when('/year/:year/make/:make', {
           templateUrl: 'views/main.html'
         })
-        .when('/model/:model', {
+        .when('/year/:year/make/:make/model/:model', {
           controller: 'trimCtrl',
           templateUrl: 'views/trim.html'
         })
-        .when('/model/:model/trim/:trim', {
+        .when('/year/:year/make/:make/model/:model/trim/:trim', {
           controller: 'colorCtrl',
           templateUrl: 'views/color.html'
         })
-        .when('/model/:model/trim/:trim/color/:extColorCode', {
+        .when('/year/:year/make/:make/model/:model/trim/:trim/color/:extColorCode', {
           controller: 'quoteCtrl',
           templateUrl: 'views/quote.html'
         })
         .otherwise({
-          redirectTo: '/'
+          redirectTo: '/year/0000/make/main'
         });
       $locationProvider.html5Mode(false);
     }
@@ -29,7 +32,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
   .controller('trimCtrl', function ($scope, $log, $routeParams) {
     $scope.$watch('baseF', function (newv) {
       if (newv) {
-        var index = _.findIndex($scope.baseF.modelTrim, $routeParams);
+        var index = _.findIndex($scope.baseF.modelTrim, _.omit($routeParams, 'make'));
         $scope.subase = {
           ele: index,
           current: $scope.baseF.modelTrim[index].trimuniq[0]
@@ -40,7 +43,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
   .controller('colorCtrl', function ($scope, $log, $routeParams) {
     $scope.$watch('baseF', function (newv) {
       if (newv) {
-        var index = _.findIndex($scope.baseF.modelTrimColor, $routeParams);
+        var index = _.findIndex($scope.baseF.modelTrimColor, _.omit($routeParams, 'make'));
         $scope.subase = {
           ele: index,
           modelsel: $routeParams.model,
@@ -77,9 +80,11 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       })
       .success(function () {
         if ($window._snaq) {
-          var fields = _.pairs(mformData).join('&').replace(/,/g,':');
+          var fields = _.pairs(_.omit(mformData, ['dForm','dForm-ID','dForm-Subject']));
+          for (var i = fields.length - 1; i >= 0; i--) {
+            $window._snaq.push(['trackStructEvent', 'webform', 'instock-quote', fields[0],  fields[1], '']);
+          }
           var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.extColorCode;
-          $window._snaq.push(['trackStructEvent', 'webform', 'form-fields', fields, prop, '']);
           $window._snaq.push(['trackStructEvent', 'webform', 'form-submit', 'instock-quote', prop, '']);
           $scope.subase.thankyou = true;
         }
@@ -88,7 +93,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     $scope.$watch('base.collection', function (newv) {
       if (newv) {
         $scope.subase = {
-          current: _.find($scope.base.collection, $routeParams),
+          current: _.find($scope.base.collection, _.omit($routeParams, 'make')),
           // elementHash: '{element_hash}',
           elementHash: 'elementHash',
           modelsel: $routeParams.model,
@@ -110,7 +115,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       }
     });
   })
-  .controller('baseCtrl', function ($scope, $log, $http) {
+  .controller('baseCtrl', function ($scope, $log, $http, $location) {
     var basicParams = {
       f: 'json',
       show: 'all',
@@ -125,6 +130,14 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     var inventoryParams = _.assign({
       k: 'year,model,trim,ext_color_code=extColorCode'
     }, basicParams);
+    var parseLoc = function (path) {
+      var pathO = {};
+      var pathA = $location.path().slice(1).split('/').reverse();
+      for (var i = pathA.length - 1; i > 0; i = i - 2) {
+        pathO[pathA[i]] = pathA[i-1];
+      }
+      return pathO;
+    };
     var cleanData = function (data) {
       return _.map(data, function (ele) {
         return _.assign(ele, {
@@ -142,7 +155,8 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         ele.yearlabel = ele.year;
         return ele;
       });
-      tree.yearSelected = tree.yearArray[0];
+      var ply = _.find(tree.yearArray, { year: parseLoc().year })
+      tree.yearSelected = ply ? ply : tree.yearArray[0];
       tree.collection = _.sortBy(data, 'extColorCode').reverse();
       return tree;
     };
@@ -162,11 +176,13 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       }());
       tree.modelTrim = _.map(tree.models, function (ele) {
         var trims = _.where(data, {
-          model: ele.model
+          model: ele.model,
+          year: ele.year
         });
         var trimsort = _.sortBy(trims, 'msrp');
         return {
           model: ele.model,
+          year: ele.year,
           trimuniq: _.sortBy(
             _.map(
               _.uniq(trims, 'trim'), function (ele) {
@@ -180,11 +196,13 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         var trimarray = _.map(ele.trimuniq, function (oto) {
           var colors = _.where(data, {
             model: oto.model,
-            trim: oto.trim
+            trim: oto.trim,
+            year: oto.year
           });
           return {
             model: oto.model,
             trim: oto.trim,
+            year: oto.year,
             colors: _.sortBy(
               _.map(_.uniq(colors, 'extColorCode'), function (ele) {
                 ele.msrp = isNum(ele.msrp);
@@ -260,7 +278,8 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     };
     var initApp = function () {
       // var multipleMakes = parseInt('{setup_my_available_makes}' || '0', 10);
-      var multipleMakes = parseInt('1' || '0', 10);
+      var multipleMakes = parseInt('0' || '0', 10);
+      var lp = parseLoc().make && parseLoc().year ? $location.path() : '/year/0000/make/main';
       if (multipleMakes > 0) {
         $scope.makes.collection = [
           { make: '{setup_dealer_primary_make}' },
@@ -275,10 +294,12 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
             }
           }
         }
-        $scope.makes.makeSelected = $scope.makes.collection[0];
+        $scope.makes.makeSelected = _.find($scope.makes.collection, { make: parseLoc().make }) || $scope.makes.collection[0];
+        $location.path(lp.replace(parseLoc().make, $scope.makes.makeSelected.make));
       } else {
         $scope.makes.dealerMake = '{setup_dealer_primary_make}';
         getData();
+        $location.path(lp.replace(parseLoc().make, $scope.makes.dealerMake));
       }
     };
     $scope.base = {};
@@ -289,11 +310,13 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     $scope.$watch('makes.makeSelected', function (newv) {
       if (!_.isEmpty(newv)) {
         $scope.makes.dealerMake = $scope.makes.makeSelected.make;
+        $location.path($location.path().replace(parseLoc().make, $scope.makes.dealerMake));
         getData();
       }
     }, true);
     $scope.$watch('base.yearSelected', function (newv) {
       if (newv) {
+        $location.path($location.path().replace(parseLoc().year, $scope.base.yearSelected.yearlabel));
         $scope.baseF = filterCollection();
         if (!_.isEmpty($scope.vehicles)) {
           countCollection();
