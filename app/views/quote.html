@@ -118,20 +118,13 @@
         <input class="button small" ng-if="mquo.$valid" ng-click="snowpush()" type="submit" name="dForm-Submit" value="Submit">
       </div>
     </form>
-    <div ng-show="subase.thankyou">
-      <p>Thank You! {{mform['first_name-r']}} {{mform['last_name-r']}}<br>
-        Your {{mform.quoteTypeSelected}} quote:</p>
-      <ul ng-if="mform.quoteTypeSelected === 'lease'">
-        <li><span>Term:</span> {{mform.leaseTerm}}</li>
-        <li><span>Miles/Year:</span> {{mform.leaseMilesYear}}</li>
-        <li><span>Max down-payment:</span> {{mform.maxDown}}</li>
-      </ul>
-      <ul ng-if="mform.quoteTypeSelected === 'finance'">
-        <li><span>Term:</span> {{mform.financeTerm}}</li>
-        <li><span>Max down-payment:</span> {{mform.maxDown}}</li>
-      </ul>
-      <p ng-if="mform.additionalEquipment">Additional Equipment/Notes/Details<br>{{mform.additionalEquipment}}</p>
-      <p>We will get back to you shortly. If you have any questions please call, {setup_dealer_phone_main}.</p>
+    <div class="thank-you" ng-show="subase.thankyou">
+      <p class="thank-title">Thank You {{mform['first_name-r']}}!<br>
+      <p>This <strong>{{subase.current.year}} {{makes.dealerMake}} {{subase.current.modelLabel}} {{subase.current.trimLabel}} in {{subase.current.exterior_color}}</strong> can be yours!</p>
+      <p ng-if="mform.quoteTypeSelected === 'lease'">Your down payment will be <strong>{{mform.maxDown | currency}}</strong>, and your payment term <strong>{{mform.leaseTerm}}</strong> months. We will be contacting you shortly with your monthly payment, and you will be driving this car in no time.</p>
+      <p ng-if="mform.quoteTypeSelected === 'finance'">Your down payment will be <strong>{{mform.maxDown | currency}}</strong>, and your payment term <strong>{{mform.leaseTerm}}</strong> months. We will be contacting you shortly with your monthly payment, and you will be driving this car in no time.</p>
+      <p ng-if="mform.quoteTypeSelected === 'purchase'">We will be contacting you shortly.</p>
+      <p class="thank-notes" ng-if="mform.additionalEquipment">Additional Equipment/Notes/Details:<br>{{mform.additionalEquipment}}</p>
       <button class="small" ng-click="formPrint()">Print</button>
       <a href="#" class="button small">Reset</a>
     </div>

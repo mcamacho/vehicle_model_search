@@ -82,7 +82,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         if ($window._snaq) {
           var fields = _.pairs(_.omit(mformData, ['dForm','dForm-ID','dForm-Subject']));
           for (var i = fields.length - 1; i >= 0; i--) {
-            $window._snaq.push(['trackStructEvent', 'webform', 'instock-quote', fields[0],  fields[1], '']);
+            $window._snaq.push(['trackStructEvent', 'webform', 'instock-quote', fields[i][0],  fields[i][1], '']);
           }
           var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.extColorCode;
           $window._snaq.push(['trackStructEvent', 'webform', 'form-submit', 'instock-quote', prop, '']);

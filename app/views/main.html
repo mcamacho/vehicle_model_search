@@ -11,8 +11,7 @@
     <table><tbody>
       <tr><td colspan="2"><a href="#/year/{{ele.year}}/make/{{makes.dealerMake}}/model/{{ele.model}}" data-snowplow="instock-quote:add:model:{{ele.model}}"><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{ele.evox_vif}}/{{ele.evox_vif}}_cc0640_001_{{ele.extColorCode}}.png" class="grid-img" alt="{{ele.model}}" data-evox="{{ele.evox_vif}}" onerror="replaceImg(this)"></a></td></tr>
       <tr>
-        <td><strong>{{ele.modelLabel}}</strong>
-          <br><font class="font-size-70em" ng-show="ele.msrpmodel">Starts at ${{ele.msrpmodel}}<sup>*</sup></font></td>
+        <td><strong>{{ele.modelLabel}}</strong></td>
         <td class="text-center primary"><span ng-if="ele.modelCount">{{ele.modelCount}}
           <br><font class="font-size-70em">in Stock</font></span></td>
       </tr>
