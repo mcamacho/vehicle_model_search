@@ -18,7 +18,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           controller: 'colorCtrl',
           templateUrl: 'views/color.html'
         })
-        .when('/year/:year/make/:make/model/:model/trim/:trim/color/:extColorCode', {
+        .when('/year/:year/make/:make/model/:model/trim/:trim/color/:extColorGeneric', {
           controller: 'quoteCtrl',
           templateUrl: 'views/quote.html'
         })
@@ -84,7 +84,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
           for (var i = fields.length - 1; i >= 0; i--) {
             $window._snaq.push(['trackStructEvent', 'webform', 'instock-quote', fields[i][0],  fields[i][1], '']);
           }
-          var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.extColorCode;
+          var prop = $scope.subase.current.year +','+ $scope.subase.current.model +','+ $scope.subase.current.trim +','+ $scope.subase.current.extColorGeneric;
           $window._snaq.push(['trackStructEvent', 'webform', 'form-submit', 'instock-quote', prop, '']);
           $scope.subase.thankyou = true;
         }
@@ -121,16 +121,9 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       show: 'all',
       type: 'new',
       d: 'vehicles',
-      e: 'trim,evox_vif,ext_color_code'
+      k: 'year,model,trim,ext_color_generic=extColorGeneric,exterior_color=exteriorColor,image_1=image,evox_vif,vin,msrp'
     };
-    var groupParams = _.assign({
-      q: 'group=year,model,trim,exterior_color',
-      k: 'year,model,trim,evox_vif,ext_color_code=extColorCode,exterior_color,msrp,vin'
-    }, basicParams);
-    var inventoryParams = _.assign({
-      k: 'year,model,trim,ext_color_code=extColorCode'
-    }, basicParams);
-    var parseLoc = function (path) {
+    var parseLoc = function () {
       var pathO = {};
       var pathA = $location.path().slice(1).split('/').reverse();
       for (var i = pathA.length - 1; i > 0; i = i - 2) {
@@ -140,6 +133,9 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     };
     var cleanData = function (data) {
       return _.map(data, function (ele) {
+        ele.trim = _.isEmpty(ele.trim) ? ele.model : ele.trim;
+        ele.extColorGeneric = _.isEmpty(ele.extColorGeneric) ? 'Undefined' : ele.extColorGeneric;
+        ele.exteriorColor = _.isEmpty(ele.exteriorColor) ? 'Undefined' : ele.exteriorColor;
         return _.assign(ele, {
           modelLabel: ele.model,
           trimLabel: ele.trim,
@@ -157,7 +153,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       });
       var ply = _.find(tree.yearArray, { year: parseLoc().year })
       tree.yearSelected = ply ? ply : tree.yearArray[0];
-      tree.collection = _.sortBy(data, 'extColorCode').reverse();
+      tree.collection = _.sortBy(data, 'extColorGeneric');
       return tree;
     };
     var isNum = function (obj) {
@@ -204,7 +200,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
             trim: oto.trim,
             year: oto.year,
             colors: _.sortBy(
-              _.map(_.uniq(colors, 'extColorCode'), function (ele) {
+              _.map(_.uniq(colors, 'extColorGeneric'), function (ele) {
                 ele.msrp = isNum(ele.msrp);
                 return ele;
               }), 'msrp')
@@ -226,13 +222,6 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
       }
       return split;
     };
-    // var updateYearSel =  function () {
-    //   // modify yearArray -> yearlabel
-    //   _.forEach($scope.base.yearArray, function (ele) {
-    //     var yearele = _.find($scope.vehicles, { year: ele.yearlabel });
-    //     ele.yearlabel = ele.yearlabel + ' - (' + yearele.vehicles.length + ' in Stock)';
-    //   });
-    // };
     var countCollection = function () {
       // process the inventory and assign the new attribute to the base.collection
       if (_.isEmpty($scope.baseF.models[0].modelCount)) {
@@ -247,7 +236,7 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         });
         _.forEach($scope.baseF.modelTrimColor, function (ele) {
           _.forEach(ele.colors, function (sub) {
-            sub.colorCount = _.where(vehicleset, { model: ele.model, trim: ele.trim, extColorCode: sub.extColorCode }).length;
+            sub.colorCount = _.where(vehicleset, { model: ele.model, trim: ele.trim, extColorGeneric: sub.extColorGeneric }).length;
           });
         });
       }
@@ -257,23 +246,13 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
         // method: 'POST',
         method: 'GET',
         // url: '{home}/api/',
-        url: 'model.json',
-        params: _.assign({ make: $scope.makes.dealerMake }, groupParams)
+        url: 'inventoryComplete.json',
+        params: _.assign({ make: $scope.makes.dealerMake }, basicParams)
       })
       .success(function (data) {
         $scope.base = createTree(cleanData(data));
         // get complete inventory and count by year/model, year/trim, year/color
-        $http({
-          // method: 'POST',
-          method: 'GET',
-          // url: '{home}/api/',
-          url: 'inventory.json',
-          params: _.assign({ make: $scope.makes.dealerMake }, inventoryParams)
-        })
-        .success(function (data) {
-          $scope.vehicles = splityear(cleanData(data));
-          // $log.info(data.length);
-        });
+        $scope.vehicles = splityear(cleanData(data));
       });
     };
     var initApp = function () {

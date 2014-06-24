@@ -4,19 +4,19 @@
       <li class="bullet-item">Year: <strong>{{subase.current.year}}</strong></li>
       <li class="bullet-item">Model: <strong>{{subase.current.modelLabel}}</strong></li>
       <li class="bullet-item">Trim: <strong>{{subase.current.trimLabel}}</strong></li>
-      <li class="bullet-item">Color: <strong>{{subase.current.exterior_color}}</strong></li>
+      <li class="bullet-item">Color: <strong>{{subase.current.exteriorColor}}</strong></li>
       <li class="bullet-item">Vin: <strong>{{subase.current.vin}}</strong></li>
       <li class="price" ng-show="subase.current.msrp">MSRP: $<strong>{{subase.current.msrp}}</strong><sup>*</sup></li>
-      <li><img ng-src="http://cdn.wpdlr.co/assets/vehicles/evox/ext_color/{{subase.current.evox_vif}}/{{subase.current.evox_vif}}_cc0640_001_{{subase.current.extColorCode}}.png" class="grid-img" alt="{{ele.model}}"></li>
+      <li><img ng-src="{{subase.current.image}}" class="grid-img" alt="{{ele.model}}"></li>
     </ul>
   </div>
   <div class="columns large-6">
     <ul class="breadcrumbs">
-      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{base.yearSelected.year}}</a></li>
-      <li ng-if="makes.makeSelected"><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{makes.dealerMake}}</a></li>
-      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exterior_color}}">{{subase.current.modelLabel}}</a></li>
-      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}/model/{{subase.modelsel}}" data-snowplow="instock-quote:removed:trim,color:{{subase.current.trim}},{{subase.current.exterior_color}}">{{subase.current.trimLabel}}</a></li>
-      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}/model/{{subase.modelsel}}/trim/{{subase.trimsel}}" data-snowplow="instock-quote:removed:color:{{subase.current.exterior_color}}">{{subase.current.exterior_color}}</a></li>
+      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exteriorColor}}">{{base.yearSelected.year}}</a></li>
+      <li ng-if="makes.makeSelected"><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exteriorColor}}">{{makes.dealerMake}}</a></li>
+      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}" data-snowplow="instock-quote:removed:model,trim,color:{{subase.current.model}},{{subase.current.trim}},{{subase.current.exteriorColor}}">{{subase.current.modelLabel}}</a></li>
+      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}/model/{{subase.modelsel}}" data-snowplow="instock-quote:removed:trim,color:{{subase.current.trim}},{{subase.current.exteriorColor}}">{{subase.current.trimLabel}}</a></li>
+      <li><a href="#/year/{{subase.current.year}}/make/{{makes.dealerMake}}/model/{{subase.modelsel}}/trim/{{subase.trimsel}}" data-snowplow="instock-quote:removed:color:{{subase.current.exteriorColor}}">{{subase.current.exteriorColor}}</a></li>
     </ul>
     <!-- <form class="mform" name="mquo" id="{{subase.elementHash}}" ng-hide="subase.thankyou"> -->
     <form class="mform" name="mquo" id="elementHash" ng-hide="subase.thankyou">
@@ -119,8 +119,8 @@
       </div>
     </form>
     <div class="thank-you" ng-show="subase.thankyou">
-      <p class="thank-title">Thank You {{mform['first_name-r']}}!<br>
-      <p>This <strong>{{subase.current.year}} {{makes.dealerMake}} {{subase.current.modelLabel}} {{subase.current.trimLabel}} in {{subase.current.exterior_color}}</strong> can be yours!</p>
+      <p class="thank-title">Thank You {{mform['first_name-r']}}!</p>
+      <p>This <strong>{{subase.current.year}} {{makes.dealerMake}} {{subase.current.modelLabel}} {{subase.current.trimLabel}} in {{subase.current.exteriorColor}}</strong> can be yours!</p>
       <p ng-if="mform.quoteTypeSelected === 'lease'">Your down payment will be <strong>{{mform.maxDown | currency}}</strong>, and your payment term <strong>{{mform.leaseTerm}}</strong> months. We will be contacting you shortly with your monthly payment, and you will be driving this car in no time.</p>
       <p ng-if="mform.quoteTypeSelected === 'finance'">Your down payment will be <strong>{{mform.maxDown | currency}}</strong>, and your payment term <strong>{{mform.leaseTerm}}</strong> months. We will be contacting you shortly with your monthly payment, and you will be driving this car in no time.</p>
       <p ng-if="mform.quoteTypeSelected === 'purchase'">We will be contacting you shortly.</p>
