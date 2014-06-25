@@ -134,8 +134,8 @@ angular.module('vehicleModelSearchApp', ['ngRoute', 'ngAnimate'])
     var cleanData = function (data) {
       return _.map(data, function (ele) {
         ele.trim = _.isEmpty(ele.trim) ? ele.model : ele.trim;
-        ele.extColorGeneric = _.isEmpty(ele.extColorGeneric) ? 'Undefined' : ele.extColorGeneric;
-        ele.exteriorColor = _.isEmpty(ele.exteriorColor) ? 'Undefined' : ele.exteriorColor;
+        ele.extColorGeneric = _.isEmpty(ele.extColorGeneric) ? _.isEmpty(ele.exteriorColor) ? 'Undefined' : ele.exteriorColor : ele.extColorGeneric;
+        ele.exteriorColor = _.isEmpty(ele.exteriorColor) ? _.isEmpty(ele.extColorGeneric) ? 'Undefined' : ele.extColorGeneric : ele.exteriorColor;
         return _.assign(ele, {
           modelLabel: ele.model,
           trimLabel: ele.trim,
